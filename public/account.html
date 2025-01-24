@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel = "stylesheet" href="css/account.css">
+</head>
+<body>
+  <header>
+    <div class = "heading-two">P`Way</div>
+
+      <span class = "active">
+        <i class="fa fa-home" aria-hidden="true" style = "display: none;"></i>
+        <a href = "index.html" >Home</a>
+      </span>
+       
+    
+  </header>
+
+  <br>
+  <div class = "quick-access-container">
+    <div style = "text-align: left;"><b>Quick access</b></div>
+
+  </div>
+
+    <div class = "quick-access-container">
+      <br>
+      <div class = "quick-access">
+        <div id = 'transit' class = "top-icons" >
+          <i style = "color: fuchsia;" class="fa fa-truck" aria-hidden="true"></i>
+          <p>In transit</p>
+        </div>
+  
+        <div id = 'shipped' class = "top-icons">
+          <i style = "color: fuchsia;" class="fa fa-truck" aria-hidden="true"></i>
+          <p>Shipped</p>
+        </div>
+  
+        <div id = 'reviewed' class = "top-icons">
+          <i style = "color: gold;" class="fa fa-star" aria-hidden="true"></i>
+          <p>To review</p>
+        </div>
+  
+        <div id = 'to-review' class = "top-icons">
+          <i style = "color: gold;" class="fa fa-star" aria-hidden="true"></i>
+          <p>Reviewed</p>
+        </div>
+      </div>
+      
+    </div>
+
+    
+
+    <div class = "orders-container">
+      <div><b>My orders</b></div>
+      <br>
+      <div class = "sub-tabs-container">
+        <div class = "sub-tabs">All orders</div>
+        <div class = "sub-tabs">In transit</div>
+        <div class = "sub-tabs">Shipped</div>
+        <div class = "sub-tabs">Unpaid</div>
+        <div class = "sub-tabs">Completed</div>
+
+
+      </div>
+    </div>
+
+    
+    <div class = "aftersales-container">
+      <div><b>Aftersales</b></div>
+      <br>
+      <div class = 'sub-tabs-container'>
+        <div class = 'sub-tabs' >Apply return | refund</div>
+        <div class = 'sub-tabs' >Returned | Refunded</div>
+        <div class = 'sub-tabs' >Processing</div>
+        <div class = 'sub-tabs' >Processed</div>
+
+      </div>
+    </div>
+
+    <div class = "my-services-container">
+      <div style = "text-align: left;"><b>My services</b></div>
+
+    </div>
+
+    <div class = "my-services-container">
+      
+      <div id = 'wishlist' onclick = "window.location.href = 'wishlist.html'" class = "services">
+        <i style = "color: red;" class="fa fa-heart" aria-hidden="true"></i>
+        <p>Wishlist</p>
+      </div>
+
+      <div id = 'history' onclick = "window.location.href = 'history.html'" class = "services">
+        <i style="color: rgb(150, 245, 8);" class="fa fa-history" aria-hidden="true"></i>
+        <p>History</p>
+      </div>
+
+      <div id = 'reviews' onclick = "window.location.href = 'reviews.html'" class = "services">
+        <i style = "color: rgb(223, 164, 17);" class="fa fa-star" aria-hidden="true"></i>
+        <p>Reviews</p>
+      </div>
+
+      <div id = 'feedback' onclick = "window.location.href = 'feedback.html'" class = "services">
+        <i style = "color: rgb(79, 187, 231);" class="fa fa-comments" aria-hidden="true"></i>
+        <p>Feedback</p>
+      </div>
+
+      <div id = 'settings' onclick = "window.location.href = 'settings.html'" class = "services">
+        <i style = "color: fuchsia;" class="fa fa-cog" aria-hidden="true"></i>
+        <p>Settings</p>
+      </div>
+
+      <div id = 'help' onclick = "window.location.href = 'help.html'" class = "services">
+        <i style = "color: rgb(139, 91, 91);" class="fa fa-question-circle" aria-hidden="true"></i>
+        <p>Help center</p>
+      </div>
+
+      <div id = 'contact' class = "services">
+        <i style = "color: green;" class="fa fa-headphones" aria-hidden="true"></i>
+        <p>Contact us</p>
+      </div>
+
+      <div id = 'payments' onclick = "window.location.href = 'payments.html'" class = "services">
+        <i style = "color: rgb(253, 166, 6);" class="fa fa-wallet" aria-hidden="true"></i>
+        <p>Payments</p>
+      </div>
+
+
+    </div>
+
+    <div class = "contact-modal-overlay">
+      <div class = "contact-modal">
+        <div class = "modal-heading">P`Way Support Team</div>
+
+        <div class = "close-modal"><i id = "close-modal" class="fa fa-times" aria-hidden="true"></i></div class = "close-modal">
+        <div class = "modal-content">         
+          <i style = "color: green;rotate: -90deg;" class="fa fa-phone" aria-hidden="true"></i>
+
+          Mobile: <span>07******00</span></div>
+
+        <div id = 'whatsapp' class = "modal-content">
+
+          <img src = 'whatsapp logo.png' height="80px" width="80px"/>
+          <div class = 'whatsapp-link' style = "cursor: pointer;" onclick = "window.location.href = `https://wa.me/254784192800`">Contact Support Team</div>
+
+      </div>
+    </div>
+  
+
+
+
+    <script>
+      const showModal = document.getElementById('contact')
+      const modalOverlay = document.querySelector('.contact-modal-overlay')
+      const closeModal = document.querySelector('#close-modal')
+      const contactModal = document.querySelector('.contact-modal')
+
+      showModal.addEventListener('click', ()=>{
+        modalOverlay.style.display = 'block'
+        contactModal.classList.add('slow-contact-modal')
+
+      })
+
+      closeModal.addEventListener('click', ()=>{
+        modalOverlay.style.display = 'none'
+      })
+
+      modalOverlay.addEventListener('click', (e)=>{
+        if (e.target === modalOverlay) {
+          modalOverlay.style.display = 'none'
+        }
+      })
+
+
+      //animate my services container only when user scrolls to 50% of its view
+      const containers = document.querySelectorAll('.my-services-container')
+
+
+      //creating an intersection observer
+      const containerObserver = new IntersectionObserver((entries) =>{
+        entries.forEach((entry) =>{
+          if (entry.isIntersecting) {
+            //add the visible class
+            entry.target.classList.add('visible')
+          }
+        })
+
+      }, {
+        //threshold: 0.5 //animate when 50% of it is in view
+      })
+
+      containers.forEach((container) =>{
+        containerObserver.observe(container)
+
+      })
+
+
+
+    </script>
+</body>
+</html>

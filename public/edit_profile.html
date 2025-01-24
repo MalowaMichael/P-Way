@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Your Profile</title>
+  <link rel="stylesheet" href="css/settings.css" />
+
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    <span><a href="account.html"><i id = 'user' class="fa fa-user" aria-hidden="true"></i></a></span>
+    <span><a href="index.html"><i id = 'home' class="fa fa-home" aria-hidden="true"></i></a></span>    
+    
+
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+
+    <div class = "edit-container" id = "my-profile">
+      <h3>My Profile</h3>
+      <hr>
+
+            
+        <div class = "skeletons">
+          <p id = "email">Email address: </p>
+  
+            <p id = "username">Username: </p> 
+            <label id = "role">Role: </label>
+      
+            <p id = "dob">Date of Birth: </p>
+
+            <p id = "gender">Gender: </p>
+
+            <p id = "country">Country/Region:</p>
+
+            <p id = "zip">ZIP/Postal code:</p>
+
+            <p id = "tel">Tel:</p>
+
+            <p id = "social-media">Social media</p>
+            <br>
+            <br>
+            <button id = "edit-btn" class = "edit" type = "button">Edit</button>
+
+            <br>
+            <br>
+            <br>
+            <br>
+  
+        </div>
+      </div>
+        
+        <div class = "edit-container" id = "edit-profile">
+          <h3>Edit My Profile</h3>
+          <hr>
+          <div class = "profile-form">
+  
+            <div id = "edit-success-msg" class = "success-msg">
+              <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+              <span class = "success-text"></span>
+            </div>
+      
+            <div class = "error-msg" id = "login-error-msg"></div>
+      
+            <form id = "edit-form" action = "/edit_profile" method = "post">
+
+                <label>Email address: (<a href="email_phonechange_req.html">Change email</a>)</label>
+                <label>Telephone: (<a href="email_phonechange_req.html">Change phone</a>)</label>
+
+              <br>
+              <div class = "align">
+                <label><span class = "asterisk">*</span> Username
+                  <input id = "username-edit" type = "text" name = "Username" required>
+        
+                </label>
+                <br>
+                <label><span class = "asterisk">*</span> Role
+                  <select name = "Role" required>
+                    <option name = "option1" value = "select">--Select--</option>
+                    <option name = 'option2' value = "user">User</option>
+                    <option name = 'option3' value = "admin">Admin</option>
+      
+                  </select>
+                </label>
+              </div>
+              <br>
+              <label>Birthday
+                <input id = "birthdate-edit" type = "date" name = "Birthdate">
+              </label>
+              <br>
+              <br>
+
+              <div>
+                <label ><span class = "gender">Gender</span>
+                  <div class = "gender">
+                    <input type = "radio" name = "Gender" value = "male"><span>Male</span>
+                    <input type = "radio" name = "Gender" value = "female"><span>Female</span>
+                    <input type = "radio" name = "Gender" value = "not-say" checked = "on"><span>Prefer not say</span>
+                  </div>
+                </label>
+              </div>
+
+              <br>
+
+              <div class = "align">
+                <label><span class = "asterisk">*</span> Country
+                  <input class = "contact" type = "text" name = "Country" required>
+                </label>
+                <br>
+                <label><span class = "asterisk">*</span> ZIP/Postal code
+                  <input class = "contact" type = "number" name = "Postal_code" required>
+                </label>
+              </div>
+              <br>              
+              <br>
+              <br>
+              <div class = "buttons">
+                <button id = "cancel-btn" class = "cancel" type = "button">Cancel</button>
+                <button id = "save-btn" class = "save" type = "submit">Save</button>
+              </div>
+              <br>
+            </form>
+    
+          </div>
+          <br>
+        </div>
+
+        </div>
+      
+
+  
+
+  <script>
+
+      const skeletons = document.querySelector('.skeletons')
+      const form = document.querySelector('.profile-form')
+      const cancelBtn = document.getElementById('cancel-btn')
+      const editBtn = document.getElementById('edit-btn')
+      const saveBtn = document.getElementById('save-btn')
+
+
+      //enable form and disable skeletons
+      editBtn.addEventListener('click', ()=>{
+        skeletons.classList.remove('active')
+        skeletons.classList.add('inactive')
+        form.classList.remove('inactive')
+        form.classList.add('active')
+
+
+        //enable form inputs
+        document.querySelectorAll('input').forEach(input =>{
+          input.disabled = false
+        })
+      })
+
+      //cancel form editting
+      cancelBtn.addEventListener('click', () =>{
+        form.classList.remove('active')
+        form.classList.add('inactive')
+        skeletons.classList.remove('inactive')
+        skeletons.classList.add('active')
+
+
+        //disable form inputs
+        document.querySelectorAll('input').forEach(input =>{
+          input.disabled = true
+        })
+      })
+
+      //revert back to skeletons section after saving 
+     /* saveBtn.addEventListener('click', (event)=>{
+        event.preventDefault()
+
+        form.classList.remove('active')
+        form.classList.add('inactive')
+        skeletons.classList.remove('inactive')
+        skeletons.classList.add('active')
+
+
+        //disable all form inputs
+        document.querySelectorAll('input').forEach(input =>{
+          input.disabled = true;
+        })
+
+      })*/
+
+
+      //submit form
+      
+        document.getElementById('edit-form').addEventListener('submit', async(e)=>{
+          e.preventDefault()
+
+          //collect all the form data
+          const formData = new FormData(e.target)
+          const data = Object.fromEntries(formData.entries())
+          console.log('Submitted data: ', data)
+
+          try {
+            //send to the server
+            const response = await fetch('/edit_profile', {
+              method:'post',
+              credentials: 'include', // Ensure cookies are sent with the request
+              headers: {'Content-Type' : 'application/json'},
+              body:JSON.stringify(data)
+            })
+
+            const resData = await response.json()
+
+            if (response.ok) {
+              //funcion to show success message
+              const showSuccMsg = (message) =>{
+                const editSuccMsg = document.querySelector('#edit-success-msg')
+                editSuccMsg.textContent = message
+                editSuccMsg.classList.add('show')
+
+                setTimeout(() => {
+                editSuccMsg.classList.remove('show')
+              }, 3000);
+
+
+              }  
+              
+              
+              //initiate function call
+              showSuccMsg(resData.editSuccMsg)
+
+              //redirect to same page
+              setTimeout(() => {
+                window.location.href = "/edit_profile"
+              }, 5000);
+            
+            }else{
+              console.log('Error response: ', response.status, resData)
+              const editErrMsg = document.querySelector('#edit-error-message')
+              editErrMsg.textContent = resData.errorMsg || 'An error occured';
+              editErrMsg.classList.add('error-msg-show')
+            }
+          } catch (error) {
+            console.log('Error: ', error.message)
+            const editErrMsg = document.querySelector('#edit-error-message')
+            editErrMsg.textContent = 'Server error, try again later!'
+            editErrMsg.classList.add('error-msg-show')
+
+          }
+
+
+        })
+
+        //receive data fetched from the server
+        async function dataFetch(){
+
+          try {
+            const response = await fetch('/fetch_data')
+
+            if (response.ok) {
+              //get json string
+              const stringedData = await response.text()
+              console.log('Fetched data into string: ', stringedData)
+
+              //parse the string
+              const parsedData = Json.parse(stringedData)
+              console.log('Fetched data parsed to javascript object: ', parsedData)
+
+              //display data on the html page
+              document.getElementById('email').textContent = `Email address: ${parsedData.Email_address}`
+              document.getElementById('username').textContent = `Username: ${parsedData.Username}`
+              document.getElementById('role').textContent = `Role: ${parsedData.Role}`
+              document.getElementById('dob').textContent = `Birthday: ${parsedData.Birthdate}`
+              document.getElementById('gender').textContent = `Gender: ${parsedData.Gender}`
+              document.getElementById('country').textContent = `Country/Region: ${parsedData.Country}`
+              document.getElementById('zip').textContent = `ZIP/Postal code: ${parsedData.Postal_code}`
+              document.getElementById('tel').textContent = `Telephone: ${parsedData.Phone_number}`
+              document.getElementById('social-media').textContent = `Social media link: ${parsedData.Social_Media_Link}`
+
+
+
+            }
+          } catch (error) {
+            console.log('Error fetching data.')
+          }
+        }
+        //call the function to fetch data
+        dataFetch()
+
+
+
+
+  </script>
+</body>
+</html>

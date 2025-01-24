@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Security Questions</title>
+  <link rel = "stylesheet" href="css/settings.css">
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    <span><a href="account.html"><i id = 'user' class="fa fa-user" aria-hidden="true"></i></a></span>
+    <span><a href="index.html"><i id = 'home' class="fa fa-home" aria-hidden="true"></i></a></span>    
+    
+
+    
+    <div class = "hidden-tabs" >
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+  <br>
+
+  <div class = "wrapper">
+    <br>
+    <div class = "container" id = "security-quiz">
+        <h2 class = "security-header">Security Questions</h2>
+
+        
+      
+        <form id = "answers-form" action = "/security_quiz" method = "post">
+
+          <label class = "security-quiz" for = "question1">1. Which primary school did you go to?</label><br>
+          <input class = "quiz-input" type = "text" id ="school-input" name = "Primary_school"/>
+
+          <br>
+          <label class = "security-quiz" for = "question2">2. When was your first date?</label><br>
+          <input class = "quiz-input"  type = "month" id = "firstdate-input" name = "Firstdate"/>
+          
+          <br>
+          <label class = "security-quiz" for = "question3">3. Which is your birthday?</label><br>
+          <input class = "quiz-input" type = "date" id = "birthdate-input" name = "Birthday"/>
+          <br>
+          
+          <label class = "security-quiz" for = "question4">4. In which town did your parents meet?</label><br>
+          <input class = "quiz-input"  type = "text" id = "parents-meet-input" name = "Parents_Meettown"/>
+          <br>
+          <br>
+          <button id = "submit-btn" class = "set" type = "submit">Set quiz</button>
+         
+          
+        </form>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    <br>
+
+  </div>
+  
+
+  <script>
+
+      const school = document.getElementById('school-input').value;
+    const firstDate = document.getElementById('first-date').value;
+    const birthday = document.getElementById('birth-date').value;
+    const parentsMeet = document.getElementById('parents-meet').value;
+
+    const btn = document.getElementById('submit-btn')
+
+
+    //Change submit button color when input exists
+    const checkQuizAnswers = () =>{
+      const quizInputs = document.querySelectorAll('input')
+      const btn = document.getElementById('submit-btn')
+
+
+      var quizAnswered = true;
+
+      quizInputs.forEach(input => {
+        if(!input.value.trim()){
+          quizAnswered = false;
+        }
+
+        if (quizAnswered) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const quizInputs = document.querySelectorAll('input')
+    quizInputs.forEach(input =>{
+      input.addEventListener('input', checkQuizAnswers)
+    })
+
+//submit form
+document.getElementById('answers-form').addEventListener('submit', async(e)=>{
+e.preventDefault()
+
+const school = document.getElementById('school-input').value.trim();
+const myDate = document.getElementById('firstdate-input').value.trim();
+const birthday = document.getElementById('birthdate-input').value.trim();
+const parentsMeet = document.getElementById('parents-meet-input').value.trim();
+
+
+try {
+  const response = await fetch('/security_quiz', {
+    method: 'post',
+      headers: {'contentType': 'application/json'},
+      body: JSON.stringify({
+        Primary_school: school, 
+        Firstdate: myDate, 
+        Birthday: birthday, 
+        Parents_Meettown: parentsMeet
+      })
+
+  })
+  const info = await response.json()
+
+  if (response.ok) {
+    const securitySuccMsg = document.getElementById('quiz-success-msg')
+
+    securitySuccMsg.textContent = info.answerMsg;
+    securitySuccMsg.classList.add('show')  
+
+          
+          //remove the show class after three seconds
+        setTimeout(() => {
+          securitySuccMsg.classList.remove('show')
+
+        }, 3000);
+
+
+        //simulate a successful operation
+        setTimeout(() => {
+          showSuccMsg(info.securitySuccMsg)
+        }, 1000); 
+      
+      }else{
+        console.log("Error response: ", info);
+          const securityErrMsg = document.getElementById('security-error-msg');
+
+          securityErrMsg.textContent = info.errorMsg || 'An error occurred.';
+          securityErrMsg.classList.add('error-msg-show')
+      }
+   
+        
+
+} catch (error) {
+  console.log('Network error', error.message)
+  const securityErrMsg = document.getElementById('security-error-msg');
+
+    securityErrMsg.textContent = 'An error has occurred while registering you. Try again or later!';
+}
+
+
+
+})
+
+  </script>
+</body>
+</html>

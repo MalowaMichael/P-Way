@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Phone Number</title>
+  <link rel = "stylesheet" href = "css/settings.css">
+
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    <span><a href="account.html"><i id = 'user' class="fa fa-user" aria-hidden="true"></i></a></span>
+    <span><a href="index.html"><i id = 'home' class="fa fa-home" aria-hidden="true"></i></a></span>    
+    
+
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+  <br>
+  
+  <div class = "shipping-wrapper">
+
+    <div class = "shipping-container">
+
+      <h2 class = "shipping">Change Your Shipping Address</h2>
+
+      <div id = "changeship-success-msg" class = "success-msg">
+        <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+        <span class = "success-text"></span>
+      </div>
+  
+        <div id = "changeship-error-msg" >
+          <span class = "error-text"></span>
+        </div>
+  
+        
+      <form id = "change-shipaddress-form" action = "/change_shipping_address" method = "post">
+  
+        <label>
+          <input type = "radio" name = "shippingOption" value = "international">
+          <span class = "ext">Internationally Shipped</span>
+        </label>
+  
+        <label>
+          <input id = "align-left" type = "radio" name = "shippingOption" value = "local">
+          <span class = "ext">Locally shipped</span>
+          </label>
+  
+        <br>
+        <br>
+          <div class = "shipping-inputs">
+
+            <div style = "display:none;" class = "international">
+              <input class = "international-inputs" id = "country" type = "text" name = "Country" placeholder = "Country">
+              <br>
+              <br>
+              <input class = "international-inputs" id = "city" type = "text" name = "Nearest_City" placeholder = "Nearest city">
+              <br>
+              <br>
+              <input class = "international-inputs" id = "street" type = "text" name = "Street_Address" placeholder="Street address">
+              <br>
+              <br>
+              <input class = "international-inputs" id = "zip" type= "text" name = "Postal_Code" placeholder="ZIP/Postal code">
+              <br>
+              
+            </div>
+
+            <div class = "local">
+              <input class = "local-inputs" id = "county" type = "text" name = "County" placeholder = "County">
+              <br>
+              <br>
+              <input class = "local-inputs" id = "city" type = "text" name = "Nearest_City" placeholder = "Nearest city/town">
+              <br>
+              <br>
+              <input class = "local-inputs" id = "street" type = "text" name = "Street_Address" placeholder = "Street address">
+              <br>
+              <br>
+              <input class = "local-inputs" id = "zip" type = "text" name = "Postal_Code" placeholder = "ZIP/Postal code">
+              <br>
+            </div>
+            <br>
+            <br>
+
+          </div>
+          <br>
+          <br>
+
+          <br>
+          <br>
+          <button id = "submit-btn" class = "submit" type = "submit">Submit</button>
+          <br>
+          <br>
+          <br>
+      </form>
+      <br>
+      <p id = "output" style = "margin-left: 32%;margin-right: 32%;"></p>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+    </div>
+
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('submit-btn');
+  const radioButtons = document.querySelectorAll('input[name="shippingOption"]');
+  const localInputs = document.querySelectorAll('.local input');
+  const internationalInputs = document.querySelectorAll('.international input');
+
+  // Function to check if all inputs in the visible section are filled
+  function checkInputs() {
+    const activeInputs = document.querySelectorAll(
+      document.querySelector('input[name="shippingOption"]:checked').value === 'local'
+        ? '.local input'
+        : '.international input'
+    );
+
+    let inputsFilled = true;
+
+    activeInputs.forEach((input) => {
+      if (!input.value.trim()) {
+        inputsFilled = false;
+      }
+    });
+
+    if (inputsFilled) {
+      btn.classList.remove('faded');
+      btn.classList.add('active');
+      btn.disabled = false;
+    } else {
+      btn.classList.remove('active');
+      btn.classList.add('faded');
+      btn.disabled = true;
+    }
+  }
+
+  
+  // Function to toggle input visibility
+  function toggleInputs() {
+    if (document.querySelector('input[name="shippingOption"]:checked').value === 'local') {
+      document.querySelector('.local').style.display = 'block';
+      document.querySelector('.international').style.display = 'none';
+
+      // Clear international country inputs
+      document.querySelector('#country').value = ''
+    } else {
+      document.querySelector('.local').style.display = 'none';
+      document.querySelector('.international').style.display = 'block';
+
+      // Clear local county input
+      document.querySelector('#county').value = ''
+    }
+
+    checkInputs(); // Re-evaluate button state
+  }
+
+  // Add event listeners to radio buttons and style the checked one
+  radioButtons.forEach((radio) => {
+    radio.classList.add('checked')
+    radio.addEventListener('change', toggleInputs);
+  });
+
+  // Add event listeners to all inputs
+  localInputs.forEach((input) =>{
+    input.addEventListener('input', checkInputs)
+  })
+  internationalInputs.forEach((input) =>{
+    input.addEventListener('input', checkInputs)
+  })
+
+  /*[...localInputs, ...internationalInputs].forEach((input) => {
+    input.addEventListener('input', checkInputs);
+  });*/
+
+  // Initial setup
+  toggleInputs();
+
+
+          //submit form data
+          document.getElementById('change-shipaddress-form').addEventListener('submit', async(event) =>{
+          event.preventDefault()
+
+          //get the selected option
+          const selectedOption = document.querySelector("input[name = 'shippingOption']:checked").value
+          const country = document.getElementById('country').value.trim()
+          const county = document.getElementById('county').value.trim();
+          const city = document.getElementById('city').value.trim();
+          const street = document.getElementById('street').value.trim();
+          const code = document.getElementById('zip').value.trim();
+
+          /*const shipAddressData = new FormData(event.target)
+          const data = Object.fromEntries(shipAddressData.entries())
+
+          //add the selected option to the data body
+          data.shippingOption = shippingOption*/
+
+          try {
+            const response = await fetch('/change_shipping_address', {
+              method:'post',
+              headers:{'Content-Type':'application/json'},
+              body:JSON.stringify({
+                shippingOption: selectedOption,
+                Country:country,
+                County: county,
+                Nearest_City: city,
+                Street_Address: street,
+                Postal_Code: code
+              })
+            })
+
+            const serverData = await response.json()
+
+            if(response.ok){
+              function showSuccMsg(message) {
+                const shipSuccMsg = document.getElementById('changeship-success-msg')
+                shipSuccMsg.textContent = message
+                shipSuccMsg.classList.add('show')
+
+
+                setTimeout(() => {
+                  shipSuccMsg.classList.remove('show')
+                }, 3000);
+
+
+              }
+              showSuccMsg(serverData.shipSuccMsg)
+
+            }else{
+              console.log('Erroneous response: ', serverData)
+              const shipErrMsg = document.getElementById('changeship-error-msg')
+              shipErrMsg.textContent = serverData.errorMsg || 'Error has occured.'
+              shipErrMsg.classList.add('error-msg-show')
+            }
+          } catch (error) {
+            console.log('Error: ', error.message)
+            const shipErrMsg = document.getElementById('changeship-error-msg')
+            shipErrMsg.textContent = 'Internal server error. Try again later.'
+            shipErrMsg.classList.add('error-msg-show')
+
+          }
+
+        })
+
+});
+
+
+    </script>
+</body>
+</html>
