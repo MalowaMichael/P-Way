@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Centre-Refund Issues</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel = "stylesheet" href= "css/answers.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function() {
+      $("#open1").click(function () {
+        $("#open1").toggleClass('fa-sort-desc fa-sort-asc');
+        $('#answer1').toggle(1500);
+      });
+
+      $("#open2").click(function () {
+        $("#open2").toggleClass('fa-sort-desc fa-sort-asc');
+        $('#answer2').toggle(1500);
+      });
+
+      $("#open3").click(function () {
+        $("#open3").toggleClass('fa-sort-desc fa-sort-asc');
+        $('#answer3').toggle(1500);
+      });
+
+      //code for fading link
+      /*setInterval(function() {
+        $("#angle-blink").fadeIn(1800, function () {
+          $("#angle-blink").fadeOut(1800);
+
+        });
+      }, 1000);*/
+      //code for displaying the nav bar in smaller devices
+      $("#more-btn").click(function (event) {
+        event.stopPropagation()
+        $(".hidden-tabs").toggle(2000);
+      });
+
+      //Hide the hidden buttons when the user clicks anywhere outside its dropdown
+      $(window).click(function (){
+        $(".hidden-tabs").css("display", "none")
+      })
+      
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    <span>
+      <a href="help.html" ><span id = "angle-blink" class = "fa fa-arrow-left"></span></a>
+    </span>
+    <span class = "header-text">Refund me</span>
+
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>    
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+<br>  
+      <div class = "wrapper">
+        <div class = "container"><h4 class = "quiz" >Application for refund</h4>
+          <span class = 'desc-icon'><i id = "open1" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+          <ol id = "answer1">
+            <li><b>Step 1</b>: Go to <u style = "color:blue;">Account</u> tab and in the <u style = "color:blue;">Aftersales</u> section</li><br>
+            <li><b>Step 2</b>: Select <u style = "color:blue;">Apply refund/aftersales</u></li><br>
+            <li><b>Step 3</b>: Select items you want to return</li><br>
+            <li><b>Step 4</b>: Confirm <u style = "color:blue;">Return order</u>. You'll receive your refund after seller receives the items back</li>
+          </ol>
+        </div>
+        <br>
+  
+      <div class = "container"><h4 class = "quiz" >Refund not received yet</h4>
+        <span class = 'desc-icon'><i id = "open2" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer2">
+          <li><b>Step 1</b>: <u style = "color:blue;">Account</u> tab then in the <u style = "color:blue;">Aftersales</u> section</li><br>
+          <li><b>Step 2</b>: Click <u>Processed</u> to check items that their return process is completed. <br><br>If there is an item in the <u style = "color:blue;">processed</u> section but you haven't received its refund, then go to <u style = "color:blue;">chat us</u> in the <u style = "color:blue;">Ask</u> tab to reach customer care agents for help </li>
+          
+          <br>
+          <li><b>Note: </b></li>
+          <ul>
+            <li>Ensure to return the items back as instructed by the seller</li><br>
+            <li>You'll only be refunded after seller receives the items back in <i><u>good condition</u></i></li>
+          </ul>
+        
+        </ol>
+        </div>
+        <br>
+  
+      <div class = "container"><h4 class = "quiz" >Duration of refund process</h4>
+        <span class = 'desc-icon'><i id = "open3" class="fa  fa-sort-desc" aria-hidden="true"></i></span>  
+          <ol id = "answer3">
+            <li>The refund/aftersales process lasts for <u><i>7-8</i></u> work days</li>
+          </ol>
+          </div>
+        <br>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Verification</title>
+  <link rel = "stylesheet" href="css/user_account.css">
+</head>
+<body >
+  <header>
+  
+    <button class = "login-btn" type = "button" onclick = "window.location.href = 'login.html'" >Log in</button>
+
+    <span class = "tab-links"><a href="index.html">Home</a></span>
+
+
+</header>
+
+  <div class = "verification-container">
+    <h2 id = "verify-heading">Verify Code to Proceed</h2>
+    <div id = "insert-area">
+
+      <div id = "verify-success-msg" class = "success-msg">
+        <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+        <span class = "success-text"></span>
+      </div>
+
+      <div class = "error-msg" id = "verify-error-msg"></div>
+
+      <form id = 'codes-form' action = "/verify_code" method = 'post'>
+        <label for = 'codes'>Enter the verfication code sent to your email to proceed</label><br><br>
+        <!--Make use of the email from the server
+        <input type = "hidden" name = "Email_address" value = "<%= emailaddress%>">-->
+        <div class = "verification-code-boxes">
+          <input  type = "text" maxlength="1" name = "submitted_code" class = "code-box"/>
+          <input  type = "text" maxlength="1" name = "submitted_code" class = "code-box"/>
+          <input  type = "text" maxlength="1" name = "submitted_code" class = "code-box"/>
+          <input  type = "text" maxlength="1" name = "submitted_code" class = "code-box"/>
+          <input  type = "text" maxlength="1" name = "submitted_code" class = "code-box"/>
+          <input  type = "text" maxlength="1" name = "submitted_code" class = "code-box"/>
+
+        </div>
+        <br>
+        <br>
+
+
+        <button class = "change-btn" type = "submit" id = "submit-code" name = "submit">Verify</button>
+
+      </form>
+    </div>
+
+    <p>Didn't receive the verification code? Request in seconds</p>
+    <br>
+    <br>
+
+  
+  </div>
+  <br>
+  <br>
+  <script>
+    const verifyMsg = document.getElementById('verify-code-msg')
+    const codeBoxes = document.querySelectorAll('.code-box');
+    const btn = document.getElementById('submit-code')
+
+    btn.addEventListener('mouseover', ()=>{
+      btn.style.cursor = 'pointer'
+      btn.style.color = 'rgb(244, 185, 76)'
+    })
+    
+    btn.addEventListener('mouseout', ()=>{
+      btn.style.color = 'beige'
+    })
+    
+    codeBoxes.forEach((box, index) =>{
+      box.addEventListener('input', (e) =>{
+        const nextBox = codeBoxes[index + 1];
+        if(nextBox && e.target.value){
+          nextBox.focus();
+        }
+        //debug the focus class and the nextbox operations
+        console.log(`Box ${index} input received. Moving to Box ${index + 1}`);
+
+      });
+      box.addEventListener('keydown', (event) =>{
+
+        if(event.key === 'Enter'){
+          event.preventDefault();//prevent form resubmissions
+        }
+
+        if(event.key === 'backspace' && !event.target.value && index > 0){
+          const prevBox = codeBoxes[index - 1];
+          prevBox.focus();
+        }
+      })
+    })
+
+    //check if all boxes are filled
+    const checkUserInputs = () =>{
+      const codeInputs = document.querySelectorAll('input')
+
+      var inputsFilled = true;
+
+      codeInputs.forEach(input => {
+        if(!input.value.trim()){
+          inputsFilled = false;
+        }
+
+        if (inputsFilled) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const codeInputs = document.querySelectorAll('input')
+    codeInputs.forEach(input =>{
+      input.addEventListener('input', checkUserInputs)
+    })
+
+    //Now submit form
+  document.getElementById('codes-form').addEventListener('submit', async(event) =>{
+    event.preventDefault();
+
+    const code = Array.from(document.querySelectorAll('.code-box'))
+      .map((box) => box.value)
+      .join('');
+      console.log('Submitted code: ', code)    
+
+    try {
+      const response = await fetch('/verify_code', {
+        method: 'POST',
+        credentials: 'include', // Include session cookies in the request
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({submitted_code: code})
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+
+        // Show success message and change button content
+                  function showSuccMsg(){
+                    const verifySuccMsg = document.getElementById('verify-success-msg')
+                    const succIcon = document.getElementById('successIcon');
+                    
+                    verifySuccMsg.textContent = data.verifyMsg;
+                    verifySuccMsg.classList.add('show')  
+
+                    //Ensure icon visibility
+                    succIcon.style.display = 'inline-block'
+  
+                    //remove the show class after three seconds
+                  setTimeout(() => {
+                    verifySuccMsg.classList.remove('show')
+
+                  }, 3000);
+                  }
+                
+                  //simulate a successful operation
+                  setTimeout(() => {
+                    showSuccMsg(data.verifyMsg)
+                  }, 1000);
+
+                 
+                  //redirect to the next page
+                setTimeout(() => {
+                   // Extract query parameters
+                const params = new URLSearchParams(window.location.search);
+                console.log('Query parameters: ', params.toString())
+
+                const context = params.get('context')
+                console.log('Context: ', context)
+
+                const destination = params.get('destination')
+                console.log('Destination parameter: ', destination)
+
+                
+                //update the page's heading dynamically
+                const heading = document.querySelector('#verify-heading')
+
+                if(decodeURIComponent(destination) === '/change_email'){
+                  heading.innerHTML = 'Verify Code to Change Your Email';
+                }else if(decodeURIComponent(destination) === '/change_phone'){
+                  heading.innerHTML = 'Verify Code to Change Your Phone'
+                }else{
+                  heading.innerHTML = 'Verify Code to Proceed'
+                }
+
+                if (destination) {
+
+                  const finalDestination = params.get('destination') || '/email_phonechange_req';
+                  console.log('Final redirect destination: ', finalDestination)
+
+                  window.location.href = decodeURIComponent(finalDestination);
+                } else {
+                  console.log('No destination specified!');
+                }
+
+                  }, 5000);
+
+      }else {
+            console.log("Error response: ", data);
+            const verifyErrMsg = document.getElementById('verify-error-msg')
+            verifyErrMsg.textContent = data.errorMsg || 'An error occured';
+            verifyErrMsg.classList.add('error-msg-show')
+        }
+
+    } catch (error) {
+            console.log('Error: ', error);
+            const verifyErrMsg = document.getElementById('verify-error-msg')
+            verifyErrMsg.textContent = 'An unexpected error occured. Please try again later!';
+            
+    }
+
+
+  })
+
+
+  </script>
+</body>
+</html>

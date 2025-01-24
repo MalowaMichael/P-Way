@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Methods</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel = "stylesheet" href = 'css/account.css'>
+</head>
+
+<body>
+  <div class = "body-overlay">
+
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way</h2>
+
+      <span class = "active">
+        <i class="fa fa-home" aria-hidden="true" style = "display: none;"></i>
+        <a href = "index.html" >Home</a>
+      </span>
+      
+      
+      <span>
+        <i class="fa fa-user" aria-hidden="true" style = "display: none;"></i>
+        <a href = "account.html" >Account</a>
+            
+      </span>     
+    
+  </header>
+  <br>
+
+    <div class = "payments-container">
+      <div style = "text-align: center;font-size: 22px;"><b>Payments</b></div>
+    </div>
+  
+    <div class = "payments-container">
+      <div style = "font-size: 20px;">M-pesa Number</div style = "font-size: 20px;">
+  
+      <div class = "align-payment-modes">
+  
+        <div class = "payment-mode-container">
+          <img src = "mpesa logo.png" height="60px" width="100px"/>
+  
+          <span style = "float: right;font-size: 20px;cursor: pointer;"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+          <div class = "mode-number">07******12</div>
+  
+        </div>
+  
+        <div class = "add-mode-container">
+  
+          <div class = "add-mode" style = "cursor: pointer;"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style  = "padding-left: 10px;color: black;">Add number</span></div>
+  
+        </div>
+      </div>
+      <br>
+  
+    </div>
+  
+  
+    <div class = "payments-container">
+      <div style = "font-size: 20px;">Cards</div>
+  
+      <div class = "align-payment-modes">
+        <div class = "payment-mode-container">
+          <span style="font-size: 1.5rem; font-weight: bold; color: #1A1F71; font-family: Arial, sans-serif;">
+            Visa
+          </span>
+  
+          <span style = "float: right;font-size: 20px;cursor: pointer;"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+  
+          <div class = "mode-number">****0123</div>
+        </div>
+  
+        <div class = "add-mode-container">
+          <div id = 'card-number' class = "add-mode" style = "cursor: pointer;"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style  = "padding-left: 10px;color: black;">Add card</span></div>
+        </div>
+  
+      </div>
+      <br>
+    </div>
+  
+    <div class = "add-mpesa-overlay">
+      <div id = 'add-number-modal' class = "modal">
+        <div class = "modal-heading">Add M-pesa Number</div>
+  
+        <div id = 'close-mpesa-modal' class = "close-modal"><i  class="fa fa-times" aria-hidden="true"></i></div class = "close-modal">
+  
+        <form>
+          <input type = "text" name = "Name" placeholder = "Name in National ID"/>
+          <input type = "tel" name = "Phone_number" placeholder="Registered M-pesa number"/>
+  
+          <button type = "submit" >Save</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class = "add-card-overlay">
+      <div id = 'add-card-modal' class = "modal">
+        <div class = "modal-heading">Add Card</div>
+  
+        <div id = 'close-card-modal' class = "close-modal"><i id = "close-modal" class="fa fa-times" aria-hidden="true"></i></div>
+  
+        <form id = "card-inputs">
+          <div class = "align-modal-inputs">
+            <input type = "text" name = "Firstname" placeholder = "Name on card (firstname)"/>
+            <input type = "text" name = "Lastname" placeholder="Name on card (lastname)"/>
+          
+          </div>
+  
+          <div class = "align-modal-inputs">
+            <input type = "text" name = "Card_number" placeholder="Card number here"/>
+          <input type = "month" name = "Card_expiry" placeholder="Card expiry"/>
+          </div>
+  
+          <input type = "number" name = "Card_ccv" placeholder="CCV"/>
+  
+          
+          <button type = "submit" >Save</button>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+
+
+  <script>
+    const showMpesaModal = document.querySelector('.add-mode')
+    const closeMpesaModal = document.querySelector('#close-mpesa-modal')
+    const mpesaOverlay = document.querySelector('.add-mpesa-overlay')
+    const addNumberModal = document.querySelector('#add-number-modal')
+
+
+    showMpesaModal.addEventListener('click', ()=>{
+      mpesaOverlay.style.display = 'block'
+      addNumberModal.classList.add('payments-slow-modals')
+    })    
+
+    closeMpesaModal.addEventListener('click', ()=>{
+      mpesaOverlay.style.display = 'none'
+    })
+    
+
+    mpesaOverlay.addEventListener('click', (e)=>{
+      if (e.target === mpesaOverlay) {
+        mpesaOverlay.style.display = 'none'
+      }
+    })
+
+
+    //show the add card modal
+    const showCardModal = document.querySelector('#card-number')
+    const closeCardModal = document.querySelector('#close-card-modal')
+    const cardOverlay = document.querySelector('.add-card-overlay')
+    const addCardModal = document.querySelector('#add-card-modal')
+
+    showCardModal.addEventListener('click', ()=>{
+      cardOverlay.style.display = 'block'
+      addCardModal.classList.add('payments-slow-modals')
+    })
+
+    closeCardModal.addEventListener('click', ()=>{
+      cardOverlay.style.display = 'none'
+    })
+
+    cardOverlay.addEventListener('click', (e)=>{
+      if (e.target === cardOverlay) {
+        cardOverlay.style.display = 'none'
+      }
+    })
+    
+  </script>
+  
+</body>
+</html>

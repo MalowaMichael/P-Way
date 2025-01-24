@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Password Reset-P`Way Express</title>
+  <link rel = "stylesheet" href = "css/user_account.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+  
+    <button class = "login-btn" type = "button" onclick = "window.location.href = 'login.html'" >Log in</button>
+
+    <span class = "tab-links"><a href="index.html">Home</a></span>
+
+
+</header>
+<br>
+
+  <div class = "wrapper">
+    <div class ="container">
+      <h2>Request Password Reset</h2>
+  
+      <div id = "req-success-msg" class = "success-msg">
+        <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+        <span class = "success-text"></span>
+      </div>
+  
+      <p>If you have an account, we'll email you instructions to proceed.</p>
+  
+      <div id = "req-error-msg" class = "error-msg">
+          <i id = 'mess-icon'></i>
+          <span class = "error-text"></span>
+      </div>
+      <br>
+      
+      <form id = "request-email" action = "/request_reset" method = "post">
+          <label ><span style = "text-align: left;">Email</span></label><br>
+          <input id = "email-input" type = "text" name = "Email_address" autocomplete="off" required placeholder="Email address here">
+          <br>
+          <br>
+          <br>
+          <br>
+          
+        <button id = "request-btn" type = "submit" class = "change-btn">Continue</button>
+      </form>
+      <br>
+      <br>
+  
+    </div>
+  </div>
+  <br>
+  <br>
+  
+
+
+
+
+  <script>
+    const btn = document.getElementById('request-btn');
+    const icon = document.getElementById('mess-icon')
+
+    //Change submit button color when input exists
+    const checkRequestInput = () =>{
+      const Inputs = document.querySelectorAll('input')
+
+      var inputsPopulated = true;
+
+      Inputs.forEach(input => {
+        if(!input.value.trim()){
+          inputsPopulated = false;
+        }
+
+        if (inputsPopulated) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const inputs = document.querySelectorAll('input')
+    inputs.forEach(input =>{
+      input.addEventListener('input', checkRequestInput)
+    })
+
+      document.getElementById('request-email').addEventListener('submit', async(event) =>{
+      event.preventDefault();
+  
+      const email = document.getElementById('email-input').value;
+      console.log('Email input value: ', email)
+            
+      
+      try {
+              const response = await fetch('/request_reset', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ Email_address: email })
+              });
+  
+              const data = await response.json();
+  
+              if (response.ok) {
+                  // Show success message and change button content
+                  function showSuccMsg(message){
+                    const reqSuccMsg = document.getElementById('req-success-msg')
+                    const succIcon = document.getElementById('successIcon');
+                    
+                    reqSuccMsg.textContent = message;
+                    reqSuccMsg.classList.add('show')  
+
+                    //Ensure icon visibility
+                    succIcon.style.display = 'inline-block'
+  
+                    //remove the show class after three seconds
+                  setTimeout(() => {
+                    reqSuccMsg.classList.remove('show')
+
+                  }, 3000);
+                  }
+                
+                  //simulate a successful operation
+                    showSuccMsg(data.reqSuccMsg)
+
+
+
+                  // Redirect to next page after delay
+                  let destination = encodeURIComponent('/reset_password');
+                  setTimeout(() =>{
+                    window.location.href = `/verify_code?context=reset_password&destination=${destination}`;
+                    
+                }, 7000)
+
+              } else  {
+                console.log("Error response: ", data);
+                const reqErrorMsg = document.getElementById('req-error-msg')
+
+                reqErrorMsg.textContent = data.errorMsg || 'An error occurred.';
+                reqErrorMsg.classList.add('error-msg-show')
+
+
+            }
+
+          } catch (error) {
+              console.log('Error', error);
+              const reqErrorMsg = document.getElementById('req-error-msg')
+              reqErrorMsg.textContent = 'An unexpected error occured. Try again later!';
+              
+          }
+    })
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Email</title>
+  <link rel = "stylesheet" href = "css/user_account.css">
+
+</head>
+<body>
+  <header>
+  
+    <button class = "login-btn" type = "button" onclick = "window.location.href = 'login.html'" >Log in</button>
+
+    <span class = "tab-links"><a href="index.html">Home</a></span>
+
+
+</header>
+
+  <div class = "container">
+
+    <h2>Change Email</h2>
+
+    <div id = "email-change-success-msg" class = "success-msg">
+      <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+      <span class = "success-text"></span>
+    </div>
+
+
+  <div id = "email-change-error-msg" class = "error-msg">
+      <i id = 'mess-icon'></i>
+      <span class = "error-text"></span>
+  </div>
+
+    <form id = "change-email-form" method = "post" action = "/change_email">
+      <label for ="email">Email</label><br>
+      <input id = "new-email" type = "email" name = "Email_address" placeholder = "New email">
+      <br>
+      <br>
+      <br>
+
+      <button type = "submit" class = "change-btn">Change email</button>
+    </form>
+    <br>
+    <br>
+  </div>
+  
+
+
+
+  <script>
+
+    //Change submit button color when input exists
+    const checkEmailInput = () =>{
+      const emailInput = document.querySelectorAll('input')
+      const btn = document.querySelector('.change-btn')
+
+      var inputFilled = true;
+
+      emailInput.forEach(input => {
+        if(!input.value.trim()){
+          inputFilled = false;
+        }
+
+        if (inputFilled) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const emailInput = document.querySelectorAll('input')
+    emailInput.forEach(input =>{
+      input.addEventListener('input', checkEmailInput)
+    })
+
+
+
+
+
+    document.getElementById('change-email-form').addEventListener('submit', async(e)=>{
+      e.preventDefault()
+
+      const newEmail = document.getElementById('new-email').value.trim();
+      try {
+        const response = await fetch('/change_email', {
+          method: "post",
+          headers:{'Content-Type': 'application/json'},
+          body:JSON.stringify({Email_address: newEmail})
+        })
+
+        const data = await response.json();
+
+        if(response.ok){
+
+          //function to display the success message
+          const showSuccMsg = (message) =>{
+            const emailChangeSuccMsg = document.getElementById('email-change-success-msg')
+
+            emailChangeSuccMsg.textContent = message;
+            emailChangeSuccMsg.classList.add('show');
+
+            //remove the succes message after three seconds
+            setTimeout(() => {
+              emailChangeSuccMsg.classList.remove('show')
+            }, 3000);
+          }
+
+          //call the show success message function
+          showSuccMsg(data.emailSuccMsg)
+
+          
+         // redirect to next page after six seconds
+          setTimeout(() => {
+            window.location.href = 'settings.html'
+          }, 5000);
+
+
+        }else{
+          console.log('Error response: ', response.status, data)
+          const emailChangeErrMsg = document.getElementById('email-change-error-msg')
+          emailChangeErrMsg.textContent = data.errorMsg || 'An error has occured'
+          emailChangeErrMsg.classList.add('error-msg-show')
+
+        }
+      } catch (error) {
+        console.log('Error: ', error.message)
+        const emailChangeErrMsg = document.getElementById('email-change-error-msg')
+        emailChangeErrMsg.textContent = "Server error. Retry later!"
+        emailChangeErrMsg.classList.add('error-msg-show')
+      }
+    })
+  </script>
+</body>
+</html>

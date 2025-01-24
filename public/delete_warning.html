@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deletion Warning</title>
+  <link rel = "stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    <span><a href="account.html"><i id = 'user' class="fa fa-user" aria-hidden="true"></i></a></span>
+    <span><a href="index.html"><i id = 'home' class="fa fa-home" aria-hidden="true"></i></a></span>    
+    
+
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+  <br>
+  
+  <div class = "wrapper">
+
+      <div class = "container">
+        <h2>Your Attention Please!</h2>
+
+      <p class = "delete-warnings">At signup, your account was created and your personal data generated then were stored with us. 
+        When you request for account deletion, you are about to erase all your personal data stored.</b></p>
+        </div>
+
+        <div class = "container">
+          <i id = "warning-icon" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <ul>
+            <li>Please weigh your account deletion decision since it's ultimate and cannot be undone.</li>
+            <li>All your information; personal data and order information will be permanently deleted.</li>
+            <li>We'll no longer end you emails or notifications.</li>
+            <li>All unprocessed requests you applied for will be invalidated</li>
+            <li>P`Way will keenly verify your orders and account status before launching delete operation.</li>
+          </ul>
+
+          <button id = "proceed-btn" class = "proceed-btn" onclick="location.href = 'delete_account.html'">Procced</button>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+
+      </div>
+
+
+
+
+  <script>
+    const btn = document.getElementById('proceed-btn');
+    btn.addEventListener('mouseover', ()=>{
+      btn.style.color = 'biege'
+      btn.style.cursor = 'pointer'
+      btn.style.fontSize = '20px'
+      btn.style.backgroundColor = 'rgb(223, 40, 3)'
+    })
+    btn.addEventListener('mouseout', ()=>{
+      btn.style.color = 'white'
+      btn.style.fontSize = '18px'
+      btn.style.backgroundColor = 'rgb(239, 72, 72)'
+    })
+    
+  </script>
+</body>
+</html>

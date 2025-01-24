@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account-P`Way-Signup</title>
+  <link rel="stylesheet" href = "css/user_account.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body id = "signup-body">
+
+  <div class = "signup-container">
+    <h2>P`Way Sign up</h2>
+
+    <div id = "signup-success-msg" class = "success-msg">
+      <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+      <span class = "success-text"></span>
+    </div>
+
+      <div id = "signup-error-msg" >
+        <span class = "error-text"></span>
+      </div>
+
+    <form id = "signup-form" action = "/signup" method = "post">
+
+      <div class = "inputs-block-one">
+        <input id = 'first-name' class = "firstname" type = "text" name = "Firstname"  placeholder="First Name"/>
+        <br>
+        <br>
+        <input type = "email" id = "email-input" autocomplete="off" name = "Email_address" reuired placeholder = "Email Address">
+        <br>
+        <br>
+        <input id = "user-country" class = "country" type = "text" name = "Country"  placeholder = "Country">
+        <br>
+
+
+      </div>
+      <div class = "inputs-block-two">
+        <input id = 'last-name' class = "lastname" type = 'text' name = "Lastname"  placeholder="Last Name"/>
+        <br>
+        <br>
+        <input id = "user-pass" class = "password" type = "text" name="User_password" autocomplete="new-password" placeholder = "Password">
+          <span>
+            <i onclick = "togglePassword()" id = "show-hide" class="fa fa-eye-slash" aria-hidden="true"></i>
+
+          </span>
+        <br>
+        <br>
+        <input id = "user-contact" class = "contact" type = "tel" name = "Phone_number" required placeholder="Phone Number" max="13">
+          <br>
+
+      </div>
+
+          
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button class = "signup-login" id = "signup-btn" type = "submit" name = "signup">Sign Up</button>
+
+      </form>
+      <br>
+      <div class = "link">
+        <p>Already P`Way Member? &nbsp; <a href = "login.html" >Sign In</a></p>
+
+    </div>
+    <br>
+  </div>
+  <br>
+  <br>
+  
+  <script>
+
+const togglePassword = ()=>{
+      const passField = document.querySelector('.password');//get the input field
+      const showHideIcon = document.getElementById('show-hide')
+
+      showHideIcon.addEventListener('click', ()=>{
+        if(passField.type === 'text'){
+          passField.type = 'password'
+          showHideIcon.classList.remove('fa-eye-slash')
+          showHideIcon.classList.add('fa-eye')
+        }else{
+          passField.type = 'text'
+          showHideIcon.classList.remove('fa-eye')
+          showHideIcon.classList.add('fa-eye-slash')
+        }
+      })
+
+    }
+
+
+
+
+
+    const btn = document.getElementById('signup-btn')
+
+    btn.addEventListener('mouseover', ()=>{
+      btn.style.cursor = 'pointer'
+      btn.style.color = 'rgb(242, 242, 192)'
+
+    })
+    btn.addEventListener('mouseout', ()=>{
+      btn.style.cursor = 'pointer'
+      btn.style.color = 'blue'
+
+    })
+
+
+    //Change submit button color when input exists
+    const checkUserInputs = () =>{
+      const registrationInputs = document.querySelectorAll('input')
+
+      var inputsFilled = true;
+
+      registrationInputs.forEach(input => {
+        if(!input.value.trim()){
+          inputsFilled = false;
+        }
+
+        if (inputsFilled) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const registrationInputs = document.querySelectorAll('input')
+    registrationInputs.forEach(input =>{
+      input.addEventListener('input', checkUserInputs)
+    })
+
+
+
+    //submit form
+const submitActivity = document.getElementById('signup-form').addEventListener('submit', async(event) =>{
+  event.preventDefault();
+
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value
+  const email = document.getElementById('email-input').value.trim();
+  const userPass = document.getElementById('user-pass').value;
+  const userCountry = document.getElementById('user-country').value;
+  const userContact = document.getElementById('user-contact').value;
+  try {
+
+    const response = await fetch('/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              Firstname:firstName,
+              Lastname:lastName,
+              Email_address: email, 
+              User_password:userPass, 
+              Country:userCountry,
+              Phone_number:userContact,
+            
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Show success message and change button content
+            function showSuccMsg(){
+                    const signupSuccMsg = document.getElementById('signup-success-msg')
+                    const succIcon = document.getElementById('successIcon');
+                    
+                    signupSuccMsg.textContent = data.signupMsg;
+                    signupSuccMsg.classList.add('show')  
+
+                    //Ensure icon visibility
+                    succIcon.style.display = 'inline-block'
+  
+                    //remove the show class after three seconds
+                  setTimeout(() => {
+                    signupSuccMsg.classList.remove('show')
+
+                  }, 3000);
+                  }
+                
+                  //simulate a successful operation
+                    showSuccMsg(data.signupMsg)
+
+            // Redirect to next page after delay
+            /*setTimeout(() =>{
+              window.location.href = '/login'
+            }, 5000)*/
+        } else  {
+          console.log("Error response: ", data);
+          const signupErrMsg = document.getElementById('signup-error-msg');
+
+          signupErrMsg.textContent = data.errorMsg || 'An error occurred.';
+          signupErrMsg.classList.add('error-msg-show')
+      }
+    
+  } catch (error) {
+    console.log('Error encountered',  error.message);
+    const signupErrMsg = document.getElementById('signup-error-msg');
+
+    signupErrMsg.textContent = 'An error has occurred while registering you. Try again or later!';
+  }
+})
+
+  </script>
+</body>
+</html>

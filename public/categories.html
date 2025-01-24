@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P`Way-Online Store-Shop with Categories</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/categories.css">
+  <script>
+    $(function name(params) {
+      $("#menubar").click(function name(params) {
+      $("#menubar").toggleClass("fa-bars fa-times");
+      $("#tabs").fadeToggle(2000)
+    });
+
+    
+    //displaying the search bar in smaller devices
+    $("#search1").click(function name(params)  {
+      $("#searchbar").show()
+      $("#search1").hide()
+
+    } )
+
+    $("#close-search").click(function name(params)  {
+      $("#searchbar").hide()
+      $("#search1").show()
+
+    } )
+   //code for active categories links
+   $(".categ-links").click(function name(params)  {
+    //remove the active class from all divs
+      $(".categ-links").removeClass("active")
+      //add the active class to only the clicked div
+      $(this).addClass("active")
+
+
+    } )
+    $(".scrolling-wrapper").addClass('scrolling');
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h2>Shop By Categories</h2>
+
+  <div class="open-search">
+    <span><i id = "search1" class = "fa fa-search"></i></span>
+
+    <div id="searchbar" class="search-container">
+      <div class="button-input">
+        <input type="text" name="search_input" placeholder="Type here to search">
+
+      </div>
+      <span class="search-icon" style="position: fixed;">
+        <i id="close-search"class="fa fa-times" aria-hidden="true"></i>
+
+      </span>
+    </div>
+  </div>
+  <br>
+  
+    <nav id="tabs">
+      <ul >
+          <div class = "dropdown">
+              <li><a class = "dropdown-toggle" data-bs-toggle="dropdown" href="#electronics">Electronics</a>
+                <ul class = "dropdown-menu">
+                  <li><a class = "dropdown-item" href = "#bulbs">Bulbs</a></li>
+                  <li><a class = "dropdown-item" href = "">Solars</a></li>
+                  <li><a class = "dropdown-item" href = "">Woofers</a></li>  
+                </ul>
+              </li>
+        </div>
+        <!---->
+        <li><a href="#smartphones">Smartphones</a></li>
+        <li><a href="#laptops">Laptops</a></li>
+  
+        <li><a href="#home">Home</a>
+          
+            <!---->
+          
+        </li>
+        <li><a href="#beauty">Beauty</a>
+          <!---->
+        </li>
+        <div >
+              <li id = "cloth">
+               
+                  <a href="#clothes" onclck = "toggleClothe()">Clothes
+                      <i  class ="fa fa-caret-down"></i></a></li>
+  
+                  </a>
+            </li>
+            <div id = "sub-menu" class = "sub-menu-content">
+              <ul >
+                <li><a  href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li class="hover-me"><a href="#">Men</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+              </ul>
+            </div>
+         </div>
+  
+        <li><a href="#shoes">Shoes</a></li>
+        <li><a href="#hygiene">Hygiene</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#kids">Kids</a></li>
+        
+      </ul>
+          
+  </nav>
+  <span class="bar-icon">
+    <i class="fa fa-bars" id="menubar" aria-hidden="true"></i>
+  </span>
+
+  </header>
+
+  <div class = "display">
+    <div class = "categories">
+      <div id = "link1" class = "categ-links">Electronics</div>
+      <div id = "link2" class = "categ-links">Smartphones</div>
+      <div id = "link3" class = "categ-links">Laptops</div>
+      <div id = "link4" class = "categ-links">Home</div>
+      <div id = "link5" class = "categ-links">Beauty</div>
+      <div id = "link6" class = "categ-links">Clothes</div>
+      <div id = "link7" class = "categ-links">Shoes</div>
+      <div id = "link8" class = "categ-links">Hygiene</div>
+      <div id = "link9" class = "categ-links">Sports</div>
+      <div id = "link10" class = "categ-links">Kids</div>
+  
+    </div>
+    <div class = "content">
+          <div>Item1</div>
+          <div>Item2</div>
+          <div>Item3</div>
+
+    </div>
+  </div>
+  <br>
+  <br>
+      <div class = "scrolling-wrapper">
+          <img src = "pee images/img1.jpg" width = "50px" height = "50px" class = "scrolling-image">
+          <figcaption>Electronics</figcaption>
+        
+          <img src = "pee images/img2.jpg" width = "50px" height = "50px" class = "scrolling-image">
+          <figcaption>Smartphones</figcaption>
+        
+          <img src = "pee images/img3.jpg" width = "50px" height = "50px" class = "scrolling-image">
+          <figcaption>Laptops</figcaption>
+
+          <!--Duplicate the images-->
+          <img src = "pee images/img1.jpg" width = "50px" height = "50px" class = "scrolling-image">
+          <figcaption>Electronics</figcaption>
+        
+          <img src = "pee images/img2.jpg" width = "50px" height = "50px" class = "scrolling-image">
+          <figcaption>Smartphones</figcaption>
+        
+          <img src = "pee images/img3.jpg" width = "50px" height = "50px" class = "scrolling-image">
+          <figcaption>Laptops</figcaption>
+      </div>
+
+  
+</body>
+
+</html>

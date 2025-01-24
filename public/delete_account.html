@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account</title>
+  <link rel = "stylesheet" href="css/user_account.css">
+</head>
+<body>
+  <div class = "container">
+    <h2>Delete Your Account</h2>
+
+    <div id = "delete-success-msg" class = "success-msg">
+      <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+      <span class = "success-text"></span>
+    </div>
+
+      <div class = "error-msg" id = "delete-error-msg" >
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+
+        <span class = "error-text">
+
+        </span>
+      </div>
+
+    <form id = "delete-form" action = "/delete_account" method = "post">
+      <span class = "labels">Email address</span><br>
+      <input id = "email-input" type = "text" name="Email_address" autocomplete="off" placeholder="Email address"/>
+      <br>
+      <br>
+      <br>
+      <button class = "delete-btn" type = "submit" name = "submit">Delete</button>
+      <br>
+      <br>
+      <p class = "warning"><span>Careful!</span> You are about to erase all your personal data.</p>
+      <br>
+    </form>
+    <br>
+  <br>
+  
+  </div>
+  <script>
+    const deleteMsg = document.getElementById('delete-msg');
+    const btn = document.querySelector('.delete-btn');
+
+    
+
+
+    //Change submit button color when input exists
+    const checkDeleteInput = () =>{
+      const deleteInput = document.querySelectorAll('input')
+
+      var inputsPopulated = true;
+
+      deleteInput.forEach(input => {
+        if(!input.value.trim()){
+          inputsPopulated = false;
+        }
+
+        if (inputsPopulated) {
+          btn.classList.add('delete-active')          
+          btn.classList.remove('delete-faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('delete-active')
+          btn.classList.add('delete-faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const deleteInput = document.querySelectorAll('input')
+    deleteInput.forEach(input =>{
+      input.addEventListener('input', checkDeleteInput)
+    })
+
+
+
+    //submit form
+    document.getElementById('delete-form').addEventListener('submit', async(event) =>{
+      event.preventDefault();
+      //always declare all inputs to be submitted to the server within the event'submit' so that they can capture the latest value in case of changes.
+      const email = document.getElementById('email-input').value;
+
+      try { 
+        const response = await fetch('/delete_account', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Email_address: email})
+      
+              })
+              const data = await response.json();
+              if(response.ok){
+                // Show success message and change button content
+                function showSuccMsg(){
+                    const deleteSuccMsg = document.getElementById('delete-success-msg')
+                    const succIcon = document.getElementById('successIcon');
+                    
+                    deleteSuccMsg.textContent = data.deleteMsg;
+                    deleteSuccMsg.classList.add('show')  
+
+                    //Ensure icon visibility
+                    succIcon.style.display = 'inline-block'
+  
+                    //remove the show class after three seconds
+                  setTimeout(() => {
+                    deleteSuccMsg.classList.remove('show')
+
+                  }, 2000);
+                  }
+                
+                  //simulate a successful operation
+                  setTimeout(() => {
+                    showSuccMsg(data.deleteMsg)
+                  }, 1000);
+
+                  //redirect to next page
+                
+              }else{
+                console.log('Error response:', data)
+                const deleteErrorMsg = document.getElementById('delete-error-msg')
+                deleteErrorMsg.textContent = data.deleteErrMsg || 'An error occured';
+                deleteErrorMsg.classList.add('error-msg-show')
+              }
+
+      } catch (error) {
+        console.log('Error', error.message)
+        const deleteErrorMsg = document.getElementById('delete-error-msg')
+
+        deleteErrorMsg.textContent = "An unexpected error has occured. Please try again later!";
+      }
+    })
+  </script>
+</body>
+</html>

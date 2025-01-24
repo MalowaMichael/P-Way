@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About orders-answers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel = "stylesheet" href="css/answers.css">
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+      $('#open1 ').click(function(){
+        $('#open1 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer1').toggle(1500);
+
+      });
+
+      $('#open2 ').click(function(){
+        $('#open2 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer2').toggle(1500);
+
+      });
+
+      $('#open3 ').click(function(){
+        $('#open3 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer3').toggle(1500);
+
+      });
+
+      $('#open4 ').click(function(){
+        $('#open4 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer4').toggle(1500);
+
+      });
+
+      $('#open5 ').click(function(){
+        $('#open5 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer5').toggle(1500);
+
+      });
+
+      $('#open6 ').click(function(){
+        $('#open6 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer6').toggle(1500);
+
+      });
+      
+      $('#open7 ').click(function(){
+        $('#open7 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer7').toggle(1500);
+
+      });
+
+      $('#open8 ').click(function(){
+        $('#open8 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer8').toggle(1500);
+
+      });
+      
+      //code for displaying the nav bar in smaller devices
+      $("#more-btn").click(function (event) {
+        event.stopPropagation()
+        $(".hidden-tabs").toggle(2000);
+      });
+      //Hide the hidden tabs dropdown when user clicks anywhere outside
+      $(window).click(function (){
+        $(".hidden-tabs").css("display", "none")
+      })
+    });
+  </script>
+
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+    
+    <span>
+      <a href="help.html" ><span id = "angle-blink" class = "fa fa-arrow-left"></span></a>
+    </span>
+    <span class = "header-text">About orders</span>
+
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>    
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+<br>  
+        <div class = "wrapper">
+
+          <div class = "container"><h4 class = "quiz" >Place an order</h4>
+            <span class = 'desc-icon'><i id = "open1" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer1">
+                <li><b>Step 1</b>: Go to <span style = "color:blue;"><u>shopping categories</u></span> and select category you want to shop in.</li><br>
+                <li><b>Step 2</b>: Select the item by clicking on it and select the option <span style = "color:blue;"><u>add to cart</u></span>.</li><br>
+                <li><b>Step 3</b>: In the cart, select the option <span style = "color:blue;"><u>checkout</u></span>, confirm your details and then click <span style = "color:blue;"><u>place order</u></span>.</li>
+              </ol>
+            </div>
+            <br>
+          
+          <div class = "container"><h4 class = "quiz" >Pay for my order</h4>
+            <span class = 'desc-icon'><i id = "open2" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer2">
+                <li><b>Step 1</b>: From the categories tab, select item of your choice</li><br>
+                <li><b>Step 2</b>: Click the <u style = "color:blue;">Add to cart</u> button below the item</li><br>
+                <li><b>Step 3</b>: From the cart, click <u style = "color:blue;">Checkout</u> button that takes you to order confirmation page.</li><br>
+                <li><b>Step 4</b>: Click <u style = "color:blue;">Place order </u> button below and then select the payment mode that suits you best from the list</li>
+                
+              </ol>
+              </div>
+            <br>
+  
+          <div class = "container"><h4 class = "quiz" >Track my order</h4>
+            <span class = 'desc-icon'><i id = "open3" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer3">
+                <li><b>Step 1</b>: Go to the <u style = "color:blue;">Account tab</u></li><br>
+                <li><b>Step 2</b>: Click <u style = "color:blue;">In transit</u></li><br>
+                <li><b>Step 3</b>: Use the order number to track the location of the order</li>
+              </ol>
+          </div>
+          <br>
+  
+          <div class = "container"><h4 class = "quiz">What's an order number</h4>
+            <span class = 'desc-icon'><i id = "open4" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer4">
+                <li>A <b>Fourteen-digit number</b> that uniquely identifies each item purchased</li>
+              </ol>
+          </div>
+          <br>
+  
+          <div class = "container"><h4 class = "quiz" >Cancel my order</h4>
+            <span class = 'desc-icon'><i id = "open5" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer5">
+                <li>Contact the customer support team on +254000000000</li><br>
+                <li>If your order had been paid for, note that the refund processing time may vary depending on the payment method:
+                  <ul>
+                    <li><b>Card /bank transer</b> - refund processing within 24 hours and may take 7-8 work days for it to reflect in your account</li>
+                    <li><b>Mobile money</b> - refund will be credited to the initial source within 24 hours</li>
+                    <li><b>Voucher</b> - voucher will be reactivated within 24 hours for use</li>
+                  </ul><br>
+                  <p>Our gratitude for your shopping with us</p>
+                </li>
+              </ol>
+          </div>
+          <br>
+  
+          <div class = "container"><h4 class = "quiz" >How do I know my order number</h4>
+            <span class = 'desc-icon'><i id = "open6" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol  id = "answer6">
+                <li><b>Step 1</b>: Select the item you want to purchase, <u style = "color:blue;">add to cart</u></li><br>
+                <li><b>Step 2</b>: <u style= "color:blue;">Checkout</u> from the cart and confirm order by clicking the <u style=" color:blue;">Place order</u> button. The order number will be generated and check it at the top most of your order</li>
+      
+              </ol>
+          </div>
+          <br>
+          <div class = "container"><h4 class = "quiz" >Has my order arrived</h4>
+            <span class = 'desc-icon'><i id = "open7" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer7">
+                <li>We shall send you a notification message to your <u style = "color:blue;">phone number</u> you provided us with. <br><br>Furthermore keep tracking your order to know where your order has reached with time.</li>
+              </ol>
+          </div>
+          <br>
+  
+          <div class = "container"><h4 class = "quiz" >Order delivery duration</h4>
+            <span class = 'desc-icon'><i id = "open8" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+              <ol id = "answer8">
+                <li>Items shipped rom overseas take <u style = "color:blue;">10-15</u> days to arrive, while those locally ake <u style = "color:blue;">3-4 </u>days to be delivered.</li>
+              </ol>
+          </div>
+          <br>
+
+        </div>
+      
+</body>
+</html>

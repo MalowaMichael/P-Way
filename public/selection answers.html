@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Centre-Product Selection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel = "stylesheet" href= "css/answers.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+  $(function() {
+      $("#open1").click(function () {
+        $("#open1").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer1").toggle(1500);
+      });
+
+      $("#open2").click(function () {
+        $("#open2").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer2").toggle(1500);
+      });
+
+      $("#open3").click(function () {
+        $("#open3").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer3").toggle(1500);
+      });
+
+      $("#open4").click(function () {
+        $("#open4").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer4").toggle(1500);
+      });
+
+      $("#open5").click(function () {
+        $("#open5").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer5").toggle(1500);
+      });
+
+      $("#open6").click(function () {
+        $("#open6").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer6").toggle(1500);
+      });
+
+      $("#open7").click(function () {
+        $("#open7").toggleClass('fa-sort-desc fa-sort-asc');
+        $("#answer7").toggle(1500);
+      });
+      //code for fading link
+      /*setInterval(function () {
+        $("#angle-blink").fadeIn(1800, function () {
+          $("#angle-blink").fadeOut(1800);
+        })
+      }, 1000);*/
+
+
+      //code for displaying the nav bar in smaller devices
+      $("#more-btn").click(function name(event) {
+        event.stopPropagation()
+        $(".hidden-tabs").toggle(2000);
+
+      });
+        
+      //Hide the hidden tabs dropdown when user clicks anywhere outside
+      $(window).click(function (){
+        $(".hidden-tabs").css("display", "none")
+      })
+      
+
+      
+    });
+</script>
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    <span>
+      <a href="help.html" ><span id = "angle-blink" class = "fa fa-arrow-left"></span></a>
+    </span>
+    <span class = "header-text">About selection</span>
+
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>    
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+<br>  
+
+  <div class = "wrapper">
+    <div class = "container"><h4 class="quiz">How to find the right product</h4>
+      <span class = 'desc-icon'><i id = "open1" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer1">
+        <li><b>Step 1</b>: Go to <u style = "color:blue;">Categories</u> tab and shop with categories</li><br>
+        <li><b>Step 2</b>: Select the <u style="color:blue;">category</u> you want to shop with</li><br>
+  
+        <li><b>Or: </b> <br><br> Within the product section, click <u style = "color:blue;">Chat seller</u> to enquire more about the product</li>
+      </ol>
+      </div>
+    <br>
+  
+    <div class = "container"><h4 class="quiz">I can't make the right product selection</h4>
+      <span class = 'desc-icon'><i id = "open2" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+      <ol id = "answer2">
+        <li><b>Step 1</b>: After selecting the category you want to shop in, then click the products displayed within that category</li><br>
+        <li><b>Step 2</b>: Above the product, click the <u style="color:blue;">Description</u> tab to read the products description</li><br>
+        <li>Repeat that process for the range of products displayed untill you find that of your satisaction</li><br>
+  
+        <li><b>Note: </b><br> You can still <u style="color:blue;">Chat seller</u> for more clarification.</li>
+  
+      </ol>
+      </div>
+    <br>
+  
+    <div class = "container"><h4 class="quiz">How to know more about product</h4>
+      <span class = 'desc-icon'><i id = "open3" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer3">
+          <li>Click the <u style="color:blue;">Description</u> tab above the product for more product information</li>
+        </ol>
+        </div>
+    <br>
+  
+    <div class = "container"><h4 class="quiz">How do I contact seller</h4>
+      <span class = 'desc-icon'><i id = "open4" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+    <ol id = "answer4">
+      <li>Select the product and click the <u style="color:blue;">Chat seller </u>button </li>
+    </ol>
+    </div>
+    <br>
+  
+    <div class = "container"><h4 class="quiz">How do I get a good seller</h4>
+      <span class = 'desc-icon'><i id = "open5" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer5">
+          <li>Search for "Sellers" in the home page</li><br>
+          <li>Check for sellers with ratings and the reviews made by fellow shoppers to broaden your horizon of seller selection</li>
+        </ol>
+        </div>
+    <br>
+  
+    <div class = "container"><h4 class="quiz">Why price sometimes changes at the checkout</h4>
+      <span class = 'desc-icon'><i id = "open6" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer6">
+          <li>Prices change due to different currencies for different countries</li><br>
+          <li>Price at the checkout will be calculated based on the currency of the country you chose during registration</li><br>
+          <li><b>Note:</b> <br>
+            While shopping be sure to select your country of residence
+          </li>
+        </ol>
+        </div>
+    <br>
+  
+    <div class = "container"><h4 class="quiz">What is a wishlist</h4>
+      <span class = 'desc-icon'><i id = "open7" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer7">
+          <li>Wishlist is where your favorite items go to. <br><br>
+            During shopping , you can come across a nice item that you intended not to buy, you can then put it in the <u style = "color: blue;">Wishlist</u> and get it next time</li>
+        </ol>
+        </div>
+    <br>
+  </div>
+  
+  
+</body>
+</html>

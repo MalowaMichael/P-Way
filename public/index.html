@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P`Way-Online Store | Official-Home Page</title>
+  <link rel = "stylesheet" href = "css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link src = "css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
+  
+  <script src = "css/js/index-jquery.js"></script>
+</head>
+<body>
+<header>
+  <div class = "layer-one">
+    <div class = "heading-container">
+      <div class = "heading-two">P`Way</div>
+
+    </div>
+    <div class = "layer-one-tabs">
+      
+      <div class = "image-container">
+        <img id = 'country-flag' src = 'kenyan flag.jpg' alt = "Country flag"/>
+
+      </div>
+
+      <div class = "signup-signout-login-container">        
+
+        <div onclick = "window.location.href = 'signup.html'" class = "user">
+          <i id = "signup" class="fa fa-user-plus" aria-hidden="true"></i>
+
+        </div>
+
+        <div onclick = "window.location.href = 'login.html'" class = "user">
+          <i id = "signin" class="fa fa-sign-in" aria-hidden="true"></i>
+
+        </div>
+
+        
+      </div>
+
+    </div>    
+  </div>
+
+  <div class = "layer-two">
+    <div class = "all-categories">
+      <div class = "visible-text">All Categories</div>
+
+      <!--Dropdown for all categories-->
+      <div class = "categories">
+        <div>Electricals & Electronics</div>
+        <div>Security & Surveilance</div>
+        <div>Smartphones</div>
+        <div>Laptops</div>
+        <div>Watches & Jewelry</div>
+        <div class = "home">Home
+          <div class = 'categories-dropdown'>
+            <div>Home decor</div>
+            <div>Garden appliances</div>
+            <div>Furniture</div>
+            <div>Bedroom</div>
+            <div>Restroom</div>
+            <div>Living room</div>
+
+          </div>
+        </div>
+        <div>Kitchen</div>
+        <div>Men's Garments</div>
+        <div>Women's Garments</div>
+        <div>Footware</div>
+        <div>Beauty</div>
+        <div>Hygiene</div>
+        <div>Sports</div>
+        <div>Kids</div>
+        <div>Toys & Games</div>
+        
+
+      </div>
+  </div>
+
+  <!--Serachbar-->
+    <div class = "searchbar">
+
+      <div class = "select_search">
+        <select name = 'searchProduct'>
+          <option name = 'searchProduct' value = 'name' selected>Name</option>
+          <option name = 'searchProduct' value = 'category'>Category</option>
+          <option name = 'searchProduct' value = 'image'>Image</option>
+        </select>
+      </div>
+      <input id = 'search-bar' type = "text" placeholder="Search here...">
+
+      
+
+      <div class = "camera-icon-container">
+        <i id = 'search-icon' class="fa fa-search" aria-hidden="true"></i>
+    
+        <!--Popup for camera hover-->
+        <div class = "image-search">
+          <div class = "dropdown-arrow"></div>
+         
+          <div class = "search-heading">
+                <p>Search product with image</p>
+      
+              </div>
+              <br>          
+              <div class = "drop-area">
+                <p id = "demo">Drag and drop here<br>or</p>
+
+              </div>
+
+                <form action="" method="post">                     
+                  
+                  <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)" accept = "image/*">
+                </form>
+                
+                <!--<span id="filename"></span>
+                <br>
+                <br>
+                <input type = "file" id = "fileinput" style = "display:none;" accept="image/*" capture = "environment">
+                <button style = "display: none;" type = "button" id = "upload-btn">Upload a photo</button>-->
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class = "layer-two-tabs">
+      <div id = 'user-account-icon' class = 'icon-container'>      
+        <i onclick = 'window.location.href = "account.html"' id = 'user' class="fa fa-user-circle" aria-hidden="true"></i>
+        <!--Hover Popup for user account-->
+        <div class = "account-dropdown">
+          <div class = "dropdown-arrow"></div>
+
+          <div >My orders</div>
+          <div >Aftersales</div>
+          <div class = "separate-divs"></div>
+          <div>Wishlist</div>
+          <div onclick = "window.location.href ='reviews.html'">Reviews</div>
+          <div onclick = "window.location.href = 'payments.html'">Payments</div>
+
+          <div class = "separate-divs"></div>
+
+          <div onclick = "window.location.href = 'settings.html'">Settings</div>
+          <div onclick = "window.location.href = 'help.html'">Help center</div>
+
+          <div class = "separate-divs"></div>
+
+          <div onclick = "window.location.href = 'feedback.html'">Feedback</div>
+          
+          
+        </div>
+      </div>
+      <div class = "icon-container">
+        <i id = 'wishlist' class="fa fa-heart" aria-hidden="true"></i>
+
+      </div>
+      
+      <div class = "icon-container">
+        <i id = 'cart' class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+  
+      </div>
+    </div>
+  </div>
+
+</header>        
+
+<br>
+
+<!--Tooltip for signup, signin and signout-->
+<div class = "user-tooltip">
+  <div class = "tooltip-arrow"></div>
+
+    <span id = 'tooltip-text'>Signup</span>
+</div>
+
+<br>
+
+<!--Search bar content-->
+<ul class = 'category-search-menu'>
+  <li class = "search-category">Smartphones</li>
+  <li class = "search-category">Kitchen</li>
+  <li class = "search-category">Men's clothing</li>
+  <li class = "search-category">Electricals & Electronics</li>
+  <li class = "search-category">Stationary</li>
+  <li class = "search-category">Laptops</li>
+  <li class = "search-category">Watches & Jewels</li>
+  <li class = "search-category">Spots</li>
+  <li class = "search-category">Furniture</li>
+  <li class = "search-category">Beauty & Hygiene</li>
+  <li class = "search-category">Footware</li>
+  <li class = "search-category">Kids</li>
+  <li class = "search-category">Games & Toys</li>
+  <li class = "search-category">Home</li>
+  <li class = "search-category">Security & Surveilance</li>
+  <li class = "search-category">Women's clothing</li>
+  <li class = "search-category">Bags</li>
+
+</ul>
+
+<!--Country modal form-->
+  <div class = "country-overlay">
+    <div class = "country-modal">
+
+      <div class = "arrange-flag-times">
+        <div class = "country-flag"><img src = 'kenyan flag.jpg' alt = "Country flag"/></div>
+      <div class = "close-country-modal">
+        <i class="fa fa-times" aria-hidden="true"></i>
+
+      </div>
+      </div>
+
+      <form id = 'country-form' action = '/index' method = 'post'>
+        
+        <div class = "arrange-country-inputs">
+          <select name = "Country_Name">
+            <option name = "countryOption" value = 'country'>Kenya</option>
+            <option name = "countryOption" value = 'country'>Tanzania</option>
+            <option name = "countryOption" value = 'country'>Uganda</option>
+            <option name = "countryOption" value = 'country'>Rwanda</option>
+            <option name = "countryOption" value = 'country'>Burundi</option>
+            <option name = "countryOption" value = 'country'>Ethiopia</option>
+            <option name = "countryOption" value = 'country'>Somalia</option>
+            <option name = "countryOption" value = 'country'>Congo</option>
+  
+  
+          </select>
+  
+          <select name = "Country_Currency">
+            <option name = "currencyOption" value = 'currency'>KES</option>
+            <option name = "currencyOption" value = 'currency'>Tz Sh</option>
+            <option name = "currencyOption" value = 'currency'>Ug Sh</option>
+            <option name = "currencyOption" value = 'currency'>Rw Sh</option>
+            <option name = "currencyOption" value = 'currency'>Br Sh</option>
+            <option name = "currencyOption" value = 'currency'>Eth Sh</option>
+            <option name = "currencyOption" value = 'currency'>Som Sh</option>
+            <option name = "currencyOption" value = 'currency'>Cong Sh</option>
+  
+          </select>
+  
+        </div>
+
+
+        <div class = "arrange-country-inputs">
+          <select name = "Country_language">
+            <option name = 'languageOption' value = 'language'>Kiswahili</option>
+            <option name = 'languageOption' value = 'language'>English</option>
+            <option name = 'languageOption' value = 'language'>Kinyarwand</option>
+            <option name = 'languageOption' value = 'language'>Arabic</option>
+  
+          </select>
+  
+          <select name = "Country_Code" >
+            <option name = 'codeOption' value = 'code'>+254</option>
+            <option name = 'codeOption' value = 'code'>+253</option>
+  
+          </select>
+        </div>
+
+        <br>
+        <button type = 'submit' >Save</button>
+        <div class = "country-name"></div>
+        <div class = "currency"></div>
+        <div class = "country-language"></div>
+        <div class = "country-code"></div>
+      </form>
+    </div>
+  </div>
+<br>
+<br>
+
+  
+            
+            
+            
+            
+              
+
+          
+  <br>
+  <br>
+  <br>
+</header>
+
+
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+      <footer>&copy;Copyright&nbsp; -&nbsp; <span id = "current-year"></span>&nbsp; Only&nbsp; At&nbsp; P`Way.com &nbsp; 
+        <p>All Rights Reserved</p>
+        </footer>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  
+  <script>
+    const date = document.querySelector('#current-year')
+    const year = new Date()
+    date.textContent = year.getFullYear();
+
+
+    //signup, signin, signout hover effect
+    const signupIcon = document.querySelector('#signup')
+    const signinIcon = document.querySelector('#signin')
+    const signoutIcon = document.querySelector('#signout')
+
+    const showToolTip = document.querySelector('.user-tooltip')
+    const toolTipText = document.querySelector('#tooltip-text')
+
+    const icons = document.querySelectorAll('.user')
+
+    icons.forEach((icon) =>{
+      icon.addEventListener('mouseover', handleHoverEffect)
+      icon.addEventListener('mouseout', handleHoverEffect)
+    })
+    
+
+    
+    function handleHoverEffect(event) {
+      if (event.target === signupIcon) {
+        if (event.type === 'mouseover') {
+          showToolTip.style.display = 'block'
+          showToolTip.classList.add('signup-tooltip')
+          showToolTip.classList.add('slow-tooltips')
+
+          signupIcon.style.color = 'green'
+          signinIcon.style.color = 'whitesmoke'
+          signoutIcon.style.color = 'whitesmoke'
+          toolTipText.textContent = 'Sign up'
+     
+        }else{
+          showToolTip.style.display = 'none'
+          showToolTip.classList.remove('signup-tooltip')
+          signupIcon.style.color = 'whitesmoke'
+          signinIcon.style.color = 'whitesmoke'
+          signoutIcon.style.color = 'whitesmoke'
+     
+        }
+
+      }
+      
+      if (event.target === signinIcon) {
+        if (event.type === 'mouseover') {
+          showToolTip.style.display = 'block'
+          showToolTip.classList.add('signin-tooltip')
+
+          signinIcon.style.color = 'fuchsia'
+          signupIcon.style.color = 'whitesmoke'
+          signoutIcon.style.color = 'whitesmoke'
+
+          toolTipText.textContent = 'Sign in'
+     
+        }else{
+          showToolTip.style.display = 'none'
+          showToolTip.classList.remove('signin-tooltip')
+          signinIcon.style.color = 'whitesmoke'
+          signupIcon.style.color = 'whitesmoke'
+          signoutIcon.style.color = 'whitesmoke'
+        }
+      }
+
+      if (event.target === signoutIcon) {
+        if (event.type === 'mouseover') {
+          showToolTip.style.display = 'block'
+          showToolTip.classList.add('signout-tooltip')
+
+          signoutIcon.style.color = 'orangered'
+          signupIcon.style.color = 'whitesmoke'
+          signinIcon.style.color = 'whitesmoke'
+
+          toolTipText.textContent = 'Sign out'
+        }else{
+          showToolTip.style.display = 'none'
+          showToolTip.classList.remove('signout-tooltip')
+          signoutIcon.style.color = 'whitesmoke'
+          signupIcon.style.color = 'whitesmoke'
+          signinIcon.style.color = 'whitesmoke'
+        }
+      }
+      
+    }
+        
+
+    //display the country form modal
+    const countryFlag = document.querySelector('#country-flag')
+    const countryOverlay = document.querySelector('.country-overlay')
+    const closeCountryModal = document.querySelector('.close-country-modal')
+    const countryModal = document.querySelector('.country-modal')
+
+    countryFlag.addEventListener('click', ()=>{
+      countryOverlay.style.display = 'block'
+      countryModal.classList.add('slow-country-modal')
+    })
+
+    closeCountryModal.addEventListener('click', ()=>{
+      countryOverlay.style.display = 'none'
+    })
+
+    /*countryOverlay.addEventListener('click', ()=>{
+      countryOverlay.style.display = 'none'
+    })*/
+
+    //user account hover effect
+    const userAccount = document.querySelector('#user-account-icon')
+    const dropDown = document.querySelector('.account-dropdown')
+
+    userAccount.addEventListener('mouseover', handleAccountHover)
+    userAccount.addEventListener('mouseout', handleAccountHover)
+
+    function handleAccountHover(hover) {
+        if(hover.type === 'mouseover'){
+          dropDown.classList.add('slow-dropdown')
+          dropDown.style.display = 'block'
+
+
+        }else if (hover.type === 'mouseout') {
+          dropDown.style.display = 'none'
+
+        }     
+    }
+
+
+    //stylings for categories
+    const allCategoriesBlock = document.querySelector('.all-categories')
+    const allCategories = document.querySelector('.categories')
+
+    allCategoriesBlock.addEventListener('mouseover', showAllCategories)
+    allCategoriesBlock.addEventListener('mouseout', showAllCategories)
+
+    function showAllCategories(hover) {
+      if (hover.type === 'mouseover') {
+        allCategories.classList.add('slow-categories')
+        allCategories.style.display = 'block'
+      }else{
+        allCategories.style.display = 'none'
+      }
+    }
+
+    const homeCategories = document.querySelector('.home')
+    const homeCategDropdown = document.querySelector('.categories-dropdown')
+    homeCategories.addEventListener('mouseover', handlCategoriesHover)
+    homeCategories.addEventListener('mouseout', handlCategoriesHover)
+
+    function handlCategoriesHover(hover) {
+      if (hover.type === 'mouseover') {
+        homeCategDropdown.style.display = 'block'
+      }else{
+        homeCategDropdown.style.display = 'none'
+      }
+    }
+
+
+    //search product by selection
+
+    const searchBySelect = document.querySelector("select[name = 'searchProduct']")
+    const searchIcon = document.getElementById('search-icon')
+    const searchInputField = document.querySelector("#search-bar")
+
+    //add the change event listener to check which option is selected
+    searchBySelect.addEventListener('change', () =>{
+      const selectedSearchOption = searchBySelect.value;
+
+      if (selectedSearchOption === 'image') {
+        searchIcon.classList.remove('fa-search')
+        searchIcon.classList.add('fa-camera')
+
+        //change placeholder
+        searchInputField.placeholder = "Hover the camera icon";
+
+        //ensure to hide the search menu block
+        const searchInput = document.getElementById('search-bar')
+        const searchMenuBlock = document.querySelector('.category-search-menu')
+        searchMenuBlock.style.display = 'none'
+        searchInput.value = ''
+
+      } else if(selectedSearchOption === 'category') {
+        searchIcon.classList.remove('fa-camera')
+        searchIcon.classList.add('fa-search')
+
+        searchInputField.placeholder = 'Search product by category';
+
+        
+
+        //now handle the search fucntionality
+        searchInputField.addEventListener('keyup', showSearchMenu)
+        
+        function showSearchMenu() {
+          const searchInput = document.getElementById('search-bar')
+          const filterInput = searchInput.value.toLowerCase();
+          const categories = document.querySelectorAll('.search-category')
+
+          //now loop through the lists and hide those that do not match the search query
+          for(let i = 0; i< categories.length; i++){
+            if(categories[i].innerHTML.toLowerCase().includes(filterInput)){
+              categories[i].style.display = 'list-item'//show matching items
+            }else {
+              categories[i].style.display = 'none' //hide non matching items
+            }
+          }
+
+      }
+
+      }else {
+        searchIcon.classList.remove('fa-camera')
+        searchIcon.classList.add('fa-search')
+
+        searchInputField.placeholder = 'Search here...';
+
+        //ensure to hide the search menu block
+        const searchInput = document.getElementById('search-bar')
+        const searchMenuBlock = document.querySelector('.category-search-menu')
+        searchMenuBlock.style.display = 'none'
+        searchInput.value = ''
+
+      }
+      console.log('Current placeholder:', searchInputField.getAttribute('placeholder'));
+
+
+      //now only trigger the mouseover event only when the search icon is a camera
+        
+
+      if (searchIcon.classList.contains('fa-camera')) {
+        const searchIconContainer = document.querySelector('.camera-icon-container')
+        const cameraPopup = document.querySelector('.image-search')
+
+        searchIconContainer.addEventListener('mouseover', handleCamIconHover)
+        searchIconContainer.addEventListener('mouseout', handleCamIconHover)
+
+        function handleCamIconHover(hover) {
+          if (hover.type === 'mouseover') {
+
+            cameraPopup.style.display = 'block'
+            cameraPopup.classList.add('slow-camera-popup')
+          }else{
+            cameraPopup.style.display = 'none'
+
+          }
+        }
+      }else{
+        const searchIconContainer = document.querySelector('.camera-icon-container')
+
+        searchIconContainer.removeEventListener('mouseover')
+      }
+    })
+
+    
+      
+
+
+    
+
+
+  </script>
+  
+</body>
+</html>

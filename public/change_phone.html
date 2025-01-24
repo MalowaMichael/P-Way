@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Phone Number</title>
+  <link rel = "stylesheet" href = "css/user_account.css">
+
+</head>
+<body>
+  <header>
+  
+    <button class = "login-btn" type = "button" onclick = "window.location.href = 'login.html'" >Log in</button>
+
+    <span class = "tab-links"><a href="index.html">Home</a></span>
+
+
+</header>
+
+  <div class = "container">
+
+    <h2>Change Phone</h2>
+
+    <div id = "phone-change-success-msg" class = "success-msg">
+      <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+      <span class = "success-text"></span>
+    </div>
+
+
+  <div id = "phone-change-error-msg" class = "error-msg">
+      <i id = 'mess-icon'></i>
+      <span class = "error-text"></span>
+  </div>
+
+    <form id = "change-phone-form" action = "/change_phone" method = "post">
+      <label for = "phone">Phone number</label><br>
+      <input id = "new-phone" type = "tel" name = "Phone_number" placeholder = "New phone number">
+      <br>
+      <br>
+      <button type = "submit" class = "change-btn">Change phone</button>
+    </form>
+    <br>
+    <br>
+  </div>
+  
+
+  <script>
+
+    //Change submit button color when input exists
+    const checkPhoneInput = () =>{
+      const phoneInput = document.querySelectorAll('input')
+      const btn = document.querySelector('.change-btn')
+
+      var inputFilled = true;
+
+      phoneInput.forEach(input => {
+        if(!input.value.trim()){
+          inputFilled = false;
+        }
+
+        if (inputFilled) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const phoneInput = document.querySelectorAll('input')
+    phoneInput.forEach(input =>{
+      input.addEventListener('input', checkPhoneInput)
+    })
+
+    
+    document.getElementById('change-phone-form').addEventListener('submit', async(event)=>{
+      event.preventDefault();
+
+      const newPhone = document.getElementById('new-phone').value.trim()
+
+      try {
+        const response = await fetch('/change_phone', {
+          method:'post',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({Phone_number: newPhone})
+        })
+
+        const data = await response.json()
+
+        if(response.ok){
+
+          const showSuccMsg = (message)=>{
+            const phoneChangeSuccMsg = document.getElementById('phone-change-success-msg');
+
+            phoneChangeSuccMsg.textContent = message;
+            phoneChangeSuccMsg.classList.add('show')
+
+            //remove the success message after three seconds
+            setTimeout(() => {
+              phoneChangeSuccMsg.classList.remove('show')
+            }, 3000);
+          }
+
+          //initiate function call
+          showSuccMsg(data.phoneSuccMsg)
+
+          //redirect to another page after five seconds
+          setTimeout(() => {
+            window.location.href = 'settings.html'
+          }, 5000);
+
+        }else{
+          console.log('Error response: ', response.status, data)
+          const phoneChangeErrMsg = document.getElementById('phone-change-error-msg')
+          phoneChangeErrMsg.textContent = data.errorMsg || 'An error occured'
+          phoneChangeErrMsg.classList.add('error-msg-show')
+        }
+      } catch (error) {
+        console.log('Error: ', error.message)
+        const phoneChangeErrMsg = document.getElementById('phone-change-error-msg')
+        phoneChangeErrMsg.textContent = "Server error. Retry later!"
+        phoneChangeErrMsg.classList.add('error-msg-show')
+      }
+
+
+
+
+
+
+
+
+    })
+  </script>
+</body>
+</html>

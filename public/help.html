@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Centre | P`Way</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel = "stylesheet" href="css/help.css">
+  <link href = "css/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel>
+
+
+</head>
+<body>
+  <header>
+    <div class = "heading-two">P`Way</div>
+
+      <span class = "active">
+        <i class="fa fa-home" aria-hidden="true" style = "display: none;"></i>
+        <a href = "index.html" >Home</a>
+      </span>
+      
+      
+      <span>
+        <i class="fa fa-user" aria-hidden="true" style = "display: none;"></i>
+        <a href = "account.html" >Account</a>
+            
+      </span>
+      
+    
+  </header>
+
+  <!-- Help Search bar-->
+  <div class = "help-searchbar">
+    <div class = "select-search">
+      <select name = "searchBySelect">
+        <option name = 'select' value = 'topic' selected>Topic</option>
+        <option name = 'select' value = 'question'>Question</option>
+      </select>
+    </div>
+       
+    <input type = 'text' name = 'help-search-input' placeholder = 'Search your concern here'>
+
+    <div class = "icon-container">
+      <i id = 'search-icon' class="fa fa-search" aria-hidden="true"></i>
+
+    </div>
+  </div>
+  
+<div class = "marquee-container">  
+  <marquee>Your Convenience At Shopping Is Our Priority</marquee>
+</div> 
+
+
+  <div class = "align-blocks">
+    <div class = "topics-container">
+      <div style = "margin-left: 2%;"><b>Frequently Searched Topics</b></div>
+      <br>
+  
+      <div onclick="window.location.href ='order answers.html'" class = 'topics'><span><i  class="fa fa-angle-double-right" aria-hidden="true"></i></span>About orders</div>
+      <div onclick = "window.location.href ='aftersales answers.html'" class = 'topics'><span><i  class="fa fa-angle-double-right" aria-hidden="true"></i></span>Aftersales</div>
+      <div onclick = "window.location.href ='payment answers.html'"  class = 'topics'><span><i  class="fa fa-angle-double-right" aria-hidden="true"></i></span>Payments</div>
+      <div onclick = "window.location.href ='refund answers.html'"  class = 'topics'><span><i  class="fa fa-angle-double-right" aria-hidden="true"></i></span>Refund me</div>
+      <div onclick = "window.location.href ='selection answers.html'"  class = 'topics'><span><i  class="fa fa-angle-double-right" aria-hidden="true"></i></span>Product selection</div>
+      <div onclick = "window.location.href ='accmangt answers.html'"  class = 'topics'><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Account management</div>
+      <br>
+    
+    </div>
+    
+    <div class = "general-solutions-container">
+      <h4><b>Quick solutions</b></h4 >
+        <br>
+  
+      <div id = 'location' onclick = "window.location.href = 'change_shipping_address.html'"> <i style = "color: orange;" class="fa fa-location-arrow" aria-hidden="true"></i>Manage shipping address</div>
+      <div id = 'email' onclick = "window.location.href ='email_phonechange_req.html'"><i style = "color: rgb(58, 180, 228);background-color: white;" class="fa fa-envelope" aria-hidden="true"></i>Change Email</div>
+      <div id = 'pass' onclick = "window.location.href = 'request_reset.html'"> <i style = "color: rgb(157, 236, 40);" class="fa fa-key" aria-hidden="true"></i>Change password</div>
+      <div id = 'set-quiz' onclick = "window.location.href = 'security_quiz.html'"> <i style = "color: green;" class="fa fa-shield" aria-hidden="true"></i>Set security question</div>
+      <div id = 'edit' onclick = "window.location.href = 'edit_profile.html'"> <i style = "color: rgb(206, 91, 110);" class="fa fa-pencil-square" aria-hidden="true"></i>Edit profile</div>
+      <div id ='settings' onclick = "window.location.href = 'settings.html'"><i style = "color: fuchsia;" class="fa fa-cog" aria-hidden="true"></i>Settings</div>
+      <div id = 'report' onclick = "window.location.href = 'feedback.html'"><i style = "color: rgb(244, 15, 15);" class="fa fa-bug" aria-hidden="true"></i>Report bug</div>
+      <br>
+    </div>
+  </div>
+
+  <div class = "questions-container">
+    <h4>Frequently Asked Questions(FAQ)</h4>
+
+    <div class = "faq-container">
+        <div>When will I receive my order?</div>
+        <div>I haven't received my refund. Next?</div>
+        <div>How do I track my order?</div>
+        <div>How do I cancel my order</div>
+
+
+        <div>How do I reach seller?</div>
+        <div>How do I return goods.</div>
+        <div>Product received not matching descriptions. Next?</div>
+
+      
+    </div>
+
+    
+  </div>
+
+<br>  
+    <script>
+      const locationHover = document.getElementById('location')
+
+        locationHover.addeventListener('mouseover', ()=>{
+        locationHover.style.boxShadow = ''
+        locationHover.style.boxShadow
+      })
+    </script>
+</body>
+</html>

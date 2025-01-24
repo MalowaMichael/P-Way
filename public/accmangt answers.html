@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <title>Help Centre-About Orders</title>
+  <link rel = "stylesheet" href= "css/answers.css">
+
+  <script>
+    $(document).ready(function(){
+      $("#open1").click(function (){
+        $("#open1").toggleClass('fa fa-sort-desc fa fa-sort-asc')
+        $("#answer1").toggle(1000)
+      })
+      $("#open2").click(function (){
+        $("#open2").toggleClass('fa fa-sort-desc fa fa-sort-asc')
+        $("#answer2").toggle(1000)
+      })
+      $("#open3").click(function (){
+        $("#open3").toggleClass('fa fa-sort-desc fa fa-sort-asc')
+        $("#answer3").toggle(1000)
+      })
+      $("#open4").click(function (){
+        $("#open4").toggleClass('fa fa-sort-desc fa fa-sort-asc')
+        $("#answer4").toggle(1000)
+        $(".warning").toggle(1000)
+
+      })
+
+      //Display hidden tabs
+      $("#more-btn").click(function (event){
+        event.stopPropagation()
+        $(".hidden-tabs").toggle(2000)
+      })
+      $(window).click(function (){
+        $(".hidden-tabs").css("display", "none")
+      })
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    <span>
+      <a href="help.html"><span id = "angle-blink"class = "fa fa-arrow-left"></span></a>
+    </span>
+    <span class = "header-text">Manage Account</span>
+
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>    
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+  <br>
+
+    <div class = "wrapper">
+      <div class = "container"><h4 class = "quiz">I forgot my password.How to reset my password</h4>
+        <span class = 'desc-icon'><i id = "open1" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+          <ol id = "answer1">
+            <li><b>Step 1</b>: Go to <u style="color:blue;"><a href="login.html">Login page</a></u>. Click the <u style="color:blue;"><a href="reset.html">Forgot password</a></u> link</li>
+            <li><b>Step 2</b>: Similarly, <a href="reset">click this link</a> to reset your password directly</li>
+          </ol>
+      </div>
+      <br>
+      <div class = "container"><h4 class = "quiz">How do I change my email address</h4>
+        <span class = "desc-icon"><i id = "open2" class = "fa fa-sort-desc"></i></span>
+          <ol id = "answer2">
+            <li><b>Step 1</b>: Log in, go to settings in the account tab</li>
+            <li><b>Step 2</b>: Click change email address</li>
+            <br>
+            <p>OR click this link <a href="">Change email address</a></p>
+          </ol>
+          <br>
+      </div>
+      <br>
+      <div class = "container"><h4 class = "quiz">How do I change my account information</h4>
+        <span class = "desc-icon"><i id = "open3" class = "fa fa-sort-desc"></i></span>
+        <ol id = "answer3">
+          <li><b>Step 1</b>: Go to <u style = "color:blue;"><a href="Settings.html">Settings</a></u> and select what you would like to do</li>
+        </ol>
+  
+      </div>
+      <br>
+  
+      <div class = "container"><h4 class = "quiz">How do I delete my account</h4>
+        <span class = "desc-icon"><i id = "open4" class = "fa fa-sort-desc"></i></span>
+        <p class = "warning" style = "color:red;">Attention: Once you delete your account, it can't be restored. All your information; personal data and order information will be permanently deleted.</p>
+        <ol id = "answer4">
+          <li><b>Step 1</b>:Go to <u style = "color:blue">privacy center </u>in the <u style = "color:blue;">settings</u> and click on delete my account</li>
+          <li><b>Step 2</b>:We will run a check to spot if you have active order or unpaid payments. Please complete all order payments first.</li>
+          <li><b>Step 3</b>:Run through the verification process to ensure it is the account owner proceeding</li>
+          
+        </ol>
+      </div>
+      <br>
+      
+    </div>
+    
+
+</body>
+</html>

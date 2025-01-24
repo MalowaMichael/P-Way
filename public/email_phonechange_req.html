@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Email Address</title>
+    <link rel = "stylesheet" href = "css/user_account.css">
+</head>
+<body>
+  <header>
+  
+    <a href="account.html"><span class = "fa fa-arrow-left"></span>
+    </a>
+    <button class = "login-btn" type = "button" onclick = "window.location.href = 'login.html'" >Log in</button>
+
+    <span class = "tab-links"><a href="index.html">Home</a></span>
+
+  <h2></h2>
+
+</header>
+<br>
+    <div class = "wrapper">
+
+      <div class = "request-change-container">
+        <h2>Request Email <span style = "font-family: monospace;color: fuchsia;">OR</span> Phone Change</h2>
+
+        <div id = "reqchange-success-msg" class = "success-msg">
+            <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+            <span class = "success-text"></span>
+          </div>
+
+
+        <div id = "reqchange-error-msg" class = "error-msg">
+            <i id = 'mess-icon'></i>
+            <span class = "error-text"></span>
+        </div>
+
+            <form id = "request-change-form" action = "/email_phonechange_req" method = "post">
+
+              <div class = "radio-group">
+                <label>
+                  <input id = "email" type="radio" name="changeOption" value="email"> <span id = "email-text">Email</span>
+                </label>
+                <label>
+                  <input id = "phone" type="radio" name="changeOption" value="phone"> <span id = "phone-text">Phone</span>
+                </label>
+              </div>
+              <br>
+              <br>
+              
+                <label >
+                <input id = "email-input" type = "email" name = "Email_address" placeholder="Current email">
+
+              </label>
+                <br>
+                <br>
+                <br>
+                
+                <button id = "submit-btn" class = "change-btn" type = "submit">Continue</button>
+                <br>
+                <br>
+                <p id = "output"></p>
+            </form>
+            <br>
+            <br>
+    </div>
+
+    </div>
+
+
+
+    <script>
+        const btn = document.getElementById('submit-btn')
+
+        //Change submit button color when input exists
+    const checkInputs = () =>{
+      const Inputs = document.querySelectorAll('input')
+
+      var inputsFilled = true;
+
+      inputs.forEach(input => {
+        if(!input.value.trim()){
+          inputsFilled = false;
+        }
+
+        if (inputsFilled) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const inputs = document.querySelectorAll('input')
+    inputs.forEach(input =>{
+      input.addEventListener('input', checkInputs)
+    })
+
+
+        //handle the radio buttons
+        const radioBtns = document.querySelectorAll('input[name = "changeOption"]')
+          
+          for(const radioBtn of radioBtns){
+            radioBtn.addEventListener('change', selectedOption)
+
+          }
+
+            function selectedOption(e) {
+              console.log(e)
+              if(this.checked){
+                document.getElementById('output').innerText = `You have opted to change - ${this.value}`
+
+              }
+            }
+              
+            //submit the form
+            document.getElementById('request-change-form').addEventListener('submit', async(e)=>{
+              e.preventDefault();
+              const inputEmail = document.getElementById('email-input').value.trim();
+
+
+
+              try {
+                const response = await fetch('/email_phonechange_req', {
+                method: "post",
+                headers: {'content-Type': 'application/json'},
+                body:JSON.stringify({Email_address: inputEmail})
+
+              })
+              const info = await response.json()
+              console.log('Server response:', info); // Log for debugging
+
+
+              if (response.ok) {
+
+                function showSuccMsg(message){
+
+                const reqChangeSuccMsg = document.getElementById('reqchange-success-msg')
+
+                reqChangeSuccMsg.textContent = message;
+                reqChangeSuccMsg.classList.add('show')
+
+                //remove the show class after three seconds
+                setTimeout(() => {
+                  reqChangeSuccMsg.classList.remove('show')
+
+                }, 3000);
+
+              }
+
+                //simulate a successful operation
+                  showSuccMsg(info.reqSuccMsg)
+
+
+                //redirect to the next page after eight seconds
+                const selectedOption = document.querySelector('input[name = "changeOption"]:checked').value;
+
+
+                
+                /*if(selectedOption === 'email'){
+                  destination = encodeURIComponent('/change_email');
+                }else if (selectedOption === 'phone') {
+                  destination = encodeURIComponent('/change_pnone');
+                }*/
+
+                let destination = selectedOption === 'email'? '/change_email':'/change_phone';
+                console.log('Selected option is: ', selectedOption)
+                console.log('Redirection destination: ', destination)
+
+            // Redirect to verification code page with destination URL
+            setTimeout(() => {
+              const url = `/verify_code?context=${selectedOption}&destination=${encodeURIComponent(destination)}`;
+              console.log('Redirect to: ', url)
+                //const encodedDestination = encodeURIComponent(destination);
+                window.location.href = url;
+            }, 5000);
+
+
+            }else{
+              console.log("Error response: ", info);
+
+              const reqChangeErrMsg = document.getElementById('reqchange-error-msg')
+
+              reqChangeErrMsg.textContent = info.errorMsg || 'An error occured'
+              reqChangeErrMsg.classList.add('error-msg-show')
+            }
+
+          } catch (error) {
+            console.log('Error encountered',  error.message);
+            const reqChangeErrMsg = document.getElementById('reqchange-error-msg')
+            reqChangeErrMsg.textContent = 'Server error. Retry later.'
+
+          }
+
+
+
+            })
+      
+
+    </script>
+</body>
+</html>

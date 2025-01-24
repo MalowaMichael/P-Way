@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Feedback-P'Way Shoppers\</title>
+  <link rel = "stylesheet" href = "css/settings.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script>
+    $(function(){
+      $('#more-btn').click(function(){
+        $('.hidden-tabs').toggle(2000)
+      })
+    })
+  </script>
+</head>
+<body>
+  
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    <span><a href="account.html"><i id = 'user' class="fa fa-user" aria-hidden="true"></i></a></span>
+    <span><a href="index.html"><i id = 'home' class="fa fa-home" aria-hidden="true"></i></a></span>    
+    
+
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+  <br>
+     
+        <div class = "wrapper">
+
+            <div class = "container">
+              
+
+                <h2 class = "feedback">Feedback</h2>     
+              
+              <div id = "report-success-msg" class = "success-msg">
+                <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+                <span class = "success-text"></span>
+              </div>
+              <div id = "report-error-msg" class = "error-msg">
+
+              </div>
+                
+                            
+              <p class ="first-paragraph">Your feedback is of prime significance. Please tell us the problems you encounter or features you may require as well as report bugs.<br> 
+                This will help us to improve P'WayExpress to ultimate user satisfaction.</p>
+
+            </div>
+
+            <div class = "container">           
+              <form id = "feedback-form" action = '/feedback' method = "post">
+                <label for ="topics">What would you like to talk about?</label>
+                <select name = "Reporting" class = "select-input">
+                  <option value = "select">--Select--</option>
+                  <option value = 'suggestion'>Make suggestion</option>
+                  <option value = "bug" >Report bug</option>
+                  <option value = "seller">Report seller</option>
+                  <option value = "feature">Request feature</option>
+                  <option value = "issue">Report other issue</option>
+
+                </select>
+                <br>
+                <br>
+                <textarea name = "Report_Description" class = "description" cols="40" rows="10" placeholder="Please, put your concern in details..." maxlength="250"></textarea>
+                <p id = 'char-num' style = "color: red;display: none;margin-left: 5%;font-family: 'Courier New', Courier, monospace;">Maximum words 150.</p>
+
+              <br>
+              <label for = "email">Your Email</label><br>
+              <input id = "email-input" type = "email" name = "Email_address" placeholder="Email here"/>
+              <br>
+              <br>
+              <br>
+              <button id ="submit-btn" type = "submit" class = "submit" name = "submit" >Submit</button>
+              <br>
+              </form>
+              <br>
+              <br>
+
+                </div>
+
+              </div>
+  <br>
+  <br>
+  
+  
+    </div>
+    <script>
+      const btn = document.getElementById('submit-btn')
+
+      btn.addEventListener('mouseover', ()=>{
+        btn.style.cursor = 'pointer'
+        btn.style.fontSize = '20px'
+        btn.style.color = 'fuchsia'
+        btn.style.backgroundColor = 'green'
+      })
+
+      btn.addEventListener('mouseout', ()=>{
+        btn.style.cursor = 'pointer'
+        btn.style.fontSize = '18px'
+        btn.style.color = 'white'
+        btn.style.backgroundColor = 'fuchsia'
+
+      })
+
+
+      //check if the textarea is activated then display the text size warning
+      document.querySelector('textarea').addEventListener('input', ()=>{
+        const messageSize = document.getElementById('char-num')
+
+        messageSize.style.display = 'block'
+
+      })
+
+      //submit all form data
+      document.querySelector('#feedback-form').addEventListener('submit', async(event) =>{
+        event.preventDefault();
+
+        const feedbackData = new FormData(event.target)
+
+        const individualData = Object.fromEntries(feedbackData.entries())
+
+        try {
+          const response = await fetch('/feedback', {
+            method:'post',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(individualData)
+          })
+
+          const serverResponse = await response.json()
+
+          if (response.ok) {
+
+            const showReportSuccMsg = (message) =>{
+              const reportSuccmsg = document.getElementById('report-success-msg')
+            reportSuccmsg.textContent = messageSize
+            reportSuccmsg.classList.add('show')
+
+            setTimeout(() => {
+              reportSuccmsg.classList.remove('show')
+            }, 3000);
+
+
+            }
+            showReportSuccMsg(serverResponse.reportSuccMsg)
+
+            
+          }else{
+            console.log('Erroneous response: ', serverResponse)
+            const reportErrMsg = document.getElementById('report-error-msg')
+            reportErrMsg.textcontent = serverResponse.errorMsg || 'An error likely occured.'
+            reportErrMsg.classList.add('error-msg-show')
+          }
+        } catch (error) {
+          console.log('Error: ', error.message)
+          const reportErrMsg = document.getElementById('report-error-msg')
+          reportErrMsg.textContent = 'Internal server error. Try again later.'
+
+        }
+
+      })
+
+
+    </script>
+</body>
+</html>

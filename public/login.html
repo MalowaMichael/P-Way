@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P`Way-Login</title>
+  <link rel = "stylesheet" href = "css/user_account.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+ 
+</head>
+<body id = "login-body">
+  <div class = "container">
+    <h2>Welcome Back</h2>
+
+    <div id = "login-success-msg" class = "success-msg">
+      <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+      <span class = "success-text"></span>
+    </div>
+
+    <div class = "error-msg" id = "login-error-msg"></div>
+
+    <form id = "login-form" action = "/login" method="post">
+         <label> Username/Email address</label><br>
+          <input id = "email-input" type = 'text' name = Email_address autocomplete="off" placeholder="Username or email here">
+
+          <br>
+          <br>
+          <label>Password</label><br>
+          <input id = "pass-input" type = "text" class = "password" name = "User_password" autocomplete="new-password" placeholder="Password here">
+          <span >
+            <i onclick = "togglePassword()" id = "show-hide" class="fa fa-eye-slash" aria-hidden="true"></i>
+
+          </span>
+          <!--<i  id = "hide-pass" class="fa fa-eye-slash" aria-hidden="true"></i>-->
+
+        <br>
+        <br>
+       <div class = "forgot-remember">
+          <div>
+            <a href = "request_reset.html" class = "container-forgot">Forgot password?</a>&nbsp;  
+
+          </div>
+      <div>
+      <input type = "checkbox"><span>Remember me</span>
+
+      </div>          
+        </div>
+      <br>
+      <br>
+      <button class = "signup-login" id = "login-btn" type = "submit" name = "login">Sign in</button>
+    </form>
+    <br>
+    <div class = "link">
+      <p>Don't have an account? <a href = "signup.html" target="_blank">Create account</a></p>
+
+    </div>
+    <br>
+
+  </div>
+  <script>
+    const loginMsg = document.getElementById('login-success-msg');
+    const btn = document.getElementById('login-btn')
+    
+    btn.addEventListener('mouseover', ()=>{
+      btn.style.cursor = 'pointer'
+      btn.style.color = 'rgb(242, 242, 192)'
+
+    })
+    btn.addEventListener('mouseout', ()=>{
+      btn.style.cursor = 'pointer'
+      btn.style.color = 'blue'
+
+    })
+
+    
+
+    const togglePassword = ()=>{
+      const passField = document.querySelector('.password');//get the input field
+      const showHideIcon = document.getElementById('show-hide')
+
+      showHideIcon.addEventListener('click', ()=>{
+        if(passField.type === 'text'){
+          passField.type = 'password'
+          showHideIcon.classList.remove('fa-eye-slash')
+          showHideIcon.classList.add('fa-eye')
+        }else{
+          passField.type = 'text'
+          showHideIcon.classList.remove('fa-eye')
+          showHideIcon.classList.add('fa-eye-slash')
+        }
+      })
+
+    }
+ 
+
+    //Change submit button color when input exists
+    const checkLoginInputs = () =>{
+      const loginInputs = document.querySelectorAll('input')
+
+      var inputsPopulated = true;
+
+      loginInputs.forEach(input => {
+        if(!input.value.trim()){
+          inputsPopulated = false;
+        }
+
+        if (inputsPopulated) {
+          btn.classList.add('active')          
+          btn.classList.remove('faded')
+          btn.disabled = false;
+        }else{
+          btn.classList.remove('active')
+          btn.classList.add('faded')
+          btn.disabled = true
+        }
+
+        
+      });
+
+    }
+
+   //add input event listener to the inputs
+   const loginInputs = document.querySelectorAll('input')
+    loginInputs.forEach(input =>{
+      input.addEventListener('input', checkLoginInputs)
+    })
+
+    
+    
+    //submit form
+    const loginActivity = document.getElementById('login-form').addEventListener('submit', async(event) =>{
+      event.preventDefault();
+
+      const emailAddress = document.getElementById('email-input').value.trim();
+      const pass = document.getElementById('pass-input').value;
+      try {
+
+        const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Email_address: emailAddress, User_password:pass })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Show success message and change button content
+                function showSuccMsg(){
+                  const succIcon = document.getElementById('successIcon');
+                    
+                    loginMsg.textContent = data.loginMsg;
+                    loginMsg.classList.add('show')  
+
+                    //Ensure icon visibility
+                    succIcon.style.display = 'inline-block'
+  
+                    //remove the show class after three seconds
+                  setTimeout(() => {
+                    loginMsg.classList.remove('show')
+
+                  }, 3000);
+                }
+                //simulate a successful operation
+                setTimeout(() => {
+                  showSuccMsg(data.loginMsg)
+                }, 1000);
+                
+                  //simulate a successful operation
+                  setTimeout(() => {
+                    showSuccMsg(data.loginMsg)
+                  }, 1000);
+
+                // Redirect to next page after delay
+                setTimeout(() =>{
+                  window.location.href = '/index'
+                }, 8000)
+
+            } else  {
+              console.log("Error response: ", data);
+              const loginErrMsg = document.getElementById('login-error-msg')
+              loginErrMsg.textContent = data.errorMsg || 'An error occurred.';
+              loginErrMsg.classList.add('error-msg')
+          }
+        
+      } catch (error) {
+        console.log('Error', error);
+        const loginErrMsg = document.getElementById('login-error-msg')
+        loginErrMsg.textContent = 'An unexpected error occured. Try again later!';
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Centre-Payments</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel = "stylesheet" href= "css/answers.css">
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script>
+    $(function(){
+      $('#open1 ').click(function(){
+        $('#open1 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer1').toggle(1500);
+
+      });
+
+      $('#open2 ').click(function(){
+        $('#open2 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer2').toggle(1500);
+
+      });
+
+      $('#open3 ').click(function(){
+        $('#open3 ').toggleClass("fa-sort-desc fa-sort-asc");
+        $('#answer3').toggle(1500);
+
+      });
+      //code for the fading link
+      /*setInterval(function () {
+        $("#angle-blink").fadeIn(1800, function () {
+          $("#angle-blink").fadeOut(1800);
+        });
+        
+        
+      }, 1000);*/
+
+      //code for displaying the nav bar in smaller devices
+      $("#more-btn").click(function (event){
+        event.stopPropagation()
+        $(".hidden-tabs").toggle(2000);
+      });
+      
+      //Hide the hidden tabs when the user clicks anywhere outside their dropdown
+      $(window).click(function (){
+        $(".hidden-tabs").css("display", "none")
+      })
+
+      
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+
+    <span>
+      <a href="help.html" ><span id = "angle-blink" class = "fa fa-arrow-left"></span></a>
+    </span>
+    <span class = "header-text">About payments</span>
+
+    <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>    
+    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+    
+    <div class = "hidden-tabs">
+      <a  href="index.html"><span class = "tab-links">Home</span></a>
+      <a  href="account.html"><span class = "tab-links">Account</span></a>
+      <a  href="help.html"><span class = "tab-links">Help</span></a>
+    
+    </div>
+  </header>
+<br>
+
+   <div class = "wrapper">
+    <div class = "container"><h4 class = "quiz">How do I make payments</h4>
+      <span class = 'desc-icon'><i id = "open1" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer1">
+          <li>After confirming order placement at the <u style = "color:blue;">Checkout</u> then choose the payment method that suits you: <br><br>
+          <ul>
+            <li><b>Cards/bank tranfser</b></li>
+            <li><b>Mobile money( M-pesa)</b></li>
+            <li><b>Voucher</b></li>
+          </ul></li>
+        </ol>
+    </div>
+    <br>
+
+    <div class = "container"><h4 class = "quiz">Available payment methods</h4>
+      <span class = 'desc-icon'><i id = "open2" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer2">
+          <p>The available payments methods are: </p><br>
+          <li><b>Cards/Bank tranfser</b></li>
+          <li><b>Mobile money(M-pesa)</b></li>
+          <li><b>Voucher</b></li>
+        </ol>
+    </div>
+    <br>
+
+    <div class = "container"><h4 class = "quiz">Payment on delivery</h4>
+      <span class = 'desc-icon'><i id = "open3" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
+        <ol id = "answer3">
+          <li>We accept payment on delivery for locally delivered goods only.<br>
+          <br>Should there be some defects, our <u style = "color:blue;">Aftersales</u> services will assist you</li>
+        </ol>
+    </div>
+    <br>
+
+   </div>
+  
+</body>
+</html>
