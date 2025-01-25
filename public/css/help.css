@@ -436,7 +436,7 @@
                         .nav-bar-tabs{
                           width: 100%;
                           
-                          height: 60px;
+                          height: 55px;
                           display: grid;
                           grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
                           margin-left: 0%;
@@ -446,24 +446,35 @@
                           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
                           
                         }
-                        div.icon-container i#home{
+                        div.bottnav-icon-container i{
+                          color: rgb(10, 10, 10, 0.7);
+                        }
+                        .bottnav-icon-container{
+                          border-left: 1px solid rgb(111, 110, 110, 0.7);
+                        }
+                        .bottnav-icon-container:nth-child(1){
+                          border-left: none;
+                        }
+
+                        div.bottnav-icon-container i#home{
                           transform: translateX(200%);
                         }
                         
 
-                        div.icon-container i#shopping-bag{
+                        div.bottnav-icon-container i#shopping-bag{
                           transform: translateX(250%);
                         }
 
-                        div.icon-container i#cart{
+                        div.bottnav-icon-container i#cart{
                           transform: translateX(200%);
                         }
                         
-                        div.icon-container i#user{
+                        div.bottnav-icon-container i#user{
                           transform: translateX(200%);
                         }
                         p.icon-text{
-                          transform: translateX(250%);
+                          transform: translateX(25%);
+                          padding-bottom: 5px;
                         }
                         
                         /*Searchbar stylings*/
@@ -568,6 +579,7 @@
                           max-width: 94%;
                           margin-left: 1.5%;
                           position: relative;
+                          margin-bottom: 4%;
                           z-index: -1;
                           
 

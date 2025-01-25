@@ -1555,7 +1555,9 @@
         }
         
 
-        .layer-two-tabs i#user:hover{
+        .layer-two-tabs i#user:hover{ div.account-dropdown{
+          display: none;
+        }
           color: orangered;
         }
   
