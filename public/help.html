@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Help Centre | P`Way</title>
+  <title>P`Way | Help</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel = "stylesheet" href="css/help.css">
   <link href = "css/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel>
@@ -17,14 +17,40 @@
       <span class = "active">
         <i class="fa fa-home" aria-hidden="true" style = "display: none;"></i>
         <a href = "index.html" >Home</a>
-      </span>
-      
+      </span>      
       
       <span>
         <i class="fa fa-user" aria-hidden="true" style = "display: none;"></i>
         <a href = "account.html" >Account</a>
             
       </span>
+
+      <div class = 'bottom-nav'>
+        <div class = "nav-bar-tabs">
+          <div  class = "icon-container">          
+            <i onclick = "windows.location.html = 'categories.html'" id = "shopping-bag" class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <p class = "icon-text">Categories</p>
+    
+          </div>
+          <div id = 'user-account-icon' class = 'icon-container'>      
+            <i onclick = 'window.location.href = "account.html"' id = 'user' class="fa fa-user-circle" aria-hidden="true"></i>
+            <p class = 'icon-text'>Account</p>
+            
+          </div>
+          <div class = "icon-container">
+            <i onclick = "window.location.href = 'wishlist.html'" id = 'wishlist' class="fa fa-heart" aria-hidden="true"></i>
+            <p class = "icon-text">Wishlist</p>
+    
+          </div>
+          
+          <div class = "icon-container">
+            <i onclick = "window.location.href ='cart.html'" id = 'cart' class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            <p class = "icon-text">Cart</p>
+      
+          </div>
+        </div>
+      </div>
+    </div>
       
     
   </header>
@@ -67,13 +93,13 @@
     </div>
     
     <div class = "general-solutions-container">
-      <h4><b>Quick solutions</b></h4 >
-        <br>
+      <div style = "margin-left: 2%;"><b>Quick Solutions</b></div>
+      <br>
   
-      <div id = 'location' onclick = "window.location.href = 'change_shipping_address.html'"> <i style = "color: orange;" class="fa fa-location-arrow" aria-hidden="true"></i>Manage shipping address</div>
-      <div id = 'email' onclick = "window.location.href ='email_phonechange_req.html'"><i style = "color: rgb(58, 180, 228);background-color: white;" class="fa fa-envelope" aria-hidden="true"></i>Change Email</div>
+      <div id = 'location' onclick = "window.location.href = 'change_shipping_address.html'"> <i style = "color: orange;" class="fa fa-map-marker" aria-hidden="true"></i>Manage shipping address</div>
+      <div id = 'email' onclick = "window.location.href ='email_phonechange_req.html'"><i style = "color: rgb(58, 180, 228);" class="fa fa-envelope" aria-hidden="true"></i>Change Email</div>
       <div id = 'pass' onclick = "window.location.href = 'request_reset.html'"> <i style = "color: rgb(157, 236, 40);" class="fa fa-key" aria-hidden="true"></i>Change password</div>
-      <div id = 'set-quiz' onclick = "window.location.href = 'security_quiz.html'"> <i style = "color: green;" class="fa fa-shield" aria-hidden="true"></i>Set security question</div>
+      <div id = 'set-quiz' onclick = "window.location.href = 'security_quiz.html'"> <i style = "color: green;" class="fa fa-shield" aria-hidden="true"></i>Add guard</div>
       <div id = 'edit' onclick = "window.location.href = 'edit_profile.html'"> <i style = "color: rgb(206, 91, 110);" class="fa fa-pencil-square" aria-hidden="true"></i>Edit profile</div>
       <div id ='settings' onclick = "window.location.href = 'settings.html'"><i style = "color: fuchsia;" class="fa fa-cog" aria-hidden="true"></i>Settings</div>
       <div id = 'report' onclick = "window.location.href = 'feedback.html'"><i style = "color: rgb(244, 15, 15);" class="fa fa-bug" aria-hidden="true"></i>Report bug</div>
@@ -82,7 +108,8 @@
   </div>
 
   <div class = "questions-container">
-    <h4>Frequently Asked Questions(FAQ)</h4>
+    <div style = "margin-left: 1%;"><b>Frequently Asked Questions</b></div>
+    <br>
 
     <div class = "faq-container">
         <div>When will I receive my order?</div>
