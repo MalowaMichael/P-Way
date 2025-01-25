@@ -449,6 +449,8 @@
                         div.icon-container i#home{
                           transform: translateX(200%);
                         }
+                        
+
                         div.icon-container i#shopping-bag{
                           transform: translateX(250%);
                         }
