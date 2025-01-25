@@ -365,7 +365,7 @@
                       }
 
                       .questions-container {
-                        animation: moveFromBottom 4s ease-out;
+                        animation: moveFromBottom 2.5s ease-out;
                         animation-delay: 3.5s; /* Delay to make the sequence smoother */
                         opacity: 0; /* Start hidden */
                         animation-fill-mode: forwards; /* Ensures the animation stays in its end position */
@@ -430,12 +430,12 @@
                           bottom: 0;
                           right: 0;
                           left: 0;
-                          width: 98%;
                           margin-right: 1%;
                           margin-left: 1%;
                         }
                         .nav-bar-tabs{
-                          width: 50%;
+                          width: 100%;
+                          
                           height: 60px;
                           display: grid;
                           grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
@@ -446,6 +446,24 @@
                           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
                           
                         }
+                        div.icon-container i#home{
+                          transform: translateX(200%);
+                        }
+                        div.icon-container i#shopping-bag{
+                          transform: translateX(250%);
+                        }
+
+                        div.icon-container i#cart{
+                          transform: translateX(200%);
+                        }
+                        
+                        div.icon-container i#user{
+                          transform: translateX(200%);
+                        }
+                        p.icon-text{
+                          transform: translateX(250%);
+                        }
+                        
                         /*Searchbar stylings*/
                         div.help-searchbar{
                           width: 96%;
@@ -510,7 +528,7 @@
                           display: grid;
                           position: relative;
                           grid-template-columns: repeat(1, 1fr); /* 1  columns */
-                          z-index: 1000;
+                          z-index: -1;
                           
                         }
                         .topics-container div.topics{
@@ -528,7 +546,7 @@
                           margin-bottom: 4%;
                           grid-template-columns: repeat(1, 1fr); 
                           position: relative;
-                          z-index: 1000;
+                          z-index: -1;
                           
                         }
                         .general-solutions-container div{
@@ -544,24 +562,24 @@
                         }
 
 
-                        .questions-container {
-                          width: 94%;
+                        div.questions-container {
+                          max-width: 94%;
                           margin-left: 1.5%;
-                          display: grid;
-                          margin-bottom: 2%;
-                          grid-template-columns: repeat(1, 1fr); 
                           position: relative;
-                          z-index: 1001;
+                          z-index: -1;
+                          
 
                         }
                         .questions-container div.faq-container{
                           display: grid;
                           grid-template-columns: repeat(1, 1fr); 
+                          margin-right: 1%;
+
                         }
                         div.faq-container div{
-                          width: 200%;
+                          width: 100%;
                           line-height: 1.5;
-                          background-color: salmon;
+                          background-color: blue;
                         }
                       }
 
