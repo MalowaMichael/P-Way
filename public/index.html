@@ -40,10 +40,11 @@
 
   <div class = "layer-two">
     <div class = 'menu-bar'>
-      <i id = 'side-menu' class="fa fa-bars" aria-hidden="true"></i>
+      <i id = 'harmburger' class="fa fa-bars" aria-hidden="true"></i>
 
     </div>
     <div class = "all-categories">
+      
       <div class = "visible-text">All Categories</div>
 
       <!--Dropdown for all categories-->
@@ -471,11 +472,11 @@
     //stylings for categories
     const allCategoriesBlock = document.querySelector('.all-categories')
     const allCategories = document.querySelector('.categories')
-    const responsiveCategDrop = documnt.querySelector('menu-bar')
+
+
 
     allCategoriesBlock.addEventListener('mouseover', showAllCategories)
     allCategoriesBlock.addEventListener('mouseout', showAllCategories)
-    responsiveCategDrop.addEventListener('click', displayCategoriesOnPhones)
 
     function showAllCategories(hover) {
       if (hover.type === 'mouseover') {
@@ -484,17 +485,34 @@
       }else{
         allCategories.style.display = 'none'
       }
-    }
 
-    function displayCategoriesOnPhones(event) {
-      //when user clicks the menu bar
-      if (event.target === responsiveCategDrop) {
-        responsiveCategDrop.classList.add('fa-times')
-        allCategories.classList.add('slow-categories')
-        allCategories.style.display = 'block'
       
     }
-    }
+
+
+    //responsive categories menu
+
+      const harmburger = documnt.querySelector('#harmburger')
+      const categories = document.querySelector('.categories')
+
+      harmburger.addEventListener('mouseover', showResponsiveCategories)
+      harmburger.addEventListener('mouseout', showResponsiveCategories)
+
+      function showResponsiveCategories(event) {
+          if (event.type === 'mouseover') {
+            
+            categories.style.display = 'block'
+
+          }else{
+            harmburger.classList.remove('fa-times')
+            harmburger.classList.add('fa-bars')
+            categories.style.display = 'none'
+          }
+        }
+        
+    
+    
+      
     
     const homeCategories = document.querySelector('.home')
     const homeCategDropdown = document.querySelector('.categories-dropdown')

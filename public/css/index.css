@@ -537,8 +537,7 @@
 
       .camera-icon-container i{
         color: rgb(18, 18, 18, 0.8);
-        padding-top: 5px;
-        padding-bottom: 0.5px;
+       transform: translateY(50%);
         font-size: 1.5rem;
       }
       .camera-icon-container i:hover{
@@ -794,6 +793,77 @@
           height: 30px;
           margin-top: 5%;
         }
+        .slow-categories{
+          animation: moveFromLeft 1.5s ease-out;
+          animation-fill-mode: forwards;
+        }
+  
+        @keyframes moveFromLeft{
+          0%{
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+          100%{
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+  
+        .categories{
+          width: 250%;
+          top: 60%;
+          font-size: 20px;
+          line-height: 2;
+          display: none;
+          position: absolute;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 5px;
+          border: 1.5px solid white;
+          border-radius: 5px;
+          background-color: rgb(241, 239, 239);
+          z-index: 1001;
+        }
+  
+        .categories div{
+          width: 90%;
+          height: 40px;
+          margin-left: 1%;
+          margin-right: 1%;
+          margin-top: 2%;
+          position: relative;
+          padding-left: 10px;
+          box-shadow: 0 80px 15px rgb(0, 0, 0, 0.2);
+          background-color: rgb(255, 255, 255, 1.5);
+        }
+  
+        .categories div:hover{
+          color: orangered;
+          cursor: pointer;
+          transform: translateX(5px);
+          font-size: 22px;
+          transition: 0.8s ease-out;
+          box-shadow: 0 8px 15px rgb(255, 69, 0, 0.5);
+          
+        }
+        .categories-dropdown{
+          width: 40px;
+          position: absolute;
+          margin-left: 4%;
+          display: none;
+          z-index: 9999;
+        }
+        .categories-dropdown:hover{
+          font-size: 18px;
+          transform: translateX(-10px);
+          box-shadow: -10px 0 25px rgb(255, 69, 0, 0.5);
+  
+  
+        }  
+  
+        .show-categories-dropdown{
+          display: block;
+        }
         .searchbar{
           height: 30px;
           width: 95%;
@@ -813,6 +883,10 @@
         div.camera-icon-container{
           height: 30px;
         }
+        div.camera-icon-container i{
+          transform: translateY(10%);
+        }
+
         div.layer-two-tabs{
           width: 60%;
           height: 30px;
@@ -823,6 +897,88 @@
         }
     
         
+        /*Stylings for account icon hover dropdown*/
+      .account-dropdown{
+        width: 500%;
+        top: 60%;
+        line-height: 2;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        position: absolute;
+        color: black;
+        border: 1.5px solid white;
+        border-radius: 5px;
+        display: none;
+        background-color: rgb(224, 223, 223);
+        z-index: 1001;
+        
+      
+      }
+      .account-dropdown div{
+        width: 60%;
+        margin-top: 1%;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 1%;
+        text-align: left;
+        padding-left: 10px;
+        font-size: 20px;
+        background-color: white;
+        
+      }
+      .account-dropdown div:hover{
+        cursor: pointer;
+        transform: translateY(-5px);
+        font-size: 22px;
+        color: orangered;
+        box-shadow: 0px -5px 15px rgb(255, 69, 0, 0.4); /* Swelled shadow */
+        transition: transform 0.7s ease, box-shadow 0.7s ease; /* Smooth effect */
+      }
+      .account-dropdown div:last-child(:hover){
+        margin-bottom: 2%;
+      }
+
+      .account-dropdown div.separate-divs{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 4%;
+        margin-bottom: 2%;
+        border-top: none;
+        border-bottom: 3px solid whitesmoke;
+        border-left: none;
+        border-right: none;
+      }
+      
+      /* Triangle arrow pointing to the button */
+      .account-dropdown div.dropdown-arrow {
+        position: absolute;
+        top: -10px; /* Adjust position above the dropdown menu */
+        left: 30%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid rgb(224, 223, 223); /* Matches the dropdown menu background */
+        z-index: 1001; /* Ensures the arrow is above the dropdown menu */
+      }
+      .slow-dropdown{
+        animation: moveFromBottom 0.8s ease-out;
+        animation-fill-mode: forwards;
+      }
+      @keyframes moveFromBottom{
+        0%{
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        100%{
+          transform: translateY(0);
+          opacity: 1;
+          transform: translateX(-35%);
+
+        }
+      }    
       }       
       
       
@@ -972,8 +1128,8 @@
           background-color: transparent;
         }
         .user i#signup{
-          margin-left: 55%;
-          font-size: 18px;
+          font-size: 16px;
+          transform: translateX(200%);
           cursor: pointer;
           color: whitesmoke;
         }
@@ -1061,6 +1217,8 @@
         }
         .menu-bar{
           display: block;
+          position: relative;
+          cursor: pointer;
           margin-left: 1%;
           margin-top: 1%;
           font-size: 1.5rem;
@@ -1357,6 +1515,7 @@
         
         .icon-text{
           display: block;
+          font-size: 16px;
         }
         .layer-two-tabs div.icon-container{
           width: 70%;
@@ -1370,10 +1529,13 @@
           margin-top: 2%;
   
         }
-        
+        .layer-two-tabs i{
+          color: blue;
+        }
   
         .layer-two-tabs i#shopping-bag{
-          font-size: 25px;
+          font-size: 16px;
+
           cursor: pointer;
           margin-left: 20%;
           padding-right: 15px;
@@ -1384,7 +1546,8 @@
           color: orangered;
         }
         .layer-two-tabs i#user {
-          font-size: 25px;
+          font-size: 16px;
+
           cursor: pointer;
           margin-left: 20%;
           padding-right: 15px;
@@ -1397,7 +1560,8 @@
         }
   
         .layer-two-tabs i#wishlist {
-          font-size: 25px;
+          font-size: 16px;
+
           cursor: pointer;
           margin-left: 20%;
           padding-right: 15px;
@@ -1408,7 +1572,8 @@
         }
   
         .layer-two-tabs i#cart {
-          font-size: 25px;
+          font-size: 16px;
+
           cursor: pointer;
           margin-left: 10%;
           padding-right: 15px;
