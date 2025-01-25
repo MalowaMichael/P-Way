@@ -36,9 +36,9 @@
       
       div.layer-one-tabs{
         display: flex;
-        width: 60%;
+        width: 40%;
         margin-top: 4%;
-        margin-left: 40.5%;
+        margin-left: 50%;
         background-color: transparent;
 
       }
@@ -46,44 +46,71 @@
         width: 25%;
         background-color: transparent;
         height: 50px;
-        margin-left: 5%;
+        margin-left: 25%;
+        transform: translateX(80%);
       }
       .image-container img{
         width: 60px;
         height: 40px;
         cursor:pointer;
-        margin-left: 25%;
-        margin-right: 25%;
-
-      }
-      .image-container img:hover{
-        width: 70px;
-        height: 50px;
-        transition: 0.8s ease-in-out;
+        
 
       }
 
+      /* Slowly shrinking flag when clicked*/
+      .flag-bubble{
+        animation: bubbleEffect 1.2s ease;
+      }
+      @keyframes bubbleEffect {
+        0% {
+          transform: scale(1);
+        }
+        
+        50% {
+          transform: scale(0.5); /* recede slightly and hold */
+        }
+        
+        70% {
+          transform: scale(0.5); /* Now grow*/
+        }
+
+        100% {
+          transform: scale(1); /* Final size */
+        }
+      }
+      
+      
+
+      
 
       div.signup-signout-login-container{
         display: flex;
-        width: 75%;
-        margin-left: 2%;
-        margin-right: 2%;
+        width: 50%;
+        margin-left: 20%;
         background-color: transparent;
       }
       .user{
         width: 25%;
-        margin-left: 7%;
+        margin-left: 25%;
         background-color: transparent;
       }
+      
+
+      .user:nth-child(2){
+        margin-left: 35%;
+        margin-right: 0;
+      }
+
       .user i#signup{
         margin-left: 35%;
+        margin-top: 5%;
         font-size: 22px;
         cursor: pointer;
         color: whitesmoke;
       }
       .user i#signin{
         margin-left: 35%;
+        margin-top: 5%;
         font-size: 22px;
         cursor: pointer;
         color: whitesmoke;
@@ -137,11 +164,7 @@
         background-color: rgb(255, 0, 255, 0.5);
         z-index: 1001;
       }
-      .signout-tooltip{
-        margin-left: 88%;
-        background-color: rgb(255, 69, 0, 0.5);
-        z-index: 1001;
-      }
+      
       .slow-tooltips{
         animation: moveFromTop 1s ease-out;
         animation-fill-mode: forwards;
@@ -158,476 +181,6 @@
         }
       }
 
-
-
-      /*Header layer two stylings*/
-      .layer-two{
-        display: flex;
-        width: 100%;
-        float: left;
-        position: relative;
-        background: transparent;
-      }
-      .all-categories{
-        position: relative;
-        cursor: pointer;
-      }
-      .all-categories div.visible-text:hover{
-        cursor: pointer;
-        color: orangered;
-      }
-
-      div.visible-text{
-        width: 150%;
-        height: 40px;
-        margin-top: 15%;
-        margin-left: 5%;
-        padding: 5px;
-        padding-top: 6px;
-        padding-bottom: 0;
-        text-align: center;
-        font-size: 20px;
-        border: none;
-        border-radius: 4px;
-        box-shadow: 0 0 15px rgb(250, 4, 250, 0.2);
-        background-color: transparent;
-        z-index: 1000;
-        
-      }
-      div.visible-text:hover{
-        box-shadow: 0 0 15px rgb(0, 0, 0, 0.4);
-
-      }
-
-      span#visible-text:hover{
-        cursor: pointer;
-        color: orangered;
-      }
-
-      .slow-categories{
-        animation: moveFromLeft 1.5s ease-out;
-        animation-fill-mode: forwards;
-      }
-
-      @keyframes moveFromLeft{
-        0%{
-          transform: translateX(-100%);
-          opacity: 0;
-        }
-        100%{
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      .categories{
-        width: 250%;
-        top: 60%;
-        font-size: 20px;
-        line-height: 2;
-        display: none;
-        position: absolute;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 5px;
-        border: 1.5px solid white;
-        border-radius: 5px;
-        background-color: rgb(224, 223, 223);
-        z-index: 1001;
-      }
-
-      .categories div{
-        width: 90%;
-        height: 40px;
-        margin-left: 1%;
-        margin-right: 1%;
-        margin-top: 2%;
-        position: relative;
-        padding-left: 10px;
-        box-shadow: 0 10px 25px rgb(0, 0, 0, 0.2);
-        background-color: whitesmoke;
-      }
-
-      .categories div:hover{
-        color: orangered;
-        cursor: pointer;
-        transform: translateX(5px);
-        font-size: 22px;
-        transition: 0.8s ease-out;
-        box-shadow: 0 10px 25px rgb(255, 69, 0, 0.5);
-        
-      }
-      .categories-dropdown{
-        width: 40px;
-        position: absolute;
-        margin-left: 4%;
-        display: none;
-        z-index: 9999;
-      }
-      .categories-dropdown:hover{
-        font-size: 18px;
-        transform: translateX(-10px);
-        box-shadow: -10px 0 25px rgb(255, 69, 0, 0.5);
-
-
-      }
-
-
-      .show-categories-dropdown{
-        display: block;
-      }
-
-
-      /*Header stylings for search bar*/
-      .searchbar{
-        width: 80%;
-        height: 45px;
-        margin-top: 1%;
-        margin-left: 10%;
-        outline: none;
-        display: flex;
-        border: 1.5px solid fuchsia;
-        border-radius: 4px;
-        box-shadow: 0 0 15px rgb(250, 4, 250, 0.2);
-        background: transparent;
-      }
-      .searchbar:hover{
-        box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
-
-      }
-
-      .searchbar div.select_search{
-        height: 45px;
-        width: 18%;
-        border: none;
-        border-right: 1.5px solid fuchsia;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        outline: none;
-        background-color: whitesmoke;
-
-      }
-      .select_search select{
-        height: 45px;
-        width: 99%;
-        border: none;
-        outline: none;
-        font-size: 18px;
-        color: orangered;
-        cursor: pointer;
-        background-color: transparent;
-
-      }
-      .searchbar select:focus-within{
-        border: none;
-        outline: none;
-
-        div.searchbar{
-          box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
-
-        }
-      }
-      
-      ul.category-search-menu{
-        width: 28.4%;
-        margin-left: 26.2%;
-        transform: translateY(0%);
-        background: rgb(224, 223, 223);
-        border: 1.5px solid whitesmoke;
-        border-radius: 4px;
-        cursor: pointer;
-        z-index: 1001;
-
-      }
-      ul li.search-category{
-        font-size: 1.2em;
-        display: none;
-        list-style: none;
-        animation: fadeIn 0.8s ease-in-out;
-        line-height: 2;
-
-      }
-      @keyframes fadeIn {
-        from{
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        to{
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .searchbar input[type = 'text']{
-        width: 70%;
-        height: 42px;
-        padding-left: 8px;
-        border: none;
-        outline: none;
-        background: whitesmoke;
-      }
-      .searchbar input:focus-within{
-        border: none;
-      }
-            
-      .searchbar input::placeholder{
-        color: rgb(146, 136, 136);
-        font-size: 17px;
-      }
-      div.camera-icon-container{
-        width: 10%;
-        height: 45px;
-        position: relative;
-        text-align: center;
-        background-color: fuchsia;
-        border: none;
-        border-left: 1.5px solid fuchsia;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-      }
-      div.camera-icon-container:hover{
-        cursor: pointer;
-        border: none;
-        background-color: orangered;
-      }
-
-      .camera-icon-container i{
-        color: whitesmoke;
-        padding-top: 5px;
-        padding-bottom: 0.5px;
-        font-size: 2rem;
-      }
-      .camera-icon-container i:hover{
-        color: whitesmoke;
-      }
-
-
-      /*Stylings for search camera hover*/
-      div.image-search{
-        width: 450%;
-        top: 100%;
-        background-color: rgb(224, 223, 223);
-        position: absolute;
-        display: none;
-        margin-left: 50%;
-        border-radius: 8px;
-        border: 1.5px solid white;
-        padding-top: 2px;
-        z-index: 1001;
-      }
-      .image-search div.search-heading{
-        text-align: center;
-        font-size: 18px;
-      }
-      .image-search div.drop-area{
-        width: 80%;
-        height: 90px;
-        border: 2px dotted whitesmoke;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top: 0;
-        background-color: skyblue;
-      }
-      .image-search input[type = 'file']{
-        margin-left: 10%;
-        margin-top: 1%;
-      }
-      .drop-area p{
-        text-align: center;
-      }
-      .image-search div.dropdown-arrow {
-        position: absolute;
-        top: -10px; /* Adjust position above the dropdown menu */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid rgb(224, 223, 223); /* Matches the dropdown menu background */
-        z-index: 1001; /* Ensures the arrow is above the dropdown menu */
-      }
-      .slow-camera-popup{
-        animation: fadeIn 1.5s ease-out;
-        animation-fill-mode: forwards;
-      }
-      @keyframes fadeIn{
-        from{
-          transform: translateY(40px);
-          opacity: 0;
-          
-        }
-        to{
-          transform: translateY(0);
-          opacity: 1;
-          transform: translateX(-50%);
-
-
-
-        }
-      }
-
-
-
-      div.layer-two-tabs{
-        display: flex;
-        margin-top: 1%;
-        width: 30%;
-        height: 45px;
-        margin-left: 10%;
-        margin-bottom: 2%;
-        position: relative;
-        padding-left: 2%;
-        border-radius: 4px;
-        box-shadow: 0 0 15px rgb(251, 4, 251, 0.3);
-        border: 1px solid rgb(224, 223, 223);
-        background-color: white;
-        
-      }
-      div.layer-two-tabs:hover{
-        box-shadow: 0 0 15px rgb(65, 238, 221, 0.3);
-        cursor: pointer;
-      }
-
-      .layer-two-tabs div.icon-container{
-        width: 18%;
-        height: 30px;
-        margin-bottom: 1%;
-        position: relative;
-        background-color: transparent;
-        color: fuchsia;
-        text-align: center;
-        border-radius: 8px;
-        margin-top: 2%;
-
-      }
-      .layer-two-tabs div.icon-container:nth-child(2){
-        margin-left: 15%;
-      }
-
-      .layer-two-tabs div.icon-container:last-child{
-        margin-left: 20%;
-      }
-      
-
-
-      
-      
-      .layer-two-tabs i#user {
-        font-size: 25px;
-        cursor: pointer;
-        margin-left: 20%;
-        padding-right: 15px;
-        position: relative;
-      }
-      .layer-two-tabs i#user:hover{
-        color: orangered;
-      }
-
-      .layer-two-tabs i#wishlist {
-        font-size: 25px;
-        cursor: pointer;
-        margin-left: 20%;
-        padding-right: 15px;
-      }
-      .layer-two-tabs i#wishlist:hover{
-        color: red;
-      }
-
-      .layer-two-tabs i#cart {
-        font-size: 25px;
-        cursor: pointer;
-        margin-left: 10%;
-        padding-right: 15px;
-      }
-      .layer-two-tabs i#cart:hover{
-        color: orangered;
-      }
-
-      /*Stylings for account icon hover dropdown*/
-      .account-dropdown{
-        width: 500%;
-        top: 60%;
-        line-height: 2;
-        padding-top: 10px;
-        padding-bottom: 15px;
-        position: absolute;
-        color: black;
-        border: 1.5px solid white;
-        border-radius: 5px;
-        display: none;
-        background-color: rgb(224, 223, 223);
-        z-index: 1001;
-        
-      
-      }
-      .account-dropdown div{
-        width: 60%;
-        margin-top: 1%;
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 1%;
-        text-align: left;
-        padding-left: 10px;
-        font-size: 20px;
-        background-color: white;
-        
-      }
-      .account-dropdown div:hover{
-        cursor: pointer;
-        transform: translateY(-5px);
-        font-size: 22px;
-        color: orangered;
-        box-shadow: 0px -5px 15px rgb(255, 69, 0, 0.4); /* Swelled shadow */
-        transition: transform 0.7s ease, box-shadow 0.7s ease; /* Smooth effect */
-      }
-      .account-dropdown div:last-child(:hover){
-        margin-bottom: 2%;
-      }
-
-      .account-dropdown div.separate-divs{
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 4%;
-        margin-bottom: 2%;
-        border-top: none;
-        border-bottom: 3px solid whitesmoke;
-        border-left: none;
-        border-right: none;
-      }
-      
-      /* Triangle arrow pointing to the button */
-      .account-dropdown div.dropdown-arrow {
-        position: absolute;
-        top: -10px; /* Adjust position above the dropdown menu */
-        left: 30%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid rgb(224, 223, 223); /* Matches the dropdown menu background */
-        z-index: 1001; /* Ensures the arrow is above the dropdown menu */
-      }
-      .slow-dropdown{
-        animation: moveFromBottom 0.8s ease-out;
-        animation-fill-mode: forwards;
-      }
-      @keyframes moveFromBottom{
-        0%{
-          transform: translateY(40px);
-          opacity: 0;
-        }
-        100%{
-          transform: translateY(0);
-          opacity: 1;
-          transform: translateX(-35%);
-
-        }
-      }
-      
-      
       /*Header stylings for country modal*/
       .country-overlay{
         top: 0;
@@ -647,12 +200,13 @@
         margin-right: 25%;
         position: fixed;
         transform: translate(-50% -50%);
-        box-shadow: 0 5px 15px rgba(236, 45, 176, 0.5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
         border-radius: 4px;
+        border: 1px solid rgb(11, 11, 11, 0.2);
         background-color: whitesmoke;
         font-size: 18px;
         z-index: 1001;
@@ -678,7 +232,7 @@
       .country-flag{
         width: 20%;
         margin-top: 2%;
-        margin-left: 40%;
+        margin-left: 45%;
         margin-right: 40%;
         margin-bottom: 2%;
         cursor: not-allowed;
@@ -693,254 +247,32 @@
       .close-country-modal i{
         font-size: 1.5rem;
         margin-top: 2%;
-        margin-right: 2%;
+        transform: translateX(-90%);
         cursor: pointer;
       }
       .close-country-modal i:hover{
         color: orangered;
-        font-size: 2rem;
         transition: 0.7s ease-in-out;
       }
 
       .arrange-country-inputs{
         display: flex;
-        row-gap: 20%;
-        margin-left: 5%;
-        margin-right: 1%;
       }
       .country-modal select{
         height: 50px;
-        width: 45%;
-        padding: 5px;
-        margin-bottom: 2%;
-        margin-left: 1%;
-        margin-right: 1%;
-        border-radius: 2px;
-        border: 1.5px solid fuchsia;
-      }
-      .country-modal select:focus-within{
-        border:  1.5px solid rgb(54, 241, 54);
-      }
-
-      .country-modal select:hover{
-        border: 1.5px solid orangered;
-      }
-
-
-      .country-modal button[type = 'submit']{
-        width: 40%;
-        height: 40px;
-        font-size: 20px;
-        text-align: center;
-        color: fuchsia;
-        margin-left: 30%;
-        border: none;
-        cursor: pointer;
-        background-color: green;
-        border-radius: 40px;
-        margin-right: 30%;
-      }
-      .country-modal button[type = 'submit']:hover{
-        background: orangered;
-        color: green;
-        transition: 0.8s ease-in-out;
-      }
-
-
-
-      
-      
-      
-
-
-      @media (max-width: 768px){
-        body{
-          font-size: 14px;
-        }
-        .image-search{
-          margin-left: 22%;
-        }
-        
-        .search-container input{
-          width: 98%;
-          
-        }
-        .search-container
-      {
-        background: transparent;
-        width: 35%;
-        
-      }
-    
-        
-      }
-
-      
-    
-      
-      
-    
-      body{
-        background-color: whitesmoke;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      }
-      header{
-        height: fit-content;
-        position: sticky;
-        margin-top: 0;
-        position: relative;
-        z-index: 1000;
-        background: linear-gradient(to right, rgb(150, 237, 150) 20%, rgb(252, 163, 252)  );
-
-        
-      }
-      div.heading-container{
-        width: 36.5%;
-        margin-top: 2%;
-        background-color: transparent;
-      }
-      .heading-two{
-        font-size: 3rem;
-        font-weight: bold;
-        background: linear-gradient(to top right, rgb(24, 176, 24) , white 40% );
-        -webkit-background-clip: text; /* Ensures gradient clips to the text */
-        -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
-        text-align: left;
-        text-transform:capitalize;                        
-        margin-left: 2%;
-        margin-left: 2%;
-
-      }
-      div.layer-one{
-        display: flex;
-        background-color: transparent;
-      }
-      
-      div.layer-one-tabs{
-        display: flex;
-        width: 60%;
-        margin-top: 4%;
-        margin-left: 40.5%;
-        background-color: transparent;
-
-      }
-      .image-container{
-        width: 25%;
-        background-color: transparent;
-        height: 50px;
-        margin-left: 5%;
-      }
-      .image-container img{
-        width: 60px;
-        height: 40px;
-        cursor:pointer;
-        margin-left: 25%;
-        margin-right: 25%;
-
-      }
-      .image-container img:hover{
-        width: 70px;
-        height: 50px;
-        transition: 0.8s ease-in-out;
-
-      }
-
-      /*Header stylings for country modal*/
-      .country-overlay{
-        top: 0;
-        left: 0;
-        position: fixed;
-        display: none;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(0, 0, 0, 0.5);
-        z-index: 1000;
-      }
-      .country-modal{
         width: 50%;
-        height: 50%;
-        top: 25%;
-        margin-left: 25%;
-        margin-right: 25%;
-        position: fixed;
-        transform: translate(-50% -50%);
-        box-shadow: 0 5px 15px rgba(236, 45, 176, 0.5);
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-radius: 4px;
-        background-color: whitesmoke;
-        font-size: 18px;
-        z-index: 1001;
-
-      }
-      .slow-country-modal{
-        animation: slideDown 0.8s ease-out;
-        animation-fill-mode: forwards;
-      }
-      @keyframes slideDown{
-        from{
-          opacity: 0;
-          transform: translateY(-100%);
-        }
-        to{
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .arrange-flag-times{
-        display: flex;
-      }
-      .country-flag{
-        width: 20%;
-        margin-top: 2%;
-        margin-left: 40%;
-        margin-right: 40%;
-        margin-bottom: 2%;
-        cursor: not-allowed;
-        background-color: transparent;
-      }
-      .country-flag img{
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-
-      }
-      .close-country-modal i{
-        font-size: 1.5rem;
-        margin-top: 2%;
-        margin-right: 2%;
-        cursor: pointer;
-      }
-      .close-country-modal i:hover{
-        color: orangered;
-        font-size: 2rem;
-        transition: 0.7s ease-in-out;
-      }
-
-      .arrange-country-inputs{
-        display: flex;
-        row-gap: 20%;
-        margin-left: 5%;
-        margin-right: 1%;
-      }
-      .country-modal select{
-        height: 50px;
-        width: 45%;
         padding: 5px;
         margin-bottom: 2%;
-        margin-left: 1%;
         margin-right: 1%;
         border-radius: 2px;
-        border: 1.5px solid fuchsia;
+        border: 1px solid rgb(138, 137, 137, 0.5);
       }
       .country-modal select:focus-within{
-        border:  1.5px solid rgb(54, 241, 54);
+        border:  1px solid rgb(54, 241, 54);
       }
 
       .country-modal select:hover{
-        border: 1.5px solid orangered;
+        border: 1px solid rgb(252, 71, 6);
       }
 
 
@@ -953,110 +285,15 @@
         margin-left: 30%;
         border: none;
         cursor: pointer;
-        background-color: green;
-        border-radius: 40px;
+        background-color: rgb(167, 158, 158);
+        box-shadow: 0 0 8px rgb(8, 197, 8, 0.2);
+        border-radius: 8px;
         margin-right: 30%;
       }
       .country-modal button[type = 'submit']:hover{
         background: orangered;
         color: green;
         transition: 0.8s ease-in-out;
-      }
-     
-      /*Signup nad login icons hover*/
-      
-      div.signup-signout-login-container{
-        display: flex;
-        width: 75%;
-        margin-left: 2%;
-        margin-right: 2%;
-        background-color: transparent;
-      }
-      .user{
-        width: 25%;
-        margin-left: 7%;
-        background-color: transparent;
-      }
-      .user i#signup{
-        margin-left: 35%;
-        font-size: 22px;
-        cursor: pointer;
-        color: whitesmoke;
-      }
-      .user i#signin{
-        margin-left: 35%;
-        font-size: 22px;
-        cursor: pointer;
-        color: whitesmoke;
-      }
-      .user i#signout{
-        margin-left: 35%;
-        font-size: 22px;
-        cursor: pointer;
-        color: whitesmoke;
-      }
-      
-      .user-tooltip{
-        width: 7%;
-        display: none;
-        top: 0%;
-        position: absolute;
-        font-size: 18px;
-        font-weight: bold;
-        font-style: inherit;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border-radius: 10px;
-        text-align: center;
-        color: blue;
-        background-color: rgb(255, 0, 255, 0.5);
-        z-index: 1000;
-      }
-      
-      .tooltip-arrow{
-        position: absolute;
-        bottom: -10px; /* Adjust position above the dropdown menu */
-        right: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        rotate: -180deg;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid rgb(255, 0, 255, 0.5); /* Matches the dropdown menu background */
-        z-index: 1000; /* Ensures the arrow is above the dropdown menu */
-      }
-      .signup-tooltip{
-        margin-left: 72%;
-        background-color: rgb(27, 186, 27, 0.5);
-        z-index: 1001;
-      }
-      .signin-tooltip{
-        margin-left: 80%;
-        background-color: rgb(255, 0, 255, 0.5);
-        z-index: 1001;
-      }
-      .signout-tooltip{
-        margin-left: 88%;
-        background-color: rgb(255, 69, 0, 0.5);
-        z-index: 1001;
-      }
-      .slow-tooltips{
-        animation: moveFromTop 1s ease-out;
-        animation-fill-mode: forwards;
-
-      }
-      @keyframes moveFromTop{
-        0%{
-          transform: translateY(-100%);
-          opacity: 0;
-        }
-        100%{
-          transform: translateY(0);
-          opacity: 1;
-        }
       }
 
 
@@ -1068,6 +305,9 @@
         float: left;
         position: relative;
         background: transparent;
+      }
+      .menu-bar{
+        display: none;
       }
       .all-categories{
         position: relative;
@@ -1088,15 +328,15 @@
         padding-bottom: 0;
         text-align: center;
         font-size: 20px;
-        border: 1.5px solid fuchsia;
+        border: 1px solid rgb(150, 147, 147, 0.5);
         border-radius: 4px;
-        box-shadow: 0 0 15px rgb(250, 4, 250, 0.2);
-        background-color: transparent;
+        box-shadow: 0 0 8px rgb(0, 0, 0, 0.2);
+        background-color: white;
         z-index: 1000;
         
       }
       div.visible-text:hover{
-        box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
+        box-shadow: 0 0 8px rgb(0, 0, 0, 0.1);
 
       }
 
@@ -1133,7 +373,7 @@
         padding-left: 5px;
         border: 1.5px solid white;
         border-radius: 5px;
-        background-color: rgb(224, 223, 223);
+        background-color: rgb(241, 239, 239);
         z-index: 1001;
       }
 
@@ -1145,8 +385,8 @@
         margin-top: 2%;
         position: relative;
         padding-left: 10px;
-        box-shadow: 0 10px 25px rgb(0, 0, 0, 0.2);
-        background-color: whitesmoke;
+        box-shadow: 0 80px 15px rgb(0, 0, 0, 0.2);
+        background-color: rgb(255, 255, 255, 1.5);
       }
 
       .categories div:hover{
@@ -1155,7 +395,7 @@
         transform: translateX(5px);
         font-size: 22px;
         transition: 0.8s ease-out;
-        box-shadow: 0 10px 25px rgb(255, 69, 0, 0.5);
+        box-shadow: 0 8px 15px rgb(255, 69, 0, 0.5);
         
       }
       .categories-dropdown{
@@ -1187,34 +427,34 @@
         margin-left: 10%;
         outline: none;
         display: flex;
-        border: 1.5px solid fuchsia;
-        border-radius: 4px;
-        box-shadow: 0 0 15px rgb(250, 4, 250, 0.2);
-        background: transparent;
+        border: 1px solid rgb(128, 128, 128, 0.5);
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgb(0, 0, 0, 0.1);
+        background: white;
       }
       .searchbar:hover{
-        box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
+        box-shadow: 0 0 8px rgb(255, 69, 0, 0.5);
 
       }
 
       .searchbar div.select_search{
         height: 45px;
-        width: 18%;
+        width: 15%;
         border: none;
-        border-right: 1.5px solid fuchsia;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
+        border-right: 1px solid rgb(128, 128, 128, 0.5);
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
         outline: none;
-        background-color: whitesmoke;
+        background-color: white;
 
       }
       .select_search select{
         height: 45px;
         width: 99%;
         border: none;
+        font-family: inherit;
         outline: none;
         font-size: 18px;
-        color: orangered;
         cursor: pointer;
         background-color: transparent;
 
@@ -1222,11 +462,8 @@
       .searchbar select:focus-within{
         border: none;
         outline: none;
+        box-shadow: 0 0 15px rgb(0, 0, 0, 0.1);
 
-        div.searchbar{
-          box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
-
-        }
       }
       
       ul.category-search-menu{
@@ -1260,43 +497,49 @@
       }
       
       .searchbar input[type = 'text']{
-        width: 70%;
+        width: 75%;
         height: 42px;
         padding-left: 8px;
         border: none;
         outline: none;
-        background: whitesmoke;
+        background: white;
       }
       .searchbar input:focus-within{
         border: none;
+        border-radius: 2px;
+        border: 1px solid rgb(150, 237, 150, 0.5) ;
+        box-shadow: 0 0 10px rgba(71, 233, 71, 0.1) ;
       }
             
       .searchbar input::placeholder{
         color: rgb(146, 136, 136);
         font-size: 17px;
+        font-family: inherit;
       }
       div.camera-icon-container{
         width: 10%;
         height: 45px;
         position: relative;
         text-align: center;
-        background-color: fuchsia;
+        background-color: rgb(245, 245, 245, 0.8);
         border: none;
-        border-left: 1.5px solid fuchsia;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
+        border-left: 1px solid rgb(128, 128, 128, 0.5);
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
       }
       div.camera-icon-container:hover{
         cursor: pointer;
         border: none;
         background-color: orangered;
+        transition: 0.5s ease-in;
+        transform: 0.5s ease-out ;
       }
 
       .camera-icon-container i{
-        color: whitesmoke;
+        color: rgb(18, 18, 18, 0.8);
         padding-top: 5px;
         padding-bottom: 0.5px;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       .camera-icon-container i:hover{
         color: whitesmoke;
@@ -1307,7 +550,7 @@
       div.image-search{
         width: 450%;
         top: 100%;
-        background-color: rgb(224, 223, 223);
+        background-color: rgb(224, 223, 223, 0.5);
         position: absolute;
         display: none;
         margin-left: 50%;
@@ -1329,6 +572,12 @@
         margin-top: 0;
         background-color: skyblue;
       }
+      .image-search div.drop-area:hover{
+        background-color: white;
+        border: 2px dotted skyblue;
+        transition: 0.5s ease-in-out;
+      }
+
       .image-search input[type = 'file']{
         margin-left: 10%;
         margin-top: 1%;
@@ -1345,11 +594,11 @@
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-bottom: 10px solid rgb(224, 223, 223); /* Matches the dropdown menu background */
+        border-bottom: 10px solid rgb(224, 223, 223, 0.5); /* Matches the dropdown menu background */
         z-index: 1001; /* Ensures the arrow is above the dropdown menu */
       }
       .slow-camera-popup{
-        animation: fadeIn 1.5s ease-out;
+        animation: fadeIn 1s ease-out;
         animation-fill-mode: forwards;
       }
       @keyframes fadeIn{
@@ -1370,6 +619,7 @@
 
 
 
+      /*Stylings for the tabs/icons in layer two*/
       div.layer-two-tabs{
         display: flex;
         margin-top: 1%;
@@ -1378,15 +628,14 @@
         margin-left: 10%;
         margin-bottom: 2%;
         position: relative;
-        padding-left: 2%;
         border-radius: 4px;
-        box-shadow: 0 0 15px rgb(251, 4, 251, 0.3);
+        box-shadow: 0 0 8px rgb(0, 0, 0, 0.2);
         border: 1px solid rgb(224, 223, 223);
         background-color: white;
         
       }
       div.layer-two-tabs:hover{
-        box-shadow: 0 0 15px rgb(65, 238, 221, 0.3);
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
         cursor: pointer;
       }
 
@@ -1394,25 +643,29 @@
         width: 18%;
         height: 30px;
         margin-bottom: 1%;
+        margin-top: 2%;
+        margin-right: 3.5%;
         position: relative;
         background-color: transparent;
         color: fuchsia;
         text-align: center;
         border-radius: 8px;
-        margin-top: 2%;
 
       }
-      .layer-two-tabs div.icon-container:nth-child(2){
-        margin-left: 15%;
+      .icon-text{
+        display: none;
       }
-
-      .layer-two-tabs div.icon-container:last-child{
+      
+      .layer-two-tabs i#shopping-bag{
+        font-size: 25px;
+        cursor: pointer;
         margin-left: 20%;
+        padding-right: 15px;
+        position: relative;
       }
-      
-
-
-      
+      .layer-two-tabs i#shopping-bag:hover{
+        color: orangered;
+      }
       
       .layer-two-tabs i#user {
         font-size: 25px;
@@ -1526,38 +779,61 @@
           transform: translateX(-35%);
 
         }
-      }
+      }    
+      
+      
+
+
       
       
       
+
 
       @media (max-width: 768px){
-        body{
-          font-size: 14px;
+        div.visible-text{
+          height: 30px;
+          margin-top: 5%;
         }
-        .image-search{
-          margin-left: 22%;
+        .searchbar{
+          height: 30px;
+          width: 95%;
         }
-        
-        .search-container input{
-          width: 98%;
-          
+        .searchbar div.select_search{
+          height: 30px;
+
         }
-        .search-container
-      {
-        background: transparent;
-        width: 35%;
-        
-      }
+        .select_search select{
+          height: 30px;
+
+        }
+        .searchbar input[type = 'text']{
+          height: 28px;
+
+        }
+        div.camera-icon-container{
+          height: 30px;
+        }
+        div.layer-two-tabs{
+          width: 60%;
+          height: 30px;
+          margin-left: 2%;
+        }
+        .close-country-modal i{
+          transform: translateX(-500%);
+        }
     
         
-      }
+      }       
+      
+      
 
+      
 
       /*Responsive stylings*/
-      @media (max-width: 400px){
+      @media (max-width: 600px){
         .heading-two{
-          font-size: 1.5rem;
+          font-size: 23px;
+          margin-top: 0.5%;
         }
         div.layer-one{
           display: flex;
@@ -1567,63 +843,57 @@
         div.layer-one-tabs{
           display: flex;
           width: 80%;
-          margin-top: 4%;
+          margin-top: 2%;
           margin-left: 20%;
-          background-color: blue;
+          background-color: transparent;
   
         }
         .image-container{
           width: 30%;
-          background-color: salmon;
+          background-color: transparent;
           height: 50px;
-          margin-left: 5%;
+          margin-left: 35%;
         }
         .image-container img{
           width: 90%;
-          height: 30px;
-          cursor:pointer;
+          height: 25px;
           margin-left: 5%;
           margin-right: 5%;
+          transition: transform 0.3s ease; /* Smooth scaling effect */
+
   
         }
-        .image-container img:hover{
-          opacity: 0.9;
-          transition: 0.8s ease-in-out;
-  
-        }
-  
+        
         /*Header stylings for country modal*/
         .country-overlay{
           top: 0;
           left: 0;
           position: fixed;
-          display: block;
+          display: none;
           width: 100%;
           height: 100%;
           background-color: rgb(0, 0, 0, 0.5);
           z-index: 1000;
         }
         .country-modal{
-          width: 80%;
-          height: 50%;
-          top: 25%;
-          margin-left: 10%;
+          width: 84.7%;
+          height: fit-content;
+          top: 15%;
+          margin-left: 5%;
           margin-right: 5%;
-          position: fixed;
-          transform: translateX(0);
-          box-shadow: 0 5px 15px rgba(236, 45, 176, 0.5);
-          padding-left: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          padding-left: 5px;
           padding-right: 10px;
           padding-top: 10px;
           padding-bottom: 10px;
           border-radius: 4px;
-          background-color: whitesmoke;
+          background-color: white;
           font-size: 18px;
           z-index: 1001;
   
         }
         .slow-country-modal{
-          animation: slideDown 0.8s ease-out;
+          animation: slideDown 1s ease-out;
           animation-fill-mode: forwards;
         }
         @keyframes slideDown{
@@ -1639,51 +909,32 @@
         .arrange-flag-times{
           display: flex;
         }
-        .country-flag{
-          width: 20%;
-          margin-top: 2%;
-          margin-left: 40%;
-          margin-right: 40%;
-          margin-bottom: 2%;
-          cursor: not-allowed;
-          background-color: transparent;
-        }
-        .country-flag img{
-          height: 80px;
-          width: 80px;
-          border-radius: 50%;
-  
-        }
+        
         .close-country-modal i{
-          font-size: 1.5rem;
-          margin-top: 2%;
-          margin-right: 2%;
+          font-size: 1rem;
+          margin-top: 10%;
           cursor: pointer;
+          transform: translateX(-250%);
+
         }
-        .close-country-modal i:hover{
-          color: orangered;
-          font-size: 2rem;
-          transition: 0.7s ease-in-out;
-        }
+        
   
         .arrange-country-inputs{
-          display: flex;
-          row-gap: 20%;
-          margin-left: 5%;
+          display: block;
+          margin-left: 1%;
           margin-right: 1%;
         }
         .country-modal select{
           height: 50px;
-          width: 45%;
-          padding: 5px;
-          margin-bottom: 2%;
+          width: 100%;
           margin-left: 1%;
           margin-right: 1%;
-          border-radius: 2px;
-          border: 1.5px solid fuchsia;
+          border-radius: 4px;
+          border: 1px solid rgb(11, 11, 11, 0.2);
         }
         .country-modal select:focus-within{
           border:  1.5px solid rgb(54, 241, 54);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
   
         .country-modal select:hover{
@@ -1692,17 +943,13 @@
   
   
         .country-modal button[type = 'submit']{
-          width: 40%;
+          width: 90%;
           height: 40px;
-          font-size: 20px;
-          text-align: center;
-          color: fuchsia;
-          margin-left: 30%;
-          border: none;
-          cursor: pointer;
-          background-color: green;
+          margin-left: 5%;
+          margin-right: 5%;
           border-radius: 40px;
-          margin-right: 30%;
+          font-size: 22px;
+          
         }
         .country-modal button[type = 'submit']:hover{
           background: orangered;
@@ -1716,32 +963,28 @@
           display: flex;
           width: 75%;
           margin-left: 2%;
-          margin-right: 2%;
+          margin-right: 0%;
           background-color: transparent;
         }
         .user{
-          width: 25%;
-          margin-left: 7%;
+          width: 50%;
+          margin-left: 4%;
           background-color: transparent;
         }
         .user i#signup{
-          margin-left: 35%;
-          font-size: 22px;
+          margin-left: 55%;
+          font-size: 18px;
           cursor: pointer;
           color: whitesmoke;
         }
         .user i#signin{
-          margin-left: 35%;
-          font-size: 22px;
+          margin-left: 50%;
+          
+          font-size: 18px;
           cursor: pointer;
           color: whitesmoke;
         }
-        .user i#signout{
-          margin-left: 35%;
-          font-size: 22px;
-          cursor: pointer;
-          color: whitesmoke;
-        }
+        
         
         .user-tooltip{
           width: 7%;
@@ -1816,42 +1059,18 @@
           position: relative;
           background: transparent;
         }
+        .menu-bar{
+          display: block;
+          margin-left: 1%;
+          margin-top: 1%;
+          font-size: 1.5rem;
+          color: rgb(150, 237, 150);
+          box-shadow: 2px 2px 4px rgb(150, 237, 150, 0.5);
+        }
         .all-categories{
-          position: relative;
-          cursor: pointer;
+          display: none;
         }
-        .all-categories div.visible-text:hover{
-          cursor: pointer;
-          color: orangered;
-        }
-  
-        div.visible-text{
-          width: 150%;
-          height: 40px;
-          margin-top: 15%;
-          margin-left: 5%;
-          padding: 5px;
-          padding-top: 6px;
-          padding-bottom: 0;
-          text-align: center;
-          font-size: 20px;
-          border: 1.5px solid fuchsia;
-          border-radius: 4px;
-          box-shadow: 0 0 15px rgb(250, 4, 250, 0.2);
-          background-color: transparent;
-          z-index: 1000;
           
-        }
-        div.visible-text:hover{
-          box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
-  
-        }
-  
-        span#visible-text:hover{
-          cursor: pointer;
-          color: orangered;
-        }
-  
         .slow-categories{
           animation: moveFromLeft 1.5s ease-out;
           animation-fill-mode: forwards;
@@ -1928,39 +1147,39 @@
   
         /*Header stylings for search bar*/
         .searchbar{
-          width: 80%;
-          height: 45px;
+          width: 90%;
+          height: 25px;
           margin-top: 1%;
-          margin-left: 10%;
+          margin-left: 2%;
           outline: none;
           display: flex;
-          border: 1.5px solid fuchsia;
-          border-radius: 4px;
-          box-shadow: 0 0 15px rgb(250, 4, 250, 0.2);
+          border: 1px solid rgb(248, 8, 248, 0.5);
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgb(0, 0, 0,  0.2);
           background: transparent;
         }
         .searchbar:hover{
-          box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
+          box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
   
         }
   
         .searchbar div.select_search{
-          height: 45px;
-          width: 18%;
+          height: 25px;
+          width: 20%;
           border: none;
-          border-right: 1.5px solid fuchsia;
-          border-top-left-radius: 4px;
-          border-bottom-left-radius: 4px;
+          border-right: 1px solid rgb(248, 8, 248, 0.5);
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
           outline: none;
           background-color: whitesmoke;
   
         }
         .select_search select{
-          height: 45px;
+          height: 25px;
           width: 99%;
           border: none;
           outline: none;
-          font-size: 18px;
+          font-size: 12px;
           color: orangered;
           cursor: pointer;
           background-color: transparent;
@@ -1971,7 +1190,8 @@
           outline: none;
   
           div.searchbar{
-            box-shadow: 0 0 15px rgb(65, 238, 221, 0.4);
+            border: 1px solid rgb(150, 237, 150) ;
+            box-shadow: 0 0 10px rgb(150, 237, 150, 0.2);
   
           }
         }
@@ -2007,8 +1227,8 @@
         }
         
         .searchbar input[type = 'text']{
-          width: 70%;
-          height: 42px;
+          width: 80%;
+          height: 23px;
           padding-left: 8px;
           border: none;
           outline: none;
@@ -2016,22 +1236,26 @@
         }
         .searchbar input:focus-within{
           border: none;
+          div.searchbar{
+            border: 1px solid rgb(150, 237, 150, 0.2) ;
+            box-shadow: 0 0 10px rgb(150, 237, 150, 0.2) ;
+          }
         }
               
         .searchbar input::placeholder{
-          color: rgb(146, 136, 136);
-          font-size: 17px;
+          color: rgb(146, 136, 136, 0.5);
+          font-size: 12px;
         }
         div.camera-icon-container{
           width: 10%;
-          height: 45px;
+          height: 25px;
           position: relative;
           text-align: center;
           background-color: fuchsia;
           border: none;
-          border-left: 1.5px solid fuchsia;
-          border-top-right-radius: 4px;
-          border-bottom-right-radius: 4px;
+          border-left: 1px solid rgb(248, 8, 248, 0.5);
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
         }
         div.camera-icon-container:hover{
           cursor: pointer;
@@ -2043,7 +1267,7 @@
           color: whitesmoke;
           padding-top: 5px;
           padding-bottom: 0.5px;
-          font-size: 2rem;
+          font-size: 1rem;
         }
         .camera-icon-container i:hover{
           color: whitesmoke;
@@ -2116,7 +1340,109 @@
         }
   
   
+        div.layer-two-tabs{
+          width: 95%;
+          height: 60px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+          bottom: 0;
+          margin-left: 0%;
+          margin-right: 1.5%;
+          position: fixed;
+          background-color: whitesmoke;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: background-color 0.3s ease;
+          
+        }
+        
+        .icon-text{
+          display: block;
+        }
+        .layer-two-tabs div.icon-container{
+          width: 70%;
+          height: 30px;
+          margin-bottom: 1%;
+          position: relative;
+          background-color: transparent;
+          color: fuchsia;
+          text-align: center;
+          border-radius: 8px;
+          margin-top: 2%;
   
+        }
+        
+  
+        .layer-two-tabs i#shopping-bag{
+          font-size: 25px;
+          cursor: pointer;
+          margin-left: 20%;
+          padding-right: 15px;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+        .layer-two-tabs i#shopping-bag:hover{
+          color: orangered;
+        }
+        .layer-two-tabs i#user {
+          font-size: 25px;
+          cursor: pointer;
+          margin-left: 20%;
+          padding-right: 15px;
+          transition: all 0.3s ease;
+        }
+        
+
+        .layer-two-tabs i#user:hover{
+          color: orangered;
+        }
+  
+        .layer-two-tabs i#wishlist {
+          font-size: 25px;
+          cursor: pointer;
+          margin-left: 20%;
+          padding-right: 15px;
+          transition: all 0.3s ease;
+        }
+        .layer-two-tabs i#wishlist:hover{
+          color: red;
+        }
+  
+        .layer-two-tabs i#cart {
+          font-size: 25px;
+          cursor: pointer;
+          margin-left: 10%;
+          padding-right: 15px;
+          transition: all 0.3s ease;
+        }
+        .layer-two-tabs i#cart:hover{
+          color: orangered;
+        }
+  
+        /* Active icon with raised effect */
+        .icon-container.active {
+          width: 50%;
+          height: 60px;
+          background-color: white;
+          border-radius: 0 0 50% 50%;
+          position: fixed;
+          transform: translateY(-10px); /* Raised effect */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          z-index: 1001;
+        }
+        
+        .icon-container i.active{
+          background: white;
+          border-radius: 40%;
+          transform: translateY(-15px); /* Raised effect */
+
+        }
+
+        /* Pressed background effect when an icon is active */
+        div.layer-two-tabs.active {
+          z-index: 1000;
+          background-color: whitesmoke;
+          box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1); /* Inside shadow to create valley effect */
+      }
   
       }
 
