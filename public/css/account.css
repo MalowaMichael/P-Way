@@ -242,7 +242,7 @@
       background-color: white;
       max-width: 94%;
       max-height: auto;
-      margin: 2% auto;
+      margin: 8% auto;
       padding: 10px; 
       height: fit-content;    
       border-top-left-radius: 10px;
@@ -731,6 +731,13 @@
 
 
     /*Responsive styles*/
+    @media (max-width: 1024px) {
+      div.right-nav{
+        display: flex;
+        margin-left: 40%;
+      }
+    }
+
     @media (max-width: 768px) {
       div.right-nav{
         display: flex;
@@ -848,7 +855,7 @@
         max-width: 94%;
         font-size: 14px;
         max-height: auto;
-        margin: 2% auto;
+        margin: 5% auto;
         padding: 8px; 
         height: auto; 
         border-top-left-radius: 5px;
