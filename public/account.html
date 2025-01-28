@@ -12,143 +12,195 @@
   <header>
     <div class = "heading-two">P`Way</div>
 
-      <span class = "active">
-        <i class="fa fa-home" aria-hidden="true" style = "display: none;"></i>
-        <a href = "index.html" >Home</a>
-      </span>
+      <div class = 'left-nav'>
+        <div class = "home">
+          <a href = "index.html">Home</a></div>
+        <div class = "shop">
+          <a href="categories.html">Shop</a>
+        </div>
+      </div>
+
+
+      <div class = "right-nav">
+          <div class = "cart">
+            <i class = "fa fa-cart-arrow-down" ></i>
+          </div>
+          <div class = "bell">
+            <i class = "fa fa-bell"></i>
+          </div>
+
+        <div class = "user-photo">
+          <div class="image-container"></div>
+          <div class = "username">janedoe23@</div>
+  
+        </div>
+      </div>
+      
        
     
   </header>
 
-  <br>
-  <div class = "quick-access-container">
-    <div style = "text-align: left;"><b>Quick access</b></div>
+    <div class = 'account-wrapper'>
+        <div class = "side-menu">
+          <div class = "upper-block">
+            <div>My orders</div>
+            <div>Aftersales</div>
+            <div>Payments</div>
+            <div>History</div>
+            <div>Rates & Reviews</div>
+            
+          </div>
 
-  </div>
+          <div class = "middle-block">
+              <div class = "image-container">
+                <div class = "photo-head"></div>
+                <div class = "photo-body"></div>
+            </div>
+            <div class = "developer">Developer</div>
 
-    <div class = "quick-access-container">
-      <br>
-      <div class = "quick-access">
-        <div id = 'transit' class = "top-icons" >
-          <i style = "color: fuchsia;" class="fa fa-truck" aria-hidden="true"></i>
-          <p>In transit</p>
-        </div>
-  
-        <div id = 'shipped' class = "top-icons">
-          <i style = "color: fuchsia;" class="fa fa-truck" aria-hidden="true"></i>
-          <p>Shipped</p>
-        </div>
-  
-        <div id = 'reviewed' class = "top-icons">
-          <i style = "color: gold;" class="fa fa-star" aria-hidden="true"></i>
-          <p>To review</p>
-        </div>
-  
-        <div id = 'to-review' class = "top-icons">
-          <i style = "color: gold;" class="fa fa-star" aria-hidden="true"></i>
-          <p>Reviewed</p>
-        </div>
-      </div>
-      
-    </div>
+          </div>
 
+          
+
+          <div class = "lower-block">Privacy Terms & Policy</div>
+        </div>
+
+
+        <!--Blocks that will be floated right-->
+        <div class = "floated-right-block">
+
+            <div class = "container-headings"><b>Quickly Access</b></div>
     
 
-    <div class = "orders-container">
-      <div><b>My orders</b></div>
-      <br>
-      <div class = "sub-tabs-container">
-        <div class = "sub-tabs">All orders</div>
-        <div class = "sub-tabs">In transit</div>
-        <div class = "sub-tabs">Shipped</div>
-        <div class = "sub-tabs">Unpaid</div>
-        <div class = "sub-tabs">Completed</div>
-
-
-      </div>
-    </div>
-
-    
-    <div class = "aftersales-container">
-      <div><b>Aftersales</b></div>
-      <br>
-      <div class = 'sub-tabs-container'>
-        <div class = 'sub-tabs' >Apply return | refund</div>
-        <div class = 'sub-tabs' >Returned | Refunded</div>
-        <div class = 'sub-tabs' >Processing</div>
-        <div class = 'sub-tabs' >Processed</div>
-
-      </div>
-    </div>
-
-    <div class = "my-services-container">
-      <div style = "text-align: left;"><b>My services</b></div>
-
-    </div>
-
-    <div class = "my-services-container">
+            <br>
+            <div class = "quick-access">
+              <div id = 'recents' class = "cards" >
+                <i style = "color: #ff0058;" class="fa fa-search" aria-hidden="true"></i>
+                <p>Recents</p>
+              </div>
+        
+              <div id = 'wishlist' class = "cards">
+                <i style = "color: #ff0058;" class="fa fa-heart" aria-hidden="true"></i>
+                <p>Favorites</p>
+              </div>
+        
+              <div id = 'to-review' class = "cards">
+                <i style = "color: orangered;" class="fa fa-star" aria-hidden="true"></i>
+                <p>To review</p>
+              </div>
+        
+              <div id = 'reviewed' class = "cards">
+                <i style = "color: orangered;" class="fa fa-star" aria-hidden="true"></i>
+                <p>Reviewed</p>
+              </div>
+            </div>
+            
+     
+          
       
-      <div id = 'wishlist' onclick = "window.location.href = 'wishlist.html'" class = "services">
-        <i style = "color: red;" class="fa fa-heart" aria-hidden="true"></i>
-        <p>Wishlist</p>
-      </div>
-
-      <div id = 'history' onclick = "window.location.href = 'history.html'" class = "services">
-        <i style="color: rgb(150, 245, 8);" class="fa fa-history" aria-hidden="true"></i>
-        <p>History</p>
-      </div>
-
-      <div id = 'reviews' onclick = "window.location.href = 'reviews.html'" class = "services">
-        <i style = "color: rgb(223, 164, 17);" class="fa fa-star" aria-hidden="true"></i>
-        <p>Reviews</p>
-      </div>
-
-      <div id = 'feedback' onclick = "window.location.href = 'feedback.html'" class = "services">
-        <i style = "color: rgb(79, 187, 231);" class="fa fa-comments" aria-hidden="true"></i>
-        <p>Feedback</p>
-      </div>
-
-      <div id = 'settings' onclick = "window.location.href = 'settings.html'" class = "services">
-        <i style = "color: fuchsia;" class="fa fa-cog" aria-hidden="true"></i>
-        <p>Settings</p>
-      </div>
-
-      <div id = 'help' onclick = "window.location.href = 'help.html'" class = "services">
-        <i style = "color: rgb(139, 91, 91);" class="fa fa-question-circle" aria-hidden="true"></i>
-        <p>Help center</p>
-      </div>
-
-      <div id = 'contact' class = "services">
-        <i style = "color: green;" class="fa fa-headphones" aria-hidden="true"></i>
-        <p>Contact us</p>
-      </div>
-
-      <div id = 'payments' onclick = "window.location.href = 'payments.html'" class = "services">
-        <i style = "color: rgb(253, 166, 6);" class="fa fa-wallet" aria-hidden="true"></i>
-        <p>Payments</p>
-      </div>
+          <div class = "container">
+            <div class = "container-headings"><b>My orders</b></div>
+            <br>
+            <div class = "container-sub-tabs">
+              <div class = "sub-tabs">All</div>
+              <div class = "sub-tabs">Shipping</div>
+              <div class = "sub-tabs">Shipped</div>
+              <div class = "sub-tabs">Unpaid</div>
+              <div class = "sub-tabs">Completed</div>
+      
+      
+            </div>
+          </div>
+      
+          
+          <div class = "container">
+          <div class ="container-headings"><b>Aftersales</b></div>
+            <br>
+            <div class = 'container-sub-tabs'>
+              <div class = 'sub-tabs' >Returned | Refunded</div>
+              <div class = 'sub-tabs' >Processing</div>
+              <div class = 'sub-tabs' >Processed</div>
+      
+            </div>
+          </div>
 
 
-    </div>
+          <div id = "non-default-containers" style = "display: none;" class = "container">
+            <div class ="container-headings"><b>Your activity</b></div>
+              <br>
+              <div class = 'container-sub-tabs'>
+                <div class = 'sub-tabs' >Search history</div>
+                <div class = 'sub-tabs' >Browsing history</div>
+                <div class = 'sub-tabs' >Order history</div>
+        
+              </div>
+            </div>
 
-    <div class = "contact-modal-overlay">
-      <div class = "contact-modal">
-        <div class = "modal-heading">P`Way Support Team</div>
+            <div style = "display: none;" class = "container">
+              <div class ="container-headings"><b>Ratings and Reviews</b></div>
+                <br>
+                <div class = 'container-sub-tabs'>
+                  <div class = 'sub-tabs' >Product reviews</div>
+                  <div class = 'sub-tabs' >Your Reviews</div>
+                  <div class = 'sub-tabs' >To Review</div>
+          
+                </div>
+              </div>
+      
 
-        <div class = "close-modal"><i id = "close-modal" class="fa fa-times" aria-hidden="true"></i></div class = "close-modal">
-        <div class = "modal-content">         
-          <i style = "color: green;rotate: -90deg;" class="fa fa-phone" aria-hidden="true"></i>
+          <div class = "container-headings"><b>Utility Links</b></div>
+      
+      
+          <div class = "utility-container">
+      
+            <div id = 'settings' onclick = "window.location.href = 'settings.html'" class = "utility-cards">
+              <i style = "color: fuchsia;" class="fa fa-cog" aria-hidden="true"></i>
+              <p>Settings</p>
+            </div>
+      
+            <div id = 'help' onclick = "window.location.href = 'help.html'" class = "utility-cards">
+              <i style = "color: rgb(139, 91, 91);" class="fa fa-question-circle" aria-hidden="true"></i>
+              <p>Help center</p>
+            </div>
+      
+            <div id = 'contact' class = "utility-cards">
+              <i style = "color: green;" class="fa fa-headphones" aria-hidden="true"></i>
+              <p>Contact us</p>
+            </div>
 
-          Mobile: <span>07******00</span></div>
+            <div id = 'feedback' onclick = "window.location.href = 'feedback.html'" class = "utility-cards">
+              <i style = "color: rgb(79, 187, 231);" class="fa fa-comments" aria-hidden="true"></i>
+              <p>Feedback</p>
+            </div>
+      
+            
+      
+      
+          </div>
+      
+          <div class = "contact-modal-overlay">
+            <div class = "contact-modal">
+              <div class = "modal-heading">P`Way Support Team</div>
+      
+              <div class = "close-modal"><i id = "close-modal" class="fa fa-times" aria-hidden="true"></i></div class = "close-modal">
+              <div class = "modal-content">         
+                <i style = "color: green;rotate: -90deg;" class="fa fa-phone" aria-hidden="true"></i>
+      
+                Mobile: <span>07******00</span></div>
+      
+              <div id = 'whatsapp' class = "modal-content">
+      
+                <img src = 'whatsapp logo.png' height="80px" width="80px"/>
+                <div class = 'whatsapp-link' style = "cursor: pointer;" onclick = "window.location.href = `https://wa.me/254784192800`">Contact Support Team</div>
+      
+            </div>
+          </div>
+        
+          </div>
 
-        <div id = 'whatsapp' class = "modal-content">
 
-          <img src = 'whatsapp logo.png' height="80px" width="80px"/>
-          <div class = 'whatsapp-link' style = "cursor: pointer;" onclick = "window.location.href = `https://wa.me/254784192800`">Contact Support Team</div>
-
-      </div>
-    </div>
-  
+  </div>  
+    
 
 
 

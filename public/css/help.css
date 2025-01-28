@@ -450,12 +450,12 @@
                           color: rgb(10, 10, 10, 0.7);
                         }
                         .bottnav-icon-container{
-                          height: 35px;
+                          height: 30px;
                           margin-top: 1%;
-                          border-left: 1px solid rgb(111, 110, 110, 0.5);
+                          border-left: 1px solid rgb(111, 110, 110, 0.3);
                         }
                         .bottnav-icon-container:nth-child(1){
-                          border-left: none;
+                          border-left:orange;
                         }
 
                         div.bottnav-icon-container i#home{

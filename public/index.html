@@ -39,10 +39,10 @@
   </div>
 
   <div class = "layer-two">
-    <div class = 'menu-bar'>
+    <span class = 'menu-bar'>
       <i id = 'harmburger' class="fa fa-bars" aria-hidden="true"></i>
 
-    </div>
+    </span>
     <div class = "all-categories">
       
       <div class = "visible-text">All Categories</div>
@@ -276,21 +276,16 @@
     </div>
   </div>
 <br>
-<br>
-
-  
-            
-            
-            
-            
-              
-
+<br>       
+          
           
   <br>
   <br>
   <br>
 </header>
 
+<button onclick = "">Click</button>
+  <p id = "test-width"></p>
 
   
   <br>
@@ -321,6 +316,52 @@
   <br><br>
   
   <script>
+      
+  
+      function checkViewPort() {        
+
+        const elem = document.getElementById('test-width')
+        const deviceWidth = window.innerWidth;
+        elem.innerHTML = "Device width is " + deviceWidth + " pixels."
+
+        
+        if (deviceWidth < 600) {
+          const harmburger = document.querySelector('#harmburger')
+          const categories = document.querySelector('.categories')
+
+          //click listener is only added once
+          if (!harmburger.dataset.clickListenerAdded) {
+            
+            harmburger.dataset.clickListenerAdded = true;
+
+            harmburger.addEventListener('click', ()=>{
+              const isVisible = categories.style.display === 'block'
+
+              if (isVisible) {
+                categories.style.display = 'none'
+                harmburger.classList.remove('fa-times')
+                harmburger.classList.add('fa-bars')
+              }else{
+                categories.style.display = 'block'
+                categories.classList.add('slow-categories')
+                harmburger.classList.remove('fa-times')
+                harmburger.classList.add('fa-bars')
+              }
+            })
+          }
+          
+        }
+
+    }    
+
+    // Run the function on page load and window resize
+    window.addEventListener('load', checkViewPort);
+    window.addEventListener('resize', checkViewPort);
+            
+    
+    
+
+
     const date = document.querySelector('#current-year')
     const year = new Date()
     date.textContent = year.getFullYear();
@@ -489,44 +530,7 @@
       
     }
 
-
-    //responsive categories menu
-
-      const harmburger = documnt.querySelector('#harmburger')
-      const categories = document.querySelector('.categories')
-
-      harmburger.addEventListener('mouseover', showResponsiveCategories)
-      harmburger.addEventListener('mouseout', showResponsiveCategories)
-
-      function showResponsiveCategories(event) {
-          if (event.type === 'mouseover') {
-            
-            categories.style.display = 'block'
-
-          }else{
-            harmburger.classList.remove('fa-times')
-            harmburger.classList.add('fa-bars')
-            categories.style.display = 'none'
-          }
-        }
-        
-    
-    
-      
-    
-    const homeCategories = document.querySelector('.home')
-    const homeCategDropdown = document.querySelector('.categories-dropdown')
-    homeCategories.addEventListener('mouseover', handlCategoriesHover)
-    homeCategories.addEventListener('mouseout', handlCategoriesHover)
-
-    function handlCategoriesHover(hover) {
-      if (hover.type === 'mouseover') {
-        homeCategDropdown.style.display = 'block'
-      }else{
-        homeCategDropdown.style.display = 'none'
-      }
-    }
-
+       
 
     //search product by selection
 
