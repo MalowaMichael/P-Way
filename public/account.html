@@ -45,7 +45,6 @@
           <div class = "upper-block">
             <div>My orders</div>
             <div>Aftersales</div>
-            <div>Payments</div>
             <div>History</div>
             <div>Rates & Reviews</div>
             
@@ -69,7 +68,7 @@
         <!--Blocks that will be floated right-->
         <div class = "floated-right-block">
 
-            <div class = "container-headings"><b>Quickly Access</b></div>
+            <div class = "quick-utility-headings">Quickly Access</div>
     
 
             <br>
@@ -95,28 +94,27 @@
               </div>
             </div>
             
-     
+      
           
-      
           <div class = "container">
-            <div class = "container-headings"><b>My orders</b></div>
+            <div class = "container-headings">My orders</div>
             <br>
-            <div class = "container-sub-tabs">
-              <div class = "sub-tabs">All</div>
-              <div class = "sub-tabs">Shipping</div>
-              <div class = "sub-tabs">Shipped</div>
-              <div class = "sub-tabs">Unpaid</div>
-              <div class = "sub-tabs">Completed</div>
-      
+              <div class = "container-sub-tabs" id = "subtabs-collapsed">
+                <div class = "sub-tabs">All</div>
+                <div class = "sub-tabs">Shipping</div>
+                <div class = "sub-tabs">Shipped</div>
+                <div class = "sub-tabs">Unpaid</div>
+                <div class = "sub-tabs">Completed</div>
+        
       
             </div>
           </div>
       
           
-          <div class = "container">
-          <div class ="container-headings"><b>Aftersales</b></div>
+          <div id = "non-default-containers" class = "container">
+          <div class ="container-headings">Aftersales</div>
             <br>
-            <div class = 'container-sub-tabs'>
+            <div class = 'container-sub-tabs' id = "subtabs-collapsed">
               <div class = 'sub-tabs' >Returned | Refunded</div>
               <div class = 'sub-tabs' >Processing</div>
               <div class = 'sub-tabs' >Processed</div>
@@ -125,10 +123,22 @@
           </div>
 
 
-          <div id = "non-default-containers" style = "display: none;" class = "container">
-            <div class ="container-headings"><b>Your activity</b></div>
+          <div id = "non-default-containers" class = "container">
+            <div class ="container-headings">Ratings and Reviews</div>
               <br>
-              <div class = 'container-sub-tabs'>
+              <div class = 'container-sub-tabs' id = "subtabs-collapsed">
+                <div class = 'sub-tabs' >Product reviews</div>
+                <div class = 'sub-tabs' >Your Reviews</div>
+                <div class = 'sub-tabs' >To Review</div>
+        
+              </div>
+            </div>
+
+
+          <div id = "non-default-containers" class = "container">
+            <div class ="container-headings">Your activity</div>
+              <br>
+              <div class = 'container-sub-tabs' id = "subtabs-collapsed">
                 <div class = 'sub-tabs' >Search history</div>
                 <div class = 'sub-tabs' >Browsing history</div>
                 <div class = 'sub-tabs' >Order history</div>
@@ -136,22 +146,18 @@
               </div>
             </div>
 
-            <div style = "display: none;" class = "container">
-              <div class ="container-headings"><b>Ratings and Reviews</b></div>
-                <br>
-                <div class = 'container-sub-tabs'>
-                  <div class = 'sub-tabs' >Product reviews</div>
-                  <div class = 'sub-tabs' >Your Reviews</div>
-                  <div class = 'sub-tabs' >To Review</div>
-          
-                </div>
-              </div>
+            
       
 
-          <div class = "container-headings"><b>Utility Links</b></div>
+          <div class = "quick-utility-headings">Utility Links</div>
       
       
           <div class = "utility-container">
+
+            <div id = 'payments' onclick = "window.location.href = 'payments.html'" class = "utility-cards">
+              <i style = "color: orange;" class="fa fa-wallet" aria-hidden="true"></i>
+              <p>Payments</p>
+            </div>
       
             <div id = 'settings' onclick = "window.location.href = 'settings.html'" class = "utility-cards">
               <i style = "color: fuchsia;" class="fa fa-cog" aria-hidden="true"></i>
@@ -160,18 +166,21 @@
       
             <div id = 'help' onclick = "window.location.href = 'help.html'" class = "utility-cards">
               <i style = "color: rgb(139, 91, 91);" class="fa fa-question-circle" aria-hidden="true"></i>
-              <p>Help center</p>
+              <p>Help</p>
             </div>
       
             <div id = 'contact' class = "utility-cards">
               <i style = "color: green;" class="fa fa-headphones" aria-hidden="true"></i>
-              <p>Contact us</p>
+              <p>Contact</p>
             </div>
 
             <div id = 'feedback' onclick = "window.location.href = 'feedback.html'" class = "utility-cards">
               <i style = "color: rgb(79, 187, 231);" class="fa fa-comments" aria-hidden="true"></i>
               <p>Feedback</p>
             </div>
+
+            
+      
       
             
       
