@@ -1,0 +1,177 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: whitesmoke;
+}
+header{
+  height: fit-content;
+        position: sticky;
+        margin-top: 0;
+        position: relative;
+        position: relative;
+        z-index: 1000;
+        background: linear-gradient(to right, rgb(150, 237, 150) 20%, rgb(252, 163, 252)  );
+
+}
+div.heading-two{
+  font-size: 3rem;
+        font-weight: bold;
+        background: linear-gradient(to top right, rgb(24, 176, 24) , white 40% );
+        -webkit-background-clip: text; /* Ensures gradient clips to the text */
+        -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
+        text-align: left;
+        text-transform:capitalize;                        
+        margin-left: 2%;
+        margin-left: 2%;
+}
+      .layer-one{
+        background-color: salmon;
+        max-width: 90%;
+        margin: auto;
+        display: flex;
+        
+      }
+      .nav-links{
+        display: flex;
+      }
+      #category{
+        
+        font-size: 12px;
+        color: #ff0058;
+      }
+
+      .items-heading{
+        color: orangered;
+        font-size: 1em;
+        padding: 2px;
+      }
+      .items{
+        font-size: 0.8em;
+      }
+
+
+
+
+      .accordion dl{
+      border: 1px solid #ddd;
+    }
+    
+    
+    
+    .accordion dd {
+      background-color: white;
+      font-size: 1em;
+      line-height: 1em;
+      display: flex;
+    }
+    
+    .accordion div {
+      padding: 1em;
+    }
+    
+    .accordion {
+      position: relative;
+      background-color: #eee;
+    }
+    
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2em 0 2em 0;
+    }
+    
+    
+    .accordionTitle {
+      background-color: #fe065d;
+      text-align: center;
+      font-weight: 700;
+      padding: 1.5em;
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out;
+      border-bottom: 1px solid white;
+    }
+    
+    .accordionTitle:before{
+      content: "+";
+      font-size: 1.5em;
+      line-height: 0.5em;
+      float: left;
+      
+      transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    }
+    
+    .accordionTitle:hover {
+      background-color: orangered;
+    }
+    
+    .accordionTitle.is-expanded {
+      background-color: gray;
+    }
+    
+    .accordionTitle.is-expanded:before {
+      -webkit-transform: rotate(-225deg);
+      transform: rotate(-225deg);
+    }
+    
+    .accordionItem {
+      height: auto;
+      overflow: hidden;
+      max-height: 50em;
+      transition: max-height 1s;
+    }
+    
+    @media screen and (min-width: 48em) {
+      .accordionItem {
+        max-height: 15em;
+        transition: max-height 0.5s;
+      }
+    }
+    
+    .accordionItem.is-collapsed {
+      max-height: 0;
+    }
+    
+    
+    .accordionIn {
+      -webkit-animation: accordionIn 0.7s normal ease-in-out both 1;
+      animation: animateIn 0.7s normal ease-in-out both 1;
+    }
+    
+    .accordionOut {
+      -webkit-animation: accordionOut 0.45s alternate ease-in-out both 1;
+      animation: animateOut 0.7s alternate ease-in-out both 1;
+    }
+    
+    @-webkit-keyframes animatein {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(0.9) rotateX(-60deg);
+        transform: scale(0.9) rotateX(-60deg);
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+    
+  
+    @-webkit-keyframes animateOut {
+      0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        -webkit-transform: scale(0.9) rotateX(-60deg);
+        transform: scale(0.9) rotateX(-60deg);
+      }
+    }
+    

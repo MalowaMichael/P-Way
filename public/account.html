@@ -12,6 +12,8 @@
   <header>
     <div class = "heading-two">P`Way</div>
 
+    <span id = "back-arrow" class = "fa fa-arrow-left" onclick = "window.location.href = 'index.html'"></span>
+
       <div class = 'left-nav'>
         <div class = "home">
           <a href = "index.html">Home</a></div>
@@ -31,7 +33,7 @@
 
         <div class = "user-photo">
           <div class="image-container"></div>
-          <div class = "username">janedoe23@</div>
+          <div class = "username">janedoe</div>
   
         </div>
       </div>
@@ -84,68 +86,72 @@
               </div>
         
               <div id = 'to-review' class = "cards">
-                <i style = "color: orangered;" class="fa fa-star" aria-hidden="true"></i>
+                <i style = "color: #ff0058;" class="fa fa-star" aria-hidden="true"></i>
                 <p>To review</p>
               </div>
         
               <div id = 'reviewed' class = "cards">
-                <i style = "color: orangered;" class="fa fa-star" aria-hidden="true"></i>
+                <i style = "color: #ff0058;" class="fa fa-star" aria-hidden="true"></i>
                 <p>Reviewed</p>
               </div>
             </div>
             
       
           
-          <div class = "container">
-            <div class = "container-headings">My orders</div>
-            <br>
-              <div class = "container-sub-tabs" id = "subtabs-collapsed">
-                <div class = "sub-tabs">All</div>
-                <div class = "sub-tabs">Shipping</div>
-                <div class = "sub-tabs">Shipped</div>
-                <div class = "sub-tabs">Unpaid</div>
-                <div class = "sub-tabs">Completed</div>
-        
-      
-            </div>
-          </div>
-      
+            <div class="accordion">
+              <dl>
+                  <div class = "container">
+                    <dt>
+                      <div aria-expanded = "false" aria-controls = "accordion1" id = "default-container" class = "container-headings accordionTitle triggerHidden">My orders</div>
+                    </dt>
+                    <dd class="sub-tabs-container accordionItem is-collapsed" id="accordion1" aria-hidden="true">
+                  
+                        <div class = "sub-tabs">All</div>
+                        <div class = "sub-tabs">Shipping</div>
+                        <div class = "sub-tabs">Shipped</div>
+                        <div class = "sub-tabs">Unpaid</div>
+                        <div class = "sub-tabs">Completed</div>
+                  </dd>
+                  </div>
           
-          <div id = "non-default-containers" class = "container">
-          <div class ="container-headings">Aftersales</div>
-            <br>
-            <div class = 'container-sub-tabs' id = "subtabs-collapsed">
-              <div class = 'sub-tabs' >Returned | Refunded</div>
-              <div class = 'sub-tabs' >Processing</div>
-              <div class = 'sub-tabs' >Processed</div>
-      
+          
+                <div id="non-default-containers" class = "container">
+                  <dt>
+                    <div  aria-expaded = " false" aria-controls = "accordion2" class = "container-headings accordionTitle triggerHidden">Aftersales</div>
+                  </dt>
+                  <dd class = "sub-tabs-container accordionItem is-collapsed" aria-hidden="true">
+                    <div class="sub-tabs">Returned</div>
+                    <div class="sub-tabs">Processing</div>
+                    <div class="sub-tabs">Processed</div>       
+            
+            
+                  </dd>
+                </div>
+          
+                <div id ="non-default-containers" class = "container">
+                  <dt>
+                    <div aria-expanded = "false" aria-controls = "accordion3" class = "container-headings accordionTitle triggerHidden">Rate and review</div>
+                  </dt>
+                  <dd class = "sub-tabs-container accordionItem is-collapsed" id = "accordion3" aria-hidden = "true">
+                    <div class="sub-tabs">Product Reviews</div>
+                    <div class="sub-tabs">Your reviews</div>
+                    <div class="sub-tabs">To review</div>
+                  </dd>
+                </div>
+          
+                <div id ="non-default-containers" class = "container">
+                  <dt>
+                    <div aria-expanded = "false" aria-controls="accordion4" class = "container-headings accordionTitle triggerHidden">Your activity</div>
+                  </dt>
+                <dd class = "sub-tabs-container accordionItem is-collapsed" id = "accordion4" aria-hidden = "true">
+                  <div class="sub-tabs">Search history</div>
+                  <div class="sub-tabs">Browsing history</div>
+                  <div class="sub-tabs">Order history</div>
+          
+                </dd>
+                </div>
+              </dl>
             </div>
-          </div>
-
-
-          <div id = "non-default-containers" class = "container">
-            <div class ="container-headings">Ratings and Reviews</div>
-              <br>
-              <div class = 'container-sub-tabs' id = "subtabs-collapsed">
-                <div class = 'sub-tabs' >Product reviews</div>
-                <div class = 'sub-tabs' >Your Reviews</div>
-                <div class = 'sub-tabs' >To Review</div>
-        
-              </div>
-            </div>
-
-
-          <div id = "non-default-containers" class = "container">
-            <div class ="container-headings">Your activity</div>
-              <br>
-              <div class = 'container-sub-tabs' id = "subtabs-collapsed">
-                <div class = 'sub-tabs' >Search history</div>
-                <div class = 'sub-tabs' >Browsing history</div>
-                <div class = 'sub-tabs' >Order history</div>
-        
-              </div>
-            </div>
-
             
       
 
@@ -214,6 +220,80 @@
 
 
     <script>
+      //Now initilize the Immediately Invoked Function Expressio IIFE
+      (function()
+    {
+      var d = document,
+        accordionToggles = d.querySelectorAll('.triggerHidden'),
+        setAria,
+        setAccordionAria,
+        switchAccordion,
+        touchSupported = ('ontouchstart' in window),
+        pointerSupported = ('pointerdown' in window);
+
+      skipClickDelay = function(e)
+      {
+        e.preventDefault();
+        e.target.click();
+      }
+
+      setAriaAttr = function(el, ariaType, newProperty)
+      {
+        el.setAttribute(ariaType, newProperty);
+      };
+      setAccordionAria = function(el1, el2, expanded)
+      {
+        switch (expanded)
+        {
+          case "true":
+            setAriaAttr(el1, 'aria-expanded', 'true');
+            setAriaAttr(el2, 'aria-hidden', 'false');
+            break;
+          case "false":
+            setAriaAttr(el1, 'aria-expanded', 'false');
+            setAriaAttr(el2, 'aria-hidden', 'true');
+            break;
+          default:
+            break;
+        }
+      };
+      //function
+      switchAccordion = function(e)
+      {
+        console.log("triggered");
+        e.preventDefault();
+        var thisAnswer = e.target.parentNode.nextElementSibling;
+        var thisQuestion = e.target;
+        if (thisAnswer.classList.contains('is-collapsed'))
+        {
+          setAccordionAria(thisQuestion, thisAnswer, 'true');
+        }
+        else
+        {
+          setAccordionAria(thisQuestion, thisAnswer, 'false');
+        }
+        thisQuestion.classList.toggle('is-collapsed');
+        thisQuestion.classList.toggle('is-expanded');
+        thisAnswer.classList.toggle('is-collapsed');
+        thisAnswer.classList.toggle('is-expanded');
+
+        thisAnswer.classList.toggle('animateIn');
+      };
+      for (var i = 0, len = accordionToggles.length; i < len; i++)
+      {
+        if (touchSupported)
+        {
+          accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+        }
+        if (pointerSupported)
+        {
+          accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+        }
+        accordionToggles[i].addEventListener('click', switchAccordion, false);
+      }
+    })();
+
+      //show modals
       const showModal = document.getElementById('contact')
       const modalOverlay = document.querySelector('.contact-modal-overlay')
       const closeModal = document.querySelector('#close-modal')

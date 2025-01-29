@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P`Way-Online Store-Shop with Categories</title>
+  <title>P`Way-Shop | Categories</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -47,123 +47,184 @@
 
 <body>
   <header>
-    <h2>Shop By Categories</h2>
-
-  <div class="open-search">
-    <span><i id = "search1" class = "fa fa-search"></i></span>
-
-    <div id="searchbar" class="search-container">
-      <div class="button-input">
-        <input type="text" name="search_input" placeholder="Type here to search">
-
-      </div>
-      <span class="search-icon" style="position: fixed;">
-        <i id="close-search"class="fa fa-times" aria-hidden="true"></i>
-
-      </span>
-    </div>
-  </div>
-  <br>
-  
-    <nav id="tabs">
-      <ul >
-          <div class = "dropdown">
-              <li><a class = "dropdown-toggle" data-bs-toggle="dropdown" href="#electronics">Electronics</a>
-                <ul class = "dropdown-menu">
-                  <li><a class = "dropdown-item" href = "#bulbs">Bulbs</a></li>
-                  <li><a class = "dropdown-item" href = "">Solars</a></li>
-                  <li><a class = "dropdown-item" href = "">Woofers</a></li>  
-                </ul>
-              </li>
+    <div class="layer-one">
+      <div class="heading-two">P`Way</div>
+        <div class="nav-links">
+            <div id = "category">Electronics</div>
+            <div id = "category">Security</div>
+            <div id = "category">Office</div>
+            <div id = "category">Accessories</div>
+            <div id = "category">Home </div>         
+            <div id = "category">Clothes</div>
+            <div id = "category">Footware</div>
+            <div id = "category">Beauty</div>
+            <div id = "category">Sports</div>
+            <div id = "category">Kids</div>
+            <div id = "category">Toys</div>
         </div>
-        <!---->
-        <li><a href="#smartphones">Smartphones</a></li>
-        <li><a href="#laptops">Laptops</a></li>
-  
-        <li><a href="#home">Home</a>
-          
-            <!---->
-          
-        </li>
-        <li><a href="#beauty">Beauty</a>
-          <!---->
-        </li>
-        <div >
-              <li id = "cloth">
-               
-                  <a href="#clothes" onclck = "toggleClothe()">Clothes
-                      <i  class ="fa fa-caret-down"></i></a></li>
-  
-                  </a>
-            </li>
-            <div id = "sub-menu" class = "sub-menu-content">
-              <ul >
-                <li><a  href="#">Women</a></li>
-                <li><a href="#">Kids</a></li>
-                <li class="hover-me"><a href="#">Men</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-              </ul>
-            </div>
-         </div>
-  
-        <li><a href="#shoes">Shoes</a></li>
-        <li><a href="#hygiene">Hygiene</a></li>
-        <li><a href="#sports">Sports</a></li>
-        <li><a href="#kids">Kids</a></li>
-        
-      </ul>
-          
-  </nav>
-  <span class="bar-icon">
-    <i class="fa fa-bars" id="menubar" aria-hidden="true"></i>
-  </span>
-
+    </div>
+    
   </header>
 
-  <div class = "display">
-    <div class = "categories">
-      <div id = "link1" class = "categ-links">Electronics</div>
-      <div id = "link2" class = "categ-links">Smartphones</div>
-      <div id = "link3" class = "categ-links">Laptops</div>
-      <div id = "link4" class = "categ-links">Home</div>
-      <div id = "link5" class = "categ-links">Beauty</div>
-      <div id = "link6" class = "categ-links">Clothes</div>
-      <div id = "link7" class = "categ-links">Shoes</div>
-      <div id = "link8" class = "categ-links">Hygiene</div>
-      <div id = "link9" class = "categ-links">Sports</div>
-      <div id = "link10" class = "categ-links">Kids</div>
+
+
+
+    <h2>Shop By Categoris</h2>
   
+    <div class="items-heading">Kitchen
+      <div class="items">Cooking appliances</div>
+      <div class="items">Crockery</div>
+      <div class="items">Cutlery</div>
+      <div class="items">Sufurias</div>
+      <div class="items">Dinner sets</div>
+      <div class="items">Others</div>
     </div>
-    <div class = "content">
-          <div>Item1</div>
-          <div>Item2</div>
-          <div>Item3</div>
-
+    <div class="items-heading">Livingroom
+      <div class="items">Carpets</div>
+      <div class="items">Decor</div>
+      <div class="items">Curtains</div>
+      <div class ="items">Others</div>
     </div>
+    <div class="items-heading">Bedroom
+      <div class="items">Decor</div>
+      <div class="items">Beddings</div>
+      <div class="items">Mosquito nets</div>
+    </div>
+    <div class="items-heading">Washroom</div>
+    <div class="items-heading">Outdoors</div>
+    <div class="items-heading">Garden</div>
+    <div class="items-heading">Furniture</div>
   </div>
-  <br>
-  <br>
-      <div class = "scrolling-wrapper">
-          <img src = "pee images/img1.jpg" width = "50px" height = "50px" class = "scrolling-image">
-          <figcaption>Electronics</figcaption>
-        
-          <img src = "pee images/img2.jpg" width = "50px" height = "50px" class = "scrolling-image">
-          <figcaption>Smartphones</figcaption>
-        
-          <img src = "pee images/img3.jpg" width = "50px" height = "50px" class = "scrolling-image">
-          <figcaption>Laptops</figcaption>
 
-          <!--Duplicate the images-->
-          <img src = "pee images/img1.jpg" width = "50px" height = "50px" class = "scrolling-image">
-          <figcaption>Electronics</figcaption>
+    
+  <div class="accordion">
+    <dl>
+        <div class="container">
+          <dt>
+            <div aria-expanded = "false" aria-controls = "accordion1" class = "container-headings accordionTitle triggerHidden">My orders</div>
+          </dt>
+          <dd class="container-sub-tabs accordionItem is-collapsed" id="accordion1" aria-hidden="true">
         
-          <img src = "pee images/img2.jpg" width = "50px" height = "50px" class = "scrolling-image">
-          <figcaption>Smartphones</figcaption>
-        
-          <img src = "pee images/img3.jpg" width = "50px" height = "50px" class = "scrolling-image">
-          <figcaption>Laptops</figcaption>
+              <div class = "sub-tabs">All</div>
+              <div class = "sub-tabs">Shipping</div>
+              <div class = "sub-tabs">Shipped</div>
+              <div class = "sub-tabs">Unpaid</div>
+              <div class = "sub-tabs">Completed</div>
+              .
+        </dd>
+
+    </div>
+
+      <div id="non-default-containers" class = "container">
+        <dt>
+          <div  aria-expaded = " false" aria-controls = "accordion2" class = "container-headings accordionTitle triggerHidden">Aftersales</div>
+        </dt>
+        <dd class = "container-sub-tabs accordionItem is-collapsed" aria-hidden="true">
+          <div class="sub-tabs">Returned</div>
+          <div class="sub-tabs">Processing</div>
+          <div class="sub-tabs">Processed</div>       
+  
+  
+        </dd>
       </div>
 
-  
-</body>
+      <div id="non-default-containers" class="container">
+        <dt>
+          <div aria-expanded = "false" aria-controls = "accordion3" class = "container-headings accordionTitle triggerHidden">Rate and review</div>
+        </dt>
+        <dd class = "container-sub-tabs accordionItem is-collapsed" id = "accordion3" aria-hidden = "true">
+          <div class="sub-tabs">Product Reviews</div>
+          <div class="sub-tabs">Your reviews</div>
+          <div class="sub-tabs">To review</div>
+        </dd>
+      </div>
 
+      <div id="non-default-containers" class="container">
+        <dt>
+          <div aria-expanded = "false" aria-controls="accordion4" class = "container-headings accordionTitle triggerHidden">Your activity</div>
+        </dt>
+      <dd class = "container-sub-tabs accordionItem is-collapsed" id = "accordion4" aria-hidden = "true">
+        <div class="sub-tabs">Search history</div>
+        <div class="sub-tabs">Browsing history</div>
+        <div class="sub-tabs">Order history</div>
+
+      </dd>
+      </div>
+    </dl>
+  </div>
+
+<script>
+  (function()
+    {
+      var d = document,
+        accordionToggles = d.querySelectorAll('.triggerHidden'),
+        setAria,
+        setAccordionAria,
+        switchAccordion,
+        touchSupported = ('ontouchstart' in window),
+        pointerSupported = ('pointerdown' in window);
+
+      skipClickDelay = function(e)
+      {
+        e.preventDefault();
+        e.target.click();
+      }
+
+      setAriaAttr = function(el, ariaType, newProperty)
+      {
+        el.setAttribute(ariaType, newProperty);
+      };
+      setAccordionAria = function(el1, el2, expanded)
+      {
+        switch (expanded)
+        {
+          case "true":
+            setAriaAttr(el1, 'aria-expanded', 'true');
+            setAriaAttr(el2, 'aria-hidden', 'false');
+            break;
+          case "false":
+            setAriaAttr(el1, 'aria-expanded', 'false');
+            setAriaAttr(el2, 'aria-hidden', 'true');
+            break;
+          default:
+            break;
+        }
+      };
+      //function
+      switchAccordion = function(e)
+      {
+        console.log("triggered");
+        e.preventDefault();
+        var thisAnswer = e.target.parentNode.nextElementSibling;
+        var thisQuestion = e.target;
+        if (thisAnswer.classList.contains('is-collapsed'))
+        {
+          setAccordionAria(thisQuestion, thisAnswer, 'true');
+        }
+        else
+        {
+          setAccordionAria(thisQuestion, thisAnswer, 'false');
+        }
+        thisQuestion.classList.toggle('is-collapsed');
+        thisQuestion.classList.toggle('is-expanded');
+        thisAnswer.classList.toggle('is-collapsed');
+        thisAnswer.classList.toggle('is-expanded');
+
+        thisAnswer.classList.toggle('animateIn');
+      };
+      for (var i = 0, len = accordionToggles.length; i < len; i++)
+      {
+        if (touchSupported)
+        {
+          accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+        }
+        if (pointerSupported)
+        {
+          accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+        }
+        accordionToggles[i].addEventListener('click', switchAccordion, false);
+      }
+    })();
+</script>
+</body>
 </html>

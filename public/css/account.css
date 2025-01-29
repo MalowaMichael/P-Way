@@ -43,6 +43,9 @@
       color: orangered;
       font-size: 1.5em;
     }
+    span#back-arrow{
+      display: none;
+    }
     div.home{
       padding-right: 15px;
       border-right: 1px solid rgb(152, 150, 150, 0.5);
@@ -69,15 +72,11 @@
       margin-top: 20%;
 
     }
-    
-
+  
 
     div.right-nav div.user-photo{
       margin-left: 25%;
     }
-
-    
-
     
     div.user-photo div.username{
       padding-top: 10px;
@@ -238,39 +237,27 @@
     
     
       
-    .container{
+    
+    .accordion div.container{
       background-color: white;
-      max-width: 94%;
-      max-height: auto;
-      margin: 8% auto;
-      padding: 10px; 
-      height: fit-content;    
+      max-width: 96%;
+      margin: 2% auto;
+      max-height: auto;    
       border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-top-right-radius: 10px;  
+    
+    }
+    .accordion dd {
+      font-size: 1em;
+      line-height: 1em;
+      display: flex;
+      margin-left: 2%;
+      margin-right: 2%;
+      background-color: transparent;
 
     }
-    div#non-default-containers{
-      display: none;
-    }
-    div.quick-utility-headings{
-      text-align: center;
-      font-size: 1em;
-      font-weight: bold;
-    }
-    .container-headings{
-      margin-left: 5%;
-      font-size: 1em;
-      font-weight: 500;
-      text-align: left;
-    }
-    div.container-sub-tabs{
-      display: flex;
-      max-width: 90%;
-      margin: 0 auto;
-    }
-    dd.is-collpsed{
-      display: none;
-    }
+    
+        
     div.sub-tabs{
       flex: 1;
       width: 25%;
@@ -294,14 +281,47 @@
     }
 
     
+    .accordionTitle {
+      text-align: center;
+      font-weight: 700;
+      padding: 1em;
+      color: black;
+      max-width: 94%;
+      font-size: 14px;
+        
 
+    }
+        
+    #non-default-containers{
+      display: none;
+      
+    }
+    
+    div.quick-utility-headings{
+      text-align: center;
+      font-size: 1em;
+      font-weight: bold;
+    }
+    .container-headings{
+      margin-left: 5%;
+      font-size: 1em;
+      font-weight: 500;
+      text-align: left;
+    }
+    div.sub-tabs-container{
+      display: flex;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    
+   
     .utility-container{
       background-color: white;
       max-width: 94%;
       margin: 1% auto;      
-      height: fit-content;
       padding: 10px;
       display: grid;
+      position: relative;
       grid-template-columns: repeat(5, 1fr);
       gap: 20px;
       box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
@@ -323,7 +343,10 @@
       padding-left: 15px;
 
     }   
-    
+    div.utility-cards p{
+      font-size: 1em;
+    }
+
     .utility-container div#payments:hover{
       box-shadow: 5px 5px 10px rgb(252, 165, 4, 0.8);
       transform: translateX(15px);
@@ -371,9 +394,9 @@
     .contact-modal{
       width: 50%;
       height: 50%;
+      margin: 50% auto;
       border-radius: 2px;
       padding: 8px;
-      top: 50%;
       left: 50%;
       position: fixed;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -730,19 +753,19 @@
 
 
 
-    /*Responsive styles*/
-    @media (max-width: 1024px) {
-      div.right-nav{
-        display: flex;
-        margin-left: 40%;
-      }
-    }
+    
 
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
       div.right-nav{
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 1em;
+        background-color: transparent;
         display: flex;
-        margin-left: 20%;
       }
+      
+      
     }
 
 
@@ -755,11 +778,28 @@
       header{
         flex: 1;
         padding-right: 15px;
+        background: rgb(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgb(205, 201, 201);
+
       }
+      span#back-arrow{
+        display: block;
+        height: 15px;
+        width: 15px;
+        padding: 5px;
+        border-radius: 100px;
+        font-size: 1em;
+        margin-top: 4% ;
+        margin-left: 2%;
+        background: rgb(221, 218, 218);
+        
+      }
+      
       .heading-two{
-        font-size: 1.5em;
+        display: none;
       }
-           
+      
+       
       
       div.left-nav{
         
@@ -769,7 +809,7 @@
   
       div.right-nav{
         display: flex;
-        margin-left: 40%;
+        margin-left: 60%;
       }
               
       div.cart{
@@ -827,9 +867,7 @@
   
       }
   
-      .is-collapsed{
-        display: none;
-      }
+      
 
       div.cards{
         width: 30%;
@@ -841,6 +879,7 @@
       div.cards i{
         font-size: 16px;
         padding-top: 0;
+        color: #fe055c;
       }
       div.cards p{
         padding-bottom: 5px;
@@ -850,8 +889,39 @@
 
      
 
-      .container{
-        background-color: white;
+      
+      div#non-default-containers{
+        display: block;
+      }
+      div.quick-utility-headings{
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+
+      .accordion div.container{
+        max-width: 90%;
+        margin: 2% auto;
+        max-height: auto;    
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; 
+      }
+      
+      .accordion dd {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        display: flex;
+      }
+      
+      .accordion div {
+        padding: 5px;
+      }
+               
+      
+      .accordionTitle {
+        text-align: center;
+        font-weight: 400;
+        transition: background-color 0.5s ease-in-out;
         max-width: 94%;
         font-size: 14px;
         max-height: auto;
@@ -862,36 +932,80 @@
         border-top-right-radius: 5px;        
   
       }
-      div#non-default-containers{
-        display: block;
-      }
-      div.quick-utility-headings{
-        font-weight: 500;
-      }
-      .container-headings{
-        margin-left: 5%;
-        text-align: left;
-
-      }
-      .container-headings::before{
-        content: '+';
-        float: left;
-        font-size: 2em;
+      
+      .accordionTitle:before{
+        content: "+";
+        font-size: 1.5em;
         line-height: 0.5em;
-        padding-right: 25%;
+        float: left;
         color: orangered;
         transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
       }
-
-      div#subtabs-collapsed{
-        display: none;
+      
+            
+      .accordionTitle.is-expanded {
+        background-color: whitesmoke;
       }
-      div#subtabs-collapsed.active{
-        display: flex;
-        flex-direction: row;
-
+      
+      .accordionTitle.is-expanded:before {
+        -webkit-transform: rotate(-225deg);
+        transform: rotate(-225deg);
       }
+      
+      .accordionItem {
+        height: auto;
+        overflow: hidden;
+        max-height: 50em;
+        transition: max-height 1s;
+      }
+      
+           
+      .accordionItem.is-collapsed {
+        max-height: 0;
+      }
+      
+      
+      .accordionIn {
+        -webkit-animation: accordionIn 0.7s normal ease-in-out both 1;
+        animation: animateIn 0.7s normal ease-in-out both 1;
+      }
+      
+      .accordionOut {
+        -webkit-animation: accordionOut 0.45s alternate ease-in-out both 1;
+        animation: animateOut 0.7s alternate ease-in-out both 1;
+      }
+      
+      @-webkit-keyframes animatein {
+        0% {
+          opacity: 0;
+          -webkit-transform: scale(0.9) rotateX(-60deg);
+          transform: scale(0.9) rotateX(-60deg);
+          -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+      
+    
+      @-webkit-keyframes animateOut {
+        0% {
+          opacity: 1;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          -webkit-transform: scale(0.9) rotateX(-60deg);
+          transform: scale(0.9) rotateX(-60deg);
+        }
+      }
+      
 
+    
       div.container-sub-tabs{
         display: flex;
         max-width: 100%;
@@ -913,7 +1027,7 @@
         margin: 1% auto;      
         padding: 5px;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fit, 1fr);
         gap: 10px;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
@@ -934,7 +1048,6 @@
         flex: 1;
 
       }
-
     }
     
    

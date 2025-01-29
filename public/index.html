@@ -498,6 +498,10 @@
     userAccount.addEventListener('mouseout', handleAccountHover)
 
     function handleAccountHover(hover) {
+      const devicewidth = window.innerWidth;
+      if (devicewidth > 600) {
+        userAccount.removeEventListener('mouseover', 'mouseout')
+      }
         if(hover.type === 'mouseover'){
           dropDown.classList.add('slow-dropdown')
           dropDown.style.display = 'block'
