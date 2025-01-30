@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Change Phone Number</title>
+  <title>Manage Shipping Address</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel = "stylesheet" href = "css/settings.css">
 
 </head>
 <body>
   <header>
-    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+    <div class = "heading-two"><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></div>
 
+    <span class = "fa fa-arrow-left back-arrow"></span>
     
     <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
     <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
@@ -20,19 +23,17 @@
 
     
     <div class = "hidden-tabs">
-      <a  href="index.html"><span class = "tab-links">Home</span></a>
-      <a  href="account.html"><span class = "tab-links">Account</span></a>
-      <a  href="help.html"><span class = "tab-links">Help</span></a>
+      <div onclick = "window.location.href='index.html'"><span class = "tab-links">Home</span></div>
+      <div onclick = "window.location.href='account.html'"><span class = "tab-links">Account</span></div>
+      <div onclick ="window.location.href='help.html'"><span class = "tab-links">Help</span></div>
     
     </div>
   </header>
-  <br>
   
-  <div class = "shipping-wrapper">
 
     <div class = "shipping-container">
 
-      <h2 class = "shipping">Change Your Shipping Address</h2>
+      <div class = "shipping-heading">Change Your Shipping Address</div>
 
       <div id = "changeship-success-msg" class = "success-msg">
         <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
@@ -45,22 +46,7 @@
   
         
       <form id = "change-shipaddress-form" action = "/change_shipping_address" method = "post">
-  
-        <label>
-          <input type = "radio" name = "shippingOption" value = "international">
-          <span class = "ext">Internationally Shipped</span>
-        </label>
-  
-        <label>
-          <input id = "align-left" type = "radio" name = "shippingOption" value = "local">
-          <span class = "ext">Locally shipped</span>
-          </label>
-  
-        <br>
-        <br>
-          <div class = "shipping-inputs">
 
-            <div style = "display:none;" class = "international">
               <input class = "international-inputs" id = "country" type = "text" name = "Country" placeholder = "Country">
               <br>
               <br>
@@ -72,46 +58,16 @@
               <br>
               <input class = "international-inputs" id = "zip" type= "text" name = "Postal_Code" placeholder="ZIP/Postal code">
               <br>
-              
-            </div>
-
-            <div class = "local">
-              <input class = "local-inputs" id = "county" type = "text" name = "County" placeholder = "County">
-              <br>
-              <br>
-              <input class = "local-inputs" id = "city" type = "text" name = "Nearest_City" placeholder = "Nearest city/town">
-              <br>
-              <br>
-              <input class = "local-inputs" id = "street" type = "text" name = "Street_Address" placeholder = "Street address">
-              <br>
-              <br>
-              <input class = "local-inputs" id = "zip" type = "text" name = "Postal_Code" placeholder = "ZIP/Postal code">
-              <br>
-            </div>
-            <br>
-            <br>
-
-          </div>
-          <br>
-          <br>
-
-          <br>
+            
           <br>
           <button id = "submit-btn" class = "submit" type = "submit">Submit</button>
           <br>
           <br>
-          <br>
+          
       </form>
-      <br>
-      <p id = "output" style = "margin-left: 32%;margin-right: 32%;"></p>
-      <br>
-      <br>
-      <br>
-      <br>
-      
+            
     </div>
 
-  </div>
   
   <script>
     document.addEventListener('DOMContentLoaded', () => {

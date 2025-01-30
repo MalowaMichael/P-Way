@@ -8,9 +8,9 @@
           }
 
           header{
-            height: 75px;
             position: sticky;
             top: 0;
+            height: 70px;
             z-index: 1000;
             padding: 5px;
             background-color: white;
@@ -75,6 +75,16 @@
             padding-right: 0;
             display: none;
           }
+
+          header div.page-title{
+            color: black;
+            font-size: 1.5em;
+            width: 10%;
+            padding: 2px;
+            margin: 0% auto;
+            text-align: center;
+            background-color: transparent;
+          }
           .feedback-container.hidden-tabs{
             display: none;
           }
@@ -129,7 +139,7 @@
             opacity: 1;
           }
           .wrapper{
-            background-color: rgb(224, 223, 223);
+            background-color: rgb(219, 218, 218, 0.5);
             border: none;
             max-width: 90%;
             margin: 2% auto;
@@ -142,7 +152,8 @@
             margin: 3% auto;
             padding: 5px;
             height: fit-content;            
-            border-radius: 2px;
+            border-radius: 4px;
+            box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
           }
 
           .container h2{
@@ -245,14 +256,11 @@
 
           .settings-container{
             background-color: white;
-            width: 90%;
-            margin-left: 5%;
-            margin-right: 5%;
+            width: 96%;
+            margin: 2% auto;
             padding: 5px;
             top: 5%;
-            margin-top: 2%;
-            margin-bottom: 5%;
-
+            border-radius: 2px;
           }
           .settings-container header{
             margin-left: 5%;
@@ -339,7 +347,9 @@
             }
             .edit-container{
               margin-top: 2% ;
+              border-radius: 5px;
               background-color: white;
+              box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
             }
             header{
               padding-right: 15px;
@@ -683,14 +693,16 @@
 
         /*Special stylings for delete warning file*/
         
-        .container h2{
-          color: rgb(239, 72, 72);
+        .container div.warning-heading{
+          color: rgb(243, 38, 38);
           text-align: center;
+          font-size: 1.5em;
+          font-weight: bold;
         }
         .container p.delete-warnings{
           margin-left: 5%;
           margin-right: 5%;
-          line-height: 3;
+          line-height: 3.5em;
 
         }
 
@@ -698,22 +710,22 @@
           font-size: 50px;
           font-weight: bolder;
           font-style:inherit;
-          color: rgb(239, 72, 72);
-          margin-left: 47%;
+          color: rgb(243, 38, 38);
+          margin: auto;
           padding-top: 5px;
         }
 
         .container ul li{
           text-align: left;
           margin-left: 3%;
-          line-height: 3;
+          line-height: 3.5em;
           margin-right: 3%;
           list-style-type:initial;
         }
 
 
         .container button.proceed-btn{
-          width: 15%;
+          width: 25%;
           height: 40px;
           float: right;
           font-size: 18px;
@@ -723,7 +735,7 @@
           text-align: center;
           margin-right: 2%;
           border-radius: 8px;
-          background-color: rgb(239, 72, 72);
+          background-color: rgb(243, 38, 38);
         }
         
         #proceed-btn :hover{
@@ -766,8 +778,11 @@
           top: 0;
 
         }
-        .container h2.security-header{
+        div.security-header{
           color: fuchsia;
+          font-size: 1.5em;
+          font-weight: bold;
+          text-align: center;
         
         }
         .container label.security-quiz{
@@ -814,121 +829,66 @@
 
 
         /* change shipping address stylings*/
-        .shipping-wrapper{
-          background-color: rgb(224, 223, 223);
-            border: none;
-            width: 70%;
-            height: fit-content;
-            border-radius: 2px;
-            padding: 8px;
-            margin-left: 15%;
-            margin-right: 15%;
-        }
+        
         .shipping-container {
           background-color: white;
-          width: 80%;
+          width: 60%;
+          margin: 3% auto;
           height: fit-content;
-          padding: 5px;
-          margin-left: 10%;
-          margin-right: 10%;
-          margin-top: 3%;
-          margin-bottom: 3%;
-          border-radius: 2px;
+          padding: 1em 2em 1em 2em;          
+          border-radius: 4px;
+          box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
         }
-        .shipping-container h2.shipping{
+        .shipping-heading{
           text-align: center;
           color: fuchsia;
-          background-color: transparent;
-          width: 50%;
-          padding: 0;
-          margin-left: 25%;
-          margin-right: 25%;
+          font-size: 1.5em;
+          font-weight: bold;
+
+        }
+        .shipping-container form{
+          margin-top: 4%;
+          line-height: 2em;
         }
         .shipping-container input{
           width: 90%;
           height: 40px;
           margin-left: 5%;
           outline: none;
-          border: 1px solid #77a2f2;
+          border: 1px solid rgb(151, 149, 149);
           border-radius: 2px;
           margin-right: 5%;
           
         }
         .shipping-container input:focus{
-          border: 1.5px solid fuchsia;
+          border: 1.2px solid fuchsia;
           outline: none;
+          transition: 0.7s ease; 
         }
         .shipping-container input::placeholder{
           color: rgb(146, 136, 136);
           font-size: 18px;
+          padding-left: 5px;
           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-
-        .shipping-container input[type = 'radio']{
-          flex-direction: row;
-          row-gap: 40%;
-          width: 25px;
-          height: 20px;
-          margin-left: 15%;
-        }
-        .shipping-container .checked{
-          background-color: fuchsia;
-          outline: none;
-        }
-
-        .shipping-container input[type = 'radio']#align-left{
-          margin-right: 0;
-        }
-        .shipping-container div.international{
-          display: none;
-          float: left;
-          margin-left: 7%;
-        }
-        .shipping-container div.international input{
-          width: 100%;
-          margin-left: 45%;
-        }
-
         
-        .shipping-container div.local{
-          display: none ;
-          float: right;
-          margin-right: 19%;
-
-        }
-        .shipping-container div.local input{
-          width: 100%;
-        }
-        .shipping-container div.local input[value = 'local']{
-          margin-left: 180%;
-        }
-        .shipping-container div.shippinginputs{
-          display: flex;
-          row-gap: 50px;
-        }
-        
+          
         .shipping-container button.submit{
-          width: 40%;
+          width: 50%;
+          margin-left: 25%;
+          margin-right: 25%;
           height: 40px;
-          float: right;
           font-size: 18px;
           outline: none;
           border: none;
           color: white;
-          text-align: center;
-          margin-right: 42%;
-          margin-left: 25%;
+          text-align: center;          
           border-radius: 8px;
-          transition: background-color 0.3s, color 0.3s;
+          transition: background-color 0.7s, color 0.3s;
 
-          /*background-color: fuchsia;  */  
+          background-color: fuchsia;
         }
-        .shipping-container button.active{
-          background-color: fuchsia;    
-          color: white;
-          cursor: pointer;
-          transition: 0.7 ease-in-out;
-        }
+        
         .shipping-container button.faded{
           background-color: lightgray;
           cursor: not-allowed;
@@ -941,6 +901,7 @@
         /*Responsive stylings*/
          @media(max-width: 600px){
           header{
+            height: 60px;
             padding-right: 15px;
             background: rgb(255, 255, 255, 0.5);
             border-bottom: 1px solid rgb(205, 201, 201);
@@ -949,7 +910,7 @@
           div.heading-two{
             display: none;
           }
-          span.back-arrow{
+          header span.back-arrow{
             display: block;
             height: 15px;
             width: 15px;
@@ -961,7 +922,7 @@
             background: rgb(221, 218, 218);
             
           }
-          .hidden-tabs{
+          header div.hidden-tabs {
             z-index: 1;
             width: 40%;
             margin: auto;
@@ -993,8 +954,7 @@
             }
           }
           #more-btn{
-            display: block;
-          
+            display: block;          
             margin-right: 5px;
             top: 0;
           }
@@ -1002,9 +962,14 @@
           /*Responsive stylings for feedback*/
 
           .container p.first-paragraph{
-            line-height: 2;
+            line-height: 3em;
           }
-
+          .container i{
+            color: rgb(243, 38, 38);
+            margin-left: 40%;
+            padding-top: 5px;
+          }
+          
           .container button.submit{
             width: 90%;
             margin-left: 5%;
@@ -1019,34 +984,33 @@
 
           /*Responsive stylings for delete warning page*/
           .container p.delete-warnings{
-            margin-left: 5%;
-            margin-right: 5%;
-            line-height: 2;
+            
+            line-height: 3em;
   
           }
           
-  
           .container i{  
             margin-left: 40%;
           }
-  
           .container ul li{  
-            margin-left: 3%;
-            line-height: 2.5;
-            margin-right: 3%;
+            line-height: 3.5em;
           }
   
           .container button.proceed-btn{
-            width: 30%;
+            width: 40%;
             margin-right: 5%;
           }
 
           /*Responsive stylings for settings*/
+          
+          header div.page-title{
+            margin: auto;
+            font-size: 1em;
+          }
             .settings-container div.items{
-              display: inline-flex;
-              text-overflow: ellipsis;
-              word-wrap: break-word;
-              word-break: break-all;
+              font-size: 14px;
+              display: grid;
+              grid-template-columns: repeat(auto, 1fr);
             }
             .settings-container div.align-items{
               margin-left: 1%;
@@ -1151,9 +1115,67 @@
               color: white;
             }
            
+            /*Stylings for set security questions*/
+                
             
-  
-
+            .container div#security-quiz{
+              width: 98%;
+              margin: 3% auto;
+    
+            }
+           
+            
+            .container label.security-quiz{
+              margin: auto;
+            }
+    
+            .container input.quiz-input{
+              width: 100%;
+              margin: 5% auto;              
+    
+            }
+            
+            .container button[type = 'submit'].set{
+              margin: auto;
+              width: 100%;
+                
+              }
+            
+    
+              /*Stylings for shipping address*/
+              .shipping-container {
+                width: 80%;
+                margin: 3% auto;
+                
+              }
+              .shipping-heading{
+                
+                font-size: 1em;
+                font-weight: bold;
+      
+              }
+              
+              .shipping-container input{
+                width: 100%;
+                height: 40px;
+                margin: auto;
+                outline: none;
+                border: 1px solid rgb(151, 149, 149);
+                border-radius: 2px;
+                margin-right: 5%;
+                
+              }            
+                    
+              .shipping-container button.submit{
+                width: 80%;
+                margin-left: 10%;
+                margin-right: 10%;
+                
+                background-color: fuchsia;
+              }
+              
+              
+      
             
 
     }

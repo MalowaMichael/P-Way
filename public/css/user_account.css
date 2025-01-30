@@ -124,26 +124,23 @@
     }
     .wrapper{
       background-color: rgb(224, 223, 223);
-            border: none;
-            width: 80%;
-            border-radius: 2px;
-            padding: 8px;
-            margin-left: 10%;
-            margin-right: 10%;
-    }
-    .container{
-      width: 80%;
       border: none;
-      color: rgb(0, 6, 0);
-      height: 70%;
-      text-align: center;
+      width: 80%;
+      border-radius: 2px;
+      padding: 8px;
       margin-left: 10%;
       margin-right: 10%;
-      margin-top: 2%;
-      margin-bottom: 8%;
+    }
+    .container{
+      width: 90%;
+      border: none;
+      color: rgb(0, 6, 0);
+      text-align: center;
+      margin: 1% auto;
       font-size: 16px;
       padding: 5px;
       border-radius: 2px;
+      box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
       background: white;
       
     }
@@ -161,7 +158,7 @@
 
     }
     .container input{
-      height: 50px;
+      height: 40px;
       width: 80%;
       outline:none;
       text-align: left;
@@ -245,6 +242,7 @@
       background-color: fuchsia;
       color: white;
       cursor: pointer;
+      transform: 0.7s ease;
     }
     button[type = 'submit'].faded{
       background-color: rgb(192, 186, 186);
