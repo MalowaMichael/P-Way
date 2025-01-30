@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Email Address</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel = "stylesheet" href = "css/user_account.css">
 </head>
 <body>
   <header>
   
-    <a href="account.html"><span class = "fa fa-arrow-left"></span>
-    </a>
-    <button class = "login-btn" type = "button" onclick = "window.location.href = 'login.html'" >Log in</button>
-
-    <span class = "tab-links"><a href="index.html">Home</a></span>
-
-  <h2></h2>
+    <span onclick = "window.location.href = 'settings.html'" class = "fa fa-arrow-left back-arrow"></span>
+    <span class = "login-btn" type = "div" onclick = "window.location.href = 'login.html'" >Log in</span>
 
 </header>
 <br>
-    <div class = "wrapper">
-
       <div class = "request-change-container">
-        <h2>Request Email <span style = "font-family: monospace;color: fuchsia;">OR</span> Phone Change</h2>
+        <div class = "heading-three">Email/Phone Change</div>
 
         <div id = "reqchange-success-msg" class = "success-msg">
             <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
@@ -34,6 +29,7 @@
             <i id = 'mess-icon'></i>
             <span class = "error-text"></span>
         </div>
+        <br>
 
             <form id = "request-change-form" action = "/email_phonechange_req" method = "post">
 
@@ -65,7 +61,6 @@
             <br>
     </div>
 
-    </div>
 
 
 

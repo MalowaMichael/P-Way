@@ -1,4 +1,6 @@
           body{
+            margin: 0;
+            padding: 0;
             background-color: whitesmoke;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: 16px;
@@ -61,7 +63,19 @@
           .fa-ellipsis-v{
             display: none;
           }
-          .hidden-tabs{
+          header.hidden-tabs{
+            display: none;
+            display: grid;
+            place-items: center;
+            gap: 10px;
+            cursor: pointer;
+          }
+          header span#more-btn{
+            float: right;
+            padding-right: 0;
+            display: none;
+          }
+          .feedback-container.hidden-tabs{
             display: none;
           }
           .error-msg{
@@ -117,21 +131,17 @@
           .wrapper{
             background-color: rgb(224, 223, 223);
             border: none;
-            width: 80%;
+            max-width: 90%;
+            margin: 2% auto;
             border-radius: 2px;
             padding: 8px;
-            margin-left: 10%;
-            margin-right: 10%;
           }
           .container{
             background-color: white;
-            width: 90%;
+            max-width: 90%;
+            margin: 3% auto;
             padding: 5px;
-            height: fit-content;
-            margin-left: 5%;
-            margin-right: 5%;
-            margin-top: 3%;
-            margin-bottom: 3%;
+            height: fit-content;            
             border-radius: 2px;
           }
 
@@ -231,10 +241,6 @@
           }
           
 
-
-
-
-
           /*Stylings for the settings page*/
 
           .settings-container{
@@ -313,40 +319,35 @@
             cursor: progress;
           }
 
-          /*Responsive stylings for settings*/
-          @media(max-width: 600px){
-            .settings-container div.items{
-              display: inline-flex;
-              text-overflow: ellipsis;
-              word-wrap: break-word;
-              word-break: break-all;
-            }
-            .settings-container div.align-items{
-              margin-left: 1%;
-            }
-
-            header i#home, #user{
-              display: none;
-            }
-
-          }
 
 
-
-
-/*Newly added settings */
 /*Stylings for edit profile*/
             .edit-wrapper{
               background-color: rgb(224, 223, 223);
               border: none;
-              width: 98%;
+              max-width: 99%;
               border-radius: 2px;
-              padding: 8px;
-              margin-left: 1%;
-              margin-right: 1%;
-              margin-top: 1%;
-              margin-bottom: 0;
+              padding: 5px;
+              margin-top: 1% auto;
             }
+            div.heading-two{
+              font-size: 1.5em;
+              font-weight: 500;
+            }
+            div.hidden-tabs{
+              display: none;
+            }
+            .edit-container{
+              margin-top: 2% ;
+              background-color: white;
+            }
+            header{
+              padding-right: 15px;
+              background: rgb(255, 255, 255, 0.5);
+              border-bottom: 1px solid rgb(205, 201, 201);
+
+            }
+            
             .edit-container header i{
               background-color: transparent;
               float: right;
@@ -357,45 +358,51 @@
               color: blue;
               margin-right: 15px;
             }
-            .edit-container.tab-links{
-              display: inline-flex;
+            .displayFlex{
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 20px;
+              margin: auto;
             }
+            
             .edit-container.fa-ellipsis-v{
               display: none;
             }
-            .edit-container.hidden-tabs{
-              display: none;
-            }
-            .edit-container#edit-profile{
-              background-color: white;
-              width: 55%;
-              padding: 10px;
-              float: right;
+            
+            .edit-container div.skeletons{
               height: fit-content;
-              margin-right: 0.5%;
-              margin-top: 2%;
               border-radius: 2px;
-            }
-            .edit-container#my-profile{
-              width: 35%;
-              float: left;
-              margin-left: 0.5%;
-              height: fit-content;
-              padding: 10px;
-              border-radius: 2px;
-              margin-top: 2%;
               background-color: white;
+              opacity: 1;
+              pointer-events: auto;
+              transition: opacity 0.7s ease;
+            }
+            div.skeletons p{
+              margin-left: 5%;
 
+              line-height: 2em;
             }
-            .edit-container h3{
+            .edit-container div.profile-form{
+              margin: auto;
+              height: fit-content;
+              padding-top: 10px;
+              line-height: 1.5em;
+              border-radius: 2px;
+              pointer-events: none;
+              background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+              transition: opacity 0.7s ease;
+            }
+            
+            .edit-container div.heading-three{
               text-align: center;
               background-color: transparent;
-              width: 30%;
-              padding: 0;
-              margin-left: 35%;
-              margin-right: 35%;
-              color: black;
+              padding: 10px;
+              font-weight: bold;
+              font-size: 1em;
+              color: blue;
+              border-bottom: 1px solid rgb(163, 160, 160);
             }
+            
             
             .edit-container h4{
               margin-left: 2%;
@@ -450,47 +457,25 @@
               top: 10px; /* Slide down into view*/
               opacity: 1;
             }
-            .edit-container div.skeletons{
-              width: 96%;
-              margin-left: 2%;
-              margin-right: 2%;
-             /* background-color: rgb(0, 179, 255);*/
-
-              opacity: 1;
-              pointer-events: auto;
-              transition: opacity 0.3s ease;
-          }
-            
-            .edit-container div.skeletons p{
-              margin-left: 5%;
-              margin-right: 5%;
-              line-height: 1.5;
-            }
-
-            .edit-container div.profile-form{
-              width: 96%;
-              height: 40%;
-              margin-left: 2%;
-              float: right;
-              margin-right: 2%;
-              opacity: 0.5;
-              pointer-events: none;
-              background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
-              transition: opacity 0.3s ease;
-            }
+                        
             .edit-container div.active {
               opacity: 1;
+              height: 100%;
               pointer-events: auto;
               background-color: white;
-              border: 1px solid #77a2f2;
+              transition: 0.7s ease;
 
             }
             
             .edit-container div.inactive {
-              opacity: 0.5;
-              background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
+              opacity: 1;
+              background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
               pointer-events: none;
+              transition: 0.7s ease;
+
             }
+
+
             .edit-container div.gender{
               display: flex;
               justify-content: center;
@@ -503,10 +488,10 @@
             width: 50%;
             height: 30px;
             border: 1px solid #77a2f2;
-              border-radius: 2px;
+            border-radius: 2px;
           }
           .edit-container input.contact{
-            width: 44%;
+            width: 40%;
           }
           .edit-container input[type = 'radio']{
             width: 5%;
@@ -534,9 +519,8 @@
             }
                       
             .edit-container label select{
-              width: 45%;
+              width: 50%;
               height: 33px;
-              right: 0%;
               margin-left: 10%;
               outline: none;
               border: 1px solid #77a2f2;
@@ -555,21 +539,14 @@
               border: 1px solid fuchsia;
               outline: none;
             }
-            .edit-container textarea:focus-within{
-              border: 1px solid fuchsia;
-              outline: none;
-            }
+            
 
               .edit-container select:focus-within{
                 border: 1px solid fuchsia;
               outline: none;
               }
 
-            .edit-container input, textarea::placeholder{
-              color: rgb(146, 136, 136);
-              font-size: 18px;
-              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
+            
             .edit-container button.edit{
               width: 24%;
               height: 35px;
@@ -583,7 +560,12 @@
               margin-right: 38%;
               bottom: 0;
               border-radius: 2px;
-              background-color: rgb(171, 125, 66);    
+              background-color: rgb(197, 126, 34);    
+            }
+
+            button.edit.inactive{
+              background-color: rgb(197, 126, 34, 0.5);    
+
             }
             .edit-container div.buttons{
               display: flex;
@@ -627,12 +609,7 @@
               color: white;
             }
 
-
-
-
-
-
-
+            
 
 /*Stylings for feedback*/
           
@@ -642,31 +619,15 @@
           }
           header ul li i{
             padding-left: 0;
+            color: #fe055c;
             padding-right: 40px;
           }
           .header-text{
             padding-left: 40px;
             font-weight: bolder;
           }
-          .hidden-tabs{
-            display: none;
-          }
-          #more-btn{
-            float: right;
-            padding-right: 0;
-            display: none;
-          }
-          .feedback-container.hidden-tabs{
-            display: none;
-          }
-          .hidden-tabs a{
-            display: block;
-            color: black;
-            padding-bottom: 10px;
-            text-decoration: none;
-
-          }
-                    
+          
+                              
           .container h2.feedback{
           text-align: center;
           background-color: transparent;
@@ -713,31 +674,12 @@
             border-radius: 8px;
             background-color: fuchsia;    
           }
-
-        /*Responsive stylings for feedback*/
-        @media(max-width: 600px){
-          .hidden-tabs{
-            float: right;
-            z-index: 1;
-            position: relative;
-            display: inline-block;
-            border-radius: 5px;
+          span.back-arrow{
             display: none;
-            background: #f6f7fa;
-            border: 1px solid #77a2f2;
-          }
-          #more-btn{
-            display: block;
-            margin-right: 5px;
-            top: 0;
-          }
-               
-          .container p.first-paragraph{
-            line-height: 2;
           }
 
-        }   
 
+       
 
         /*Special stylings for delete warning file*/
         
@@ -786,32 +728,6 @@
         
         #proceed-btn :hover{
           cursor: pointer;
-        }
-
-
-        /*Responsive stylings for delete warning page*/
-        @media(max-width: 600px){
-          .container p.delete-warnings{
-            margin-left: 5%;
-            margin-right: 5%;
-            line-height: 2;
-  
-          }
-  
-          .container i{  
-            margin-left: 40%;
-          }
-  
-          .container ul li{  
-            margin-left: 3%;
-            line-height: 2.5;
-            margin-right: 3%;
-          }
-  
-          .container button.proceed-btn{
-            width: 30%;
-            margin-right: 5%;
-          }
         }
 
 
@@ -1022,5 +938,224 @@
 
 
 
+        /*Responsive stylings*/
+         @media(max-width: 600px){
+          header{
+            padding-right: 15px;
+            background: rgb(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgb(205, 201, 201);
+
+          }
+          div.heading-two{
+            display: none;
+          }
+          span.back-arrow{
+            display: block;
+            height: 15px;
+            width: 15px;
+            padding: 5px;
+            border-radius: 100px;
+            font-size: 1em;
+            margin-top: 4% ;
+            margin-left: 2%;
+            background: rgb(221, 218, 218);
+            
+          }
+          .hidden-tabs{
+            z-index: 1;
+            width: 40%;
+            margin: auto;
+            height: 150px;
+            border-radius: 2px;
+            line-height: 2.5em;
+            font-size: 1em;
+            color: black;
+            display: none;
+            background: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+          }
+          
+          .animateIn{
+            animation: fadeIn 0.5s ease-in-out;
+            animation-fill-mode: forwards;
+            display: block;
+          }
+
+          @keyframes fadeIn{
+            0%{
+              opacity: 0;
+              transform: translateY(-40%);
+            }
+            100%{
+              opacity: 1;
+              transform: translateY(0);
+              
+            }
+          }
+          #more-btn{
+            display: block;
+          
+            margin-right: 5px;
+            top: 0;
+          }
+              
+          /*Responsive stylings for feedback*/
+
+          .container p.first-paragraph{
+            line-height: 2;
+          }
+
+          .container button.submit{
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            height: 40px;
+            font-size: 18px;
+            
+            border-radius: 8px;
+            background-color: fuchsia;    
+          }
+
+
+          /*Responsive stylings for delete warning page*/
+          .container p.delete-warnings{
+            margin-left: 5%;
+            margin-right: 5%;
+            line-height: 2;
+  
+          }
+          
+  
+          .container i{  
+            margin-left: 40%;
+          }
+  
+          .container ul li{  
+            margin-left: 3%;
+            line-height: 2.5;
+            margin-right: 3%;
+          }
+  
+          .container button.proceed-btn{
+            width: 30%;
+            margin-right: 5%;
+          }
+
+          /*Responsive stylings for settings*/
+            .settings-container div.items{
+              display: inline-flex;
+              text-overflow: ellipsis;
+              word-wrap: break-word;
+              word-break: break-all;
+            }
+            .settings-container div.align-items{
+              margin-left: 1%;
+            }
+
+            header i#home, #user{
+              display: none;
+            }
+
+            /*Responsiveness for edit profile*/
+              .displayFlex{
+                display: block;
+              }
+              .edit-container{
+                margin: 4% auto;
+              }
+              .edit-container#my-profile{
+                width: 90%;                
+                margin: 2% auto;
+  
+              }
+              .edit-container#edit-profile{
+                width: 90%;
+                margin: 2% auto;
+              }   
+
+          .edit-container div.gender{
+              display: flex;
+              justify-content: center;
+          }
+          .edit-container div.align{
+            display: block;
+          }
+          .edit-container label input{
+            margin-left: 5%;
+            width: 90%;
+            height: 30px;
+          }
+          .edit-container label select{
+            width: 90%;
+            height: 33px;
+            margin-left: 5%;
+          }
+          .edit-container input.contact{
+            width: 90%;
+            margin-left: 5%;
+          }
+          .edit-container input[type = 'radio']{
+            width: 5%;
+            height: 18px;
+          }
+          
+          .edit-container label{
+            margin-left: 5%;
+            margin-right: 5%;
+            line-height: 2;
+          }
+            
+            .edit-container span.gender{
+              transform: translateY(40%);
+            }
+
+            .edit-container input[type = 'date']{
+              width: 90%;
+              margin-left: 5%;
+              
+              
+            }
+            .edit-container button.edit{
+              width: 50%;
+              margin-left: 25%;
+              margin-right: 25%;
+              height: 35px;
+              
+            }
+
+            
+            .edit-container div.buttons{
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 10px;
+            }
+
+            .edit-container button[type = 'submit'].save{
+              width: 70%;
+              margin: auto;                 
+            }
+            .edit-container button.cancel{
+              width: 70%;
+              margin: auto;
+                  
+            }
+
+            .edit-container button[type = 'submit'].active{
+              background-color: fuchsia;
+              color: white;
+              cursor: pointer;
+            }
+            .edit-container button[type = 'submit'].faded{
+              background-color: lightgray;
+              cursor: not-allowed;
+              color: white;
+            }
+           
+            
+  
+
+            
+
+    }
 
         

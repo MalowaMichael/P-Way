@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Your Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="css/settings.css" />
+
+  <script>
+    $(function(){
+      $('#more-btn').click(function(){
+        $('.hidden-tabs').toggleClass('animateIn')
+
+      })
+    })
+  </script>
 
 </head>
 <body>
   <header>
-    <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
+    <div class = "heading-two"><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></div>
 
-    
+    <span onclick = "window.location.href = 'settings.html'" class = "fa fa-arrow-left back-arrow"></span>
+
     <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
     <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
     <span><a href="account.html"><i id = 'user' class="fa fa-user" aria-hidden="true"></i></a></span>
@@ -20,131 +32,131 @@
 
     
     <div class = "hidden-tabs">
-      <a  href="index.html"><span class = "tab-links">Home</span></a>
-      <a  href="account.html"><span class = "tab-links">Account</span></a>
-      <a  href="help.html"><span class = "tab-links">Help</span></a>
+      <div onclick = "window.location.href='index.html'">Home</div>
+      <div  onclick = "window.location.href='account.html'">Account</div>
+      <div  onclick = "window.location.href='help.html'">Help</div>
     
     </div>
   </header>
 
-    <div class = "edit-container" id = "my-profile">
-      <h3>My Profile</h3>
-      <hr>
-
-            
-        <div class = "skeletons">
-          <p id = "email">Email address: </p>
+    <div class = "displayFlex">
+      <div class = "edit-container" id = "my-profile">
+        <div class = "heading-three">My Profile</div>
   
-            <p id = "username">Username: </p> 
-            <label id = "role">Role: </label>
-      
-            <p id = "dob">Date of Birth: </p>
-
-            <p id = "gender">Gender: </p>
-
-            <p id = "country">Country/Region:</p>
-
-            <p id = "zip">ZIP/Postal code:</p>
-
-            <p id = "tel">Tel:</p>
-
-            <p id = "social-media">Social media</p>
-            <br>
-            <br>
-            <button id = "edit-btn" class = "edit" type = "button">Edit</button>
-
-            <br>
-            <br>
-            <br>
-            <br>
-  
-        </div>
-      </div>
+              
+          <div class = "skeletons">
+            <p id = "email">Email address: </p>
+    
+              <p id = "username">Username: </p> 
+              <label id = "role">Role: </label>
         
-        <div class = "edit-container" id = "edit-profile">
-          <h3>Edit My Profile</h3>
-          <hr>
-          <div class = "profile-form">
+              <p id = "dob">Date of Birth: </p>
   
-            <div id = "edit-success-msg" class = "success-msg">
-              <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
-              <span class = "success-text"></span>
-            </div>
-      
-            <div class = "error-msg" id = "login-error-msg"></div>
-      
-            <form id = "edit-form" action = "/edit_profile" method = "post">
-
-                <label>Email address: (<a href="email_phonechange_req.html">Change email</a>)</label>
-                <label>Telephone: (<a href="email_phonechange_req.html">Change phone</a>)</label>
-
-              <br>
-              <div class = "align">
-                <label><span class = "asterisk">*</span> Username
-                  <input id = "username-edit" type = "text" name = "Username" required>
-        
-                </label>
-                <br>
-                <label><span class = "asterisk">*</span> Role
-                  <select name = "Role" required>
-                    <option name = "option1" value = "select">--Select--</option>
-                    <option name = 'option2' value = "user">User</option>
-                    <option name = 'option3' value = "admin">Admin</option>
-      
-                  </select>
-                </label>
-              </div>
-              <br>
-              <label>Birthday
-                <input id = "birthdate-edit" type = "date" name = "Birthdate">
-              </label>
+              <p id = "gender">Gender: </p>
+  
+              <p id = "country">Country/Region:</p>
+  
+              <p id = "zip">ZIP/Postal code:</p>
+  
+              <p id = "tel">Tel:</p>
+  
+              <p id = "social-media">Social media</p>
               <br>
               <br>
-
-              <div>
-                <label ><span class = "gender">Gender</span>
-                  <div class = "gender">
-                    <input type = "radio" name = "Gender" value = "male"><span>Male</span>
-                    <input type = "radio" name = "Gender" value = "female"><span>Female</span>
-                    <input type = "radio" name = "Gender" value = "not-say" checked = "on"><span>Prefer not say</span>
-                  </div>
-                </label>
-              </div>
-
-              <br>
-
-              <div class = "align">
-                <label><span class = "asterisk">*</span> Country
-                  <input class = "contact" type = "text" name = "Country" required>
-                </label>
-                <br>
-                <label><span class = "asterisk">*</span> ZIP/Postal code
-                  <input class = "contact" type = "number" name = "Postal_code" required>
-                </label>
-              </div>
-              <br>              
+              <button id = "edit-btn" class = "edit" type = "button">Edit</button>
+  
               <br>
               <br>
-              <div class = "buttons">
-                <button id = "cancel-btn" class = "cancel" type = "button">Cancel</button>
-                <button id = "save-btn" class = "save" type = "submit">Save</button>
-              </div>
-              <br>
-            </form>
+              
     
           </div>
-          <br>
         </div>
-
-        </div>
+          
+          <div class = "edit-container" id = "edit-profile">
+            <div class = "heading-three">Edit My Profile</div>
+            
+            <div class = "profile-form">
+    
+              <div id = "edit-success-msg" class = "success-msg">
+                <i id = "successIcon" class="fa fa-check-circle" aria-hidden="true"></i>
+                <span class = "success-text"></span>
+              </div>
+        
+              <div class = "error-msg" id = "login-error-msg"></div>
+        
+              <form id = "edit-form" action = "/edit_profile" method = "post">
+  
+                  <label>Email address: (<a href="email_phonechange_req.html">Change email</a>)</label>
+                  <label>Telephone: (<a href="email_phonechange_req.html">Change phone</a>)</label>
+  
+                <br>
+                <div class = "align">
+                  <label><span class = "asterisk">*</span> Username
+                    <input id = "username-edit" type = "text" name = "Username" required>
+          
+                  </label>
+                  <br>
+                  <label><span class = "asterisk">*</span> Role
+                    <select name = "Role" required>
+                      <option name = "option1" value = "select">--Select--</option>
+                      <option name = 'option2' value = "user">User</option>
+                      <option name = 'option3' value = "admin">Admin</option>
+        
+                    </select>
+                  </label>
+                </div>
+                <br>
+                <label>Birthday
+                  <input id = "birthdate-edit" type = "date" name = "Birthdate">
+                </label>
+                <br>
+                <br>
+  
+                <div>
+                  <label ><span class = "gender">Gender</span>
+                    <div class = "gender">
+                      <input type = "radio" name = "Gender" value = "male"><span>Male</span>
+                      <input type = "radio" name = "Gender" value = "female"><span>Female</span>
+                      <input type = "radio" name = "Gender" value = "not-say" checked = "on"><span>Prefer not say</span>
+                    </div>
+                  </label>
+                </div>
+  
+                <br>
+  
+                <div class = "align">
+                  <label><span class = "asterisk">*</span> Country
+                    <input class = "contact" type = "text" name = "Country" required>
+                  </label>
+                  <br>
+                  <label><span class = "asterisk">*</span> ZIP/Postal code
+                    <input class = "contact" type = "number" name = "Postal_code" required>
+                  </label>
+                </div>
+                <br>              
+                <br>
+                <br>
+                <div class = "buttons">
+                  <button id = "cancel-btn" class = "cancel" type = "button">Cancel</button>
+                  <button id = "save-btn" class = "save" type = "submit">Save</button>
+                </div>
+                <br>
+              </form>
+      
+            </div>
+            <br>
+          </div>
+  
+          </div>
+    </div>
       
 
   
 
   <script>
 
-      const skeletons = document.querySelector('.skeletons')
-      const form = document.querySelector('.profile-form')
+      const myProfile = document.querySelector('.skeletons')
+      const editProfile = document.querySelector('.profile-form')
       const cancelBtn = document.getElementById('cancel-btn')
       const editBtn = document.getElementById('edit-btn')
       const saveBtn = document.getElementById('save-btn')
@@ -152,10 +164,10 @@
 
       //enable form and disable skeletons
       editBtn.addEventListener('click', ()=>{
-        skeletons.classList.remove('active')
-        skeletons.classList.add('inactive')
-        form.classList.remove('inactive')
-        form.classList.add('active')
+        myProfile.classList.remove('active')
+        myProfile.classList.add('inactive')
+        editProfile.classList.remove('inactive')
+        editProfile.classList.add('active')
 
 
         //enable form inputs
@@ -166,10 +178,10 @@
 
       //cancel form editting
       cancelBtn.addEventListener('click', () =>{
-        form.classList.remove('active')
-        form.classList.add('inactive')
-        skeletons.classList.remove('inactive')
-        skeletons.classList.add('active')
+        editProfile.classList.remove('active')
+        editProfile.classList.add('inactive')
+        myProfile.classList.remove('inactive')
+        myProfile.classList.add('active')
 
 
         //disable form inputs
