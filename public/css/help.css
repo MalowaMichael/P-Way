@@ -1,5 +1,7 @@
                       body{
-                        background-color: rgb(245, 245, 245, 0.2);
+                        margin: 0;
+                        padding: 0;
+                        background-color: rgba(219, 219, 219, 0.3);
                         font-size: 16px;
                         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                       }
@@ -45,8 +47,7 @@
                         font-family: 'Courier New', Courier, monospace;
                         font-style: italic;
                         font-weight: bold;
-                        color: fuchsia;
-                        text-shadow: 3px 3px 5px rgb(15, 227, 15, 0.8);
+                        color: orangered;
                       }
 
 
@@ -152,8 +153,12 @@
                         display: flex;
                         gap: 30%;
                       }
+                      .container-titles{
+                        color: rgb(82, 80, 80);
+                        margin-left: 2%;
+                      }
                       .topics-container{
-                        background-color: white;
+                        background-color: rgb(255, 255, 255, 1.5);
                         width: 50%;
                         padding: 8px;
                         display: grid;
@@ -164,7 +169,7 @@
                         margin-top: 1%;
                         margin-bottom: 1%;
                         border-radius: 4px;
-                        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+                        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
                         
     
                       }
@@ -230,7 +235,7 @@
                         line-height: 2;
                         margin-bottom: 3%;
                         border-radius: 4px;
-                        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+                        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
 
     
                       }
@@ -320,7 +325,7 @@
                         margin-top: 0.5%;
                         margin-bottom: 3%;
                         border-radius: 4px;
-                        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+                        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
 
     
                       }
@@ -349,7 +354,7 @@
                       /*Animate topic, general solutions and question containers*/
                        /* Animations for each container */
                       .topics-container {
-                        animation: moveFromLeft 2.5s ease-out;
+                        animation: moveFromLeft 1.5s ease-out;
                         animation-delay: 0.1s;
                         opacity: 0; /* Start hidden */
                         animation-fill-mode: forwards; /* Ensures the animation stays in its end position */
@@ -357,7 +362,7 @@
                       }
 
                       .general-solutions-container {
-                        animation: moveFromRight 2.5s ease-out;
+                        animation: moveFromRight 1.5s ease-out;
                         animation-delay: 2.5s; /* Delay to make the sequence smoother */
                         opacity: 0; /* Start hidden */
                         animation-fill-mode: forwards; /* Ensures the animation stays in its end position */
@@ -375,7 +380,7 @@
                       /* Keyframes */
                       @keyframes moveFromLeft {
                         0% {
-                          transform: translateX(-200%);
+                          transform: translateX(-40%);
                           opacity: 0;
                         }
                         100% {
@@ -386,7 +391,7 @@
 
                       @keyframes moveFromRight {
                         0% {
-                          transform: translateX(200%);
+                          transform: translateX(40%);
                           opacity: 0;
                         }
                         100% {

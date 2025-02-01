@@ -75,9 +75,8 @@
   <header>
     <h2><span style = "color:fuchsia;">P`Way<span style = "color:blue">Express</span></h2>
     
-    <span>
-      <a href="help.html" ><span id = "angle-blink" class = "fa fa-arrow-left"></span></a>
-    </span>
+    <span onclick = "window.location.href = 'help.html'" class = "fa fa-arrow-left back-arrow"></span>
+   
     <span class = "header-text">About orders</span>
 
     <span><i id = "more-btn" class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
@@ -97,7 +96,7 @@
           <div class = "container"><h4 class = "quiz" >Place an order</h4>
             <span class = 'desc-icon'><i id = "open1" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
               <ol id = "answer1">
-                <li><b>Step 1</b>: Go to <span style = "color:blue;"><u>shopping categories</u></span> and select category you want to shop in.</li><br>
+                <li><b>Step 1</b>: Go to <span style = "color:blue;cursor: pointer;" onclick = "window.location.href = 'categories.html'"><u>shopping categories</u></span> and select category you want to shop in.</li><br>
                 <li><b>Step 2</b>: Select the item by clicking on it and select the option <span style = "color:blue;"><u>add to cart</u></span>.</li><br>
                 <li><b>Step 3</b>: In the cart, select the option <span style = "color:blue;"><u>checkout</u></span>, confirm your details and then click <span style = "color:blue;"><u>place order</u></span>.</li>
               </ol>
@@ -119,7 +118,7 @@
           <div class = "container"><h4 class = "quiz" >Track my order</h4>
             <span class = 'desc-icon'><i id = "open3" class="fa  fa-sort-desc" aria-hidden="true"></i></span>
               <ol id = "answer3">
-                <li><b>Step 1</b>: Go to the <u style = "color:blue;">Account tab</u></li><br>
+                <li><b>Step 1</b>: Go to the <u style = "color:blue;cursor: pointer;" onclick = "window.location.href='account.html'">Account page</u></li><br>
                 <li><b>Step 2</b>: Click <u style = "color:blue;">In transit</u></li><br>
                 <li><b>Step 3</b>: Use the order number to track the location of the order</li>
               </ol>

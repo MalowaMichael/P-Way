@@ -13,34 +13,29 @@
   <div class = "body-overlay">
 
   <header>
-    <h2><span style = "color:fuchsia;">P`Way</h2>
+    <div class = "heading-two"><span style = "color:fuchsia;">P`Way</div>
 
-      <span class = "active">
-        <i class="fa fa-home" aria-hidden="true" style = "display: none;"></i>
-        <a href = "index.html" >Home</a>
-      </span>
-      
-      
-      <span>
-        <i class="fa fa-user" aria-hidden="true" style = "display: none;"></i>
-        <a href = "account.html" >Account</a>
+            
+      <span onclick = "window.location.href='account.html'" class = "fa fa-arrow-left back-arrow"></span>
+      <span class = "link">
+        <a href = 'account.html' >Account</a>
             
       </span>     
-    
+    <div class = "page-title">Payments</div>
   </header>
   <br>
 
-    <div class = "payments-container">
-      <div style = "text-align: center;font-size: 22px;"><b>Payments</b></div>
+    <div id = "container-title" class = "payments-container">
+      <div  style = "text-align: center;font-size: 22px;color: #fe055c;"><b>Payments</b></div>
     </div>
   
     <div class = "payments-container">
-      <div style = "font-size: 20px;">M-pesa Number</div style = "font-size: 20px;">
+      <div class = "mode-title">M-pesa Number</div style = "font-size: 20px;">
   
       <div class = "align-payment-modes">
   
         <div class = "payment-mode-container">
-          <img src = "mpesa logo.png" height="60px" width="100px"/>
+          <img src = "mpesa-logo.jpg" height="60px" width="100px"/>
   
           <span style = "float: right;font-size: 20px;cursor: pointer;"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
           <div class = "mode-number">07******12</div>
@@ -49,7 +44,7 @@
   
         <div class = "add-mode-container">
   
-          <div class = "add-mode" style = "cursor: pointer;"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style  = "padding-left: 10px;color: black;">Add number</span></div>
+          <div class = "add-mode" style = "cursor: pointer;"><i class="fa fa-plus-circle" aria-hidden="true"></i><span class = "add-mode-text">Add number</span></div>
   
         </div>
       </div>
@@ -59,7 +54,7 @@
   
   
     <div class = "payments-container">
-      <div style = "font-size: 20px;">Cards</div>
+      <div class = "mode-title">Cards</div>
   
       <div class = "align-payment-modes">
         <div class = "payment-mode-container">
@@ -73,7 +68,7 @@
         </div>
   
         <div class = "add-mode-container">
-          <div id = 'card-number' class = "add-mode" style = "cursor: pointer;"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style  = "padding-left: 10px;color: black;">Add card</span></div>
+          <div id = 'card-number' class = "add-mode" style = "cursor: pointer;"><i class="fa fa-plus-circle" aria-hidden="true"></i><span class = "add-mode-text">Add card</span></div>
         </div>
   
       </div>

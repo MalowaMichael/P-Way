@@ -266,14 +266,7 @@
             margin-left: 5%;
           }
           
-          .settings-container h2{
-            text-align: center;
-            background-color: transparent;
-            width: 14%;
-            margin-left: 40%;
-            margin-right: 40%;
-            padding: 0;
-          }
+          
 
           .settings-container h5{
             margin-left: 5%;
@@ -1172,9 +1165,7 @@
                 margin-right: 10%;
                 
                 background-color: fuchsia;
-              }
-              
-              
+              }    
       
             
 
