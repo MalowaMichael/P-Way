@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: poppins sans-serif;
+    }
+    :root{
+      --clr:rgb(46, 44, 44);
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: var(--clr);
+    }
+    .navbar{
+      width: min(400px, 90%);
+      
+      height: 70px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      border-radius: 15px;
+    }
+    .navbar ul{
+      display: flex;
+      width: 350px;
+    }
+    .navbar ul li{
+      list-style: none;
+      position: relative;
+      
+      width: 70px;
+      height: 70px;
+      z-index: 1;
+    }
+    .navbar ul li a{
+      text-decoration: none;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      display: flex;
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+      flex-direction: column;
+    }
+    .navbar ul li a .icon{
+      position: relative;
+      display: block;
+      font-size: 1.5em;
+      line-height: 75px;
+      transition: 0.7s ease;
+      color: var(--clr);
+      text-align: center;
+    }
+    .navbar ul li.active a .icon{
+      transform: translateY(-35px);
+    }
+
+    .navbar ul li a .icon-text{
+      position: absolute;
+      font-weight: 400;
+      font-size: 0.75em;
+      position: absolute;
+      letter-spacing: 0.08em;
+      transition: 0.7s;
+      opacity: 0;
+    }
+    .navbar ul li.active a .icon-text{
+      opacity: 1;
+      transform: translateY(10px);
+    }
+
+    .indicator{
+      top: -50%;
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background-color: #fe055c;
+      border-radius: 50%;
+      border: 6px solid var(--clr);
+      transition: 0.7s;
+    }
+    .indicator::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -22px;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -10px 0 0 var(--clr);
+    }
+    .indicator::after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -22px;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-top-left-radius: 20px;
+      box-shadow: 0 -10px 0 0 var(--clr);
+    }
+   
+    
+  </style>
+</head>
+<body>
+  <!--Style a nav bar for smaller devices-->
+  <div class="navbar">
+    <ul>
+      <li class="tabs active">
+        <a href="#">
+          <span class = 'icon' ><ion-icon name="home-outline"></ion-icon></span>
+          <span class = "icon-text">Home</span>
+        </a>
+      </li>
+
+      <li class="tabs">
+        <a href="#">
+          <span class = 'icon'><ion-icon name="bag-handle-outline"></ion-icon></span>
+          <span class = "icon-text">Categories</span>
+        </a>
+      </li>
+
+      <li class="tabs">
+        <a href="#">
+          <span class = 'icon'><ion-icon name="person-outline"></ion-icon>
+          </span>
+          <span class = "icon-text">Account</span>
+        </a>
+      </li>
+
+      <li class="tabs">
+        <a href="#">
+          <span class = 'icon'><ion-icon name="cart-outline"></ion-icon></span>
+          <span class = "icon-text">Cart</span>
+        </a>
+      </li>
+      <div class="indicator"></div>
+
+    </ul>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <br>
+  <script>
+    $(function () {
+      $('.tabs').on({
+        mouseenter: function () {
+          $(this).find('.icon').css('color', 'orangered')
+          $(this).find('.icon-text').css('opacity', 1)
+          $(this).find('.icon-text').css('transform', 'translateY(20px)')
+
+        },
+        mouseleave: function (params) {
+          //revert only if not active
+          if (!$(this).hasClass('active')) {
+            $(this).find('.icon').css('color', 'var(--clr)')
+            $(this).find('.icon-text').css('opacity', 0)
+          }
+            
+        },
+        click: function (params) {
+          $('.tabs').removeClass('active')
+
+        $(this).addClass('active')
+        //move the indicator
+        let index = $(this).index()
+        $(".indicator").css("transform", `translateX(calc(70px * ${index}))`);
+
+        // Reset all icons & text (except active one)
+        $(".tabs").each(function () {
+            if (!$(this).hasClass("active")) {
+                $(this).find(".icon").css("color", "var(--clr)");
+                $(this).find(".icon-text").css("opacity", "0");
+            }
+        });
+
+        }
+
+      })
+    })
+      
+      /*$('.tabs').on('click', function () {
+        $('.tabs').removeClass('active')
+
+        $(this).addClass('active')
+        //move the indicator
+        let index = $(this).index()
+        $(".indicator").css("transform", `translateX(calc(70px * ${index}))`);
+
+      })
+      
+
+    })*/
+    /*const tabs = document.querySelectorAll('.tabs')
+    
+    function activeLink() {
+      tabs.foreach((item) =>{
+        item.classList.remove('active');
+        this.classList.add('active');
+    
+      })
+      
+    }
+    tabs.forEach((item) =>{
+      item.addEventListener('click', activeLink);
+
+    })*/
+
+  </script>
+</body>
+</html>

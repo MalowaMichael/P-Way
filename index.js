@@ -22,7 +22,7 @@ app.use(express.json());//for JSON payloads
 
 // Configure session middleware
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'uvytc6c67cu7ct6xc56xc7',
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 24 * 60 *60 * 1000}//i minute expiration
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')))//serve the static file
 const connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
-  password : '2004',
+  password : 'Fejq.36@',
   database : 'Pway',
 });
 
@@ -233,7 +233,7 @@ app.post('/signup', async(req, res) => {
           console.log('Failed to store token in the db.')
         }
 
-        const verificationLink = `http://localhost:3000/verify/${token}`;
+        const verificationLink = `http://localhost:3001/verify.html?code=${token}`;
         console.log('Verification link is: ', verificationLink)
         const transporter = nodemailer.createTransport({
           host:'smtp.gmail.com', //use your smtp host
@@ -320,7 +320,8 @@ app.post('/signup', async(req, res) => {
 
 
     //*2* Email verification route
-app.get('/verify/:token', async(req, res)=>{
+
+app.get('http://localhost:3001/verify.html?code=:token', async(req, res)=>{
   const {token} = req.params
 
   if (!token) {
@@ -343,7 +344,7 @@ app.get('/verify/:token', async(req, res)=>{
     res.status(200).json({verifySuccMsg:'Email verified successfully.'})
 
     //redirect to next page
-    res.redirect('http://localhost:3002/login.html', 4000)
+    res.redirect('http://localhost:3001/login.html', 4000)
     return;
 
    }

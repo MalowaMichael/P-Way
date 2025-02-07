@@ -44,10 +44,10 @@
     <div class = 'account-wrapper'>
         <div class = "side-menu">
           <div class = "upper-block">
-            <div>My orders</div>
-            <div>Aftersales</div>
-            <div>History</div>
-            <div>Rates & Reviews</div>
+            <div id = "orders">My orders</div>
+            <div id = "afteersales">Aftersales</div>
+            <div id = "history">History</div>
+            <div id = "reviews">Rates & Reviews</div>
             
           </div>
 
@@ -99,7 +99,7 @@
           
             <div class="accordion">
               <dl>
-                  <div class = "container">
+                  <div id = "show-orders" class = "container">
                     <dt>
                       <div aria-expanded = "false" aria-controls = "accordion1" id = "default-container" class = "container-headings accordionTitle triggerHidden">My orders</div>
                     </dt>
@@ -114,7 +114,7 @@
                   </div>
           
           
-                <div id="non-default-containers" class = "container">
+                <div id="show-aftersales" class = "container non-default-containers">
                   <dt>
                     <div  aria-expaded = " false" aria-controls = "accordion2" class = "container-headings accordionTitle triggerHidden">Aftersales</div>
                   </dt>
@@ -127,7 +127,7 @@
                   </dd>
                 </div>
           
-                <div id ="non-default-containers" class = "container">
+                <div id ="show-reviews" class = "container non-default-containers">
                   <dt>
                     <div aria-expanded = "false" aria-controls = "accordion3" class = "container-headings accordionTitle triggerHidden">Rate and review</div>
                   </dt>
@@ -138,7 +138,7 @@
                   </dd>
                 </div>
           
-                <div id ="non-default-containers" class = "container">
+                <div id ="show-history" class = "container non-default-containers">
                   <dt>
                     <div aria-expanded = "false" aria-controls="accordion4" class = "container-headings accordionTitle triggerHidden">Your activity</div>
                   </dt>
@@ -219,7 +219,7 @@
 
 
     <script>
-      //Now initilize the Immediately Invoked Function Expressio IIFE
+     //Now initilize the Immediately Invoked Function Expressio IIFE
       (function()
     {
       var d = document,
@@ -278,6 +278,7 @@
 
         thisAnswer.classList.toggle('animateIn');
       };
+
       for (var i = 0, len = accordionToggles.length; i < len; i++)
       {
         if (touchSupported)
@@ -291,6 +292,7 @@
         accordionToggles[i].addEventListener('click', switchAccordion, false);
       }
     })();
+
 
       //show modals
       const showModal = document.getElementById('contact')

@@ -68,7 +68,7 @@
 
     div.right-nav{
       display: flex;
-      margin-left: 70%;
+      margin-left: 50%;
     }
     
     
@@ -116,7 +116,7 @@
       border-top: 1px solid #fe055c;
       height: fit-content;
       padding: 5px 5px;
-      
+      cursor: pointer;
       background: linear-gradient(to bottom, rgb(150, 237, 150) 40%, rgb(252, 163, 252)  );
       filter: blur(0.5s) ;
 
@@ -224,7 +224,7 @@
     }
     div.cards p{
       padding-bottom: 8px;
-      color: rgb(129, 225, 129);
+      color: rgb(45, 244, 23);
     }
 
 
@@ -308,9 +308,12 @@
 
     }
         
-    #non-default-containers{
+    .non-default-containers{
       display: none;
       
+    }
+    .remove-default{
+      display: block;
     }
     
     div.quick-utility-headings{
@@ -799,7 +802,7 @@
 
     
 
-    @media (min-width: 768px) {
+    /*@media (min-width: 768px) {
       div.right-nav{
         width: 20%;
         margin-left: auto;
@@ -810,7 +813,7 @@
       }
       
       
-    }
+    }*/
 
 
     @media (max-width: 600px) {
@@ -951,7 +954,7 @@
      
 
       
-      div#non-default-containers{
+      div.non-default-containers{
         display: block;
       }
       div.quick-utility-headings{
